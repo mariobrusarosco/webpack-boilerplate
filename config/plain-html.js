@@ -9,6 +9,11 @@ module.exports = {
       },
     },
     'extract-loader', // extract the html
-    'html-loader' // Identify the html
+    {
+      loader: 'html-loader',  // Identify the html
+      options: {
+        attrs: ["img:src"]
+      }
+    }
   ]
 }

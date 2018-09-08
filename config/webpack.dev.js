@@ -2,8 +2,8 @@ const path = require('path')
 
 // WEBPACK PARTS
 const plainCSS = require('./plain-css'),
-  plainHTML = require('./plain-html')
-
+  plainHTML = require('./plain-html'),
+  images = require('./images')
 
 module.exports = {
   entry: {
@@ -13,7 +13,7 @@ module.exports = {
   output: {
     filename: '[name]-bundle.js',
     path: path.resolve(__dirname, '../dist'),
-    publicPath: '/static'
+    publicPath: '/'
   },
   devServer: {
     contentBase: 'dist',
@@ -22,7 +22,14 @@ module.exports = {
   module: {
     rules: [
       plainCSS,
-      plainHTML
+      plainHTML,
+      images,
+      {
+        test: /.js$/,
+        exclude: /node_modules/,
+        include: /src/,
+        use: ['babel-loader']
+      }
     ]
   }
 }
