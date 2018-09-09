@@ -1,9 +1,14 @@
 module.exports = {
-  test: /\.html$/,
+  test: /.html$/,
   include: /src/,
   use: [
     {
-      loader: "html-loader"
-    }
+      loader: 'file-loader', // insert it into a new and separeted .html file
+      options: {
+        name: '[name].html'
+      },
+    },
+    'extract-loader', // extract the html
+    'html-loader' // Identify the html
   ]
 }

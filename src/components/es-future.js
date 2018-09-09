@@ -6,4 +6,4 @@ const drugLord = {
   firstName: 'Heisenberg'
 }
  console.log(drugLord.cover.firstName)
-console.log(!drugLord.real?.lastName && 'This approach used to be an error. Not anymore!!')
+console.log(!drugLord.real?.lastName && 'This approach used to be an error. Not anymore!!!')
