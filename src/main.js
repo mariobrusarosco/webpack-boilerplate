@@ -1,2 +1,3 @@
-console.log("Hello World")
-alert("Wow!")
+require('./test.css')
+
+console.log(1);
