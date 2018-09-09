@@ -130,6 +130,17 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./src/components/es-test.js":
+/*!***********************************!*\
+  !*** ./src/components/es-test.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("var _drugLord$real;\n\nvar drugLord = {\n  cover: {\n    firstName: 'Walter',\n    lastName: 'White'\n  },\n  firstName: 'Heisenberg'\n};\nconsole.log(drugLord.cover.firstName);\nconsole.log(!((_drugLord$real = drugLord.real) === null || _drugLord$real === void 0 ? void 0 : _drugLord$real.lastName) && 'This approach used to be an error. Not anymore!');\n\n//# sourceURL=webpack:///./src/components/es-test.js?");
+
+/***/ }),
+
 /***/ "./src/index.html":
 /*!************************!*\
   !*** ./src/index.html ***!
@@ -149,7 +160,7 @@ eval("module.exports = __webpack_require__.p + \"index.html\";\n\n//# sourceURL=
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ \"./src/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_test_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/test.css */ \"./src/styles/test.css\");\n/* harmony import */ var _styles_test_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_test_css__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.html */ \"./src/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _styles_test_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/test.css */ \"./src/styles/test.css\");\n/* harmony import */ var _styles_test_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_styles_test_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _components_es_test__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/es-test */ \"./src/components/es-test.js\");\n/* harmony import */ var _components_es_test__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_es_test__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ }),
 

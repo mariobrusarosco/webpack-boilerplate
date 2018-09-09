@@ -1,6 +1,8 @@
-const path = require('path')
+const path = require('path'),
+  webpack = require('webpack'),
+  HTMLWebpackPlugin = require('html-webpack-plugin')
 
-// WEBPACK PARTS
+// WEBPACK CONFIGURATION PARTS
 const plainCSS = require('./plain-css'),
   plainHTML = require('./plain-html'),
   images = require('./images')
@@ -17,7 +19,8 @@ module.exports = {
   },
   devServer: {
     contentBase: 'dist',
-    overlay: true
+    overlay: true,
+    hot: true
   },
   module: {
     rules: [
@@ -31,5 +34,12 @@ module.exports = {
         use: ['babel-loader']
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HTMLWebpackPlugin({
+      inject: false,
+      template: path.resolve('src/index.html')
+    })
+  ]
 }
