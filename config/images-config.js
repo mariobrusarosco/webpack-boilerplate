@@ -1,5 +1,6 @@
 module.exports = {
   test: /.(png|jpg|jpeg)$/,
+  include: /src/,
   use: [
     {
       loader: 'file-loader',
