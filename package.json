@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
     "build": "webpack --config=config/webpack.dev.js",
-    "dev": "nodemon --watch config --watch server server/main.js"
+    "dev": "nodemon --inspect --watch config --watch server server/main.js"
   },
   "author": "",
   "license": "ISC",
@@ -31,6 +31,10 @@
     "webpack-hot-middleware": "2.21.0"
   },
   "dependencies": {
-    "nodemon": "^1.18.4"
+    "@babel/preset-react": "^7.0.0",
+    "babel-preset-react": "^6.24.1",
+    "nodemon": "^1.18.4",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0"
   }
 }

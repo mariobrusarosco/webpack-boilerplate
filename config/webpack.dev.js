@@ -10,6 +10,7 @@ module.exports = {
     main: ["./src/main.js"]
   },
   mode: "development",
+  devtool: 'source-map',
   output: {
     filename: "[name]-bundle.js",
     path: path.resolve(__dirname, "../dist"),
