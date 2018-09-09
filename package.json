@@ -4,10 +4,14 @@
   "description": "Webpack Beyond the Basics Course",
   "repository": "https://github.com/lawwantsin/webpack-course.git",
   "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --config=config/webpack.dev.js",
+    "build": "webpack --config=config/webpack.dev.js"
+  },
   "license": "MIT",
   "dependencies": {
-    "webpack": "^4.0.1",
-    "webpack-cli": "^2.0.9",
-    "webpack-dev-server": "^3.1.0"
+    "webpack": "^4.17.2",
+    "webpack-cli": "^2.1.5",
+    "webpack-dev-server": "^3.1.8"
   }
 }
