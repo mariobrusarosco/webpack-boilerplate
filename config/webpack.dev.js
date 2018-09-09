@@ -1,45 +1,69 @@
-const path = require('path'),
-  webpack = require('webpack'),
-  HTMLWebpackPlugin = require('html-webpack-plugin')
-
-// WEBPACK CONFIGURATION PARTS
-const plainCSS = require('./plain-css'),
-  plainHTML = require('./plain-html'),
-  images = require('./images')
+const path = require("path")
+const webpack = require("webpack")
+const HTMLWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   entry: {
-    main: ['./src/main.js']
+    main: ["./src/main.js"]
   },
-  mode: 'development',
+  mode: "development",
   output: {
-    filename: '[name]-bundle.js',
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: '/'
+    filename: "[name]-bundle.js",
+    path: path.resolve(__dirname, "../dist"),
+    publicPath: "/"
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: "dist",
     overlay: true,
-    hot: true
+    stats: {
+      colors: true
+    }
   },
   module: {
     rules: [
-      plainCSS,
-      plainHTML,
-      images,
       {
-        test: /.js$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        include: /src/,
-        use: ['babel-loader']
+        use: [
+          {
+            loader: "babel-loader"
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          { loader: "css-loader" }
+        ]
+      },
+      {
+        test: /\.jpg$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[name].[ext]"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          {
+            loader: "html-loader"
+          }
+        ]
       }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HTMLWebpackPlugin({
-      inject: false,
-      template: path.resolve('src/index.html')
+      template: "./src/index.html"
     })
   ]
 }
