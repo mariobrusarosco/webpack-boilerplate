@@ -6,12 +6,11 @@ if(module.hot) {
 }
 
 
-require('./test.css')
-require('./index.html')
-
-const arrowFunction = async () => {
-  await console.log(1);
-  console.log(10);
-}
-
-arrowFunction()
+// Plain CSS
+import './test.css'
+// A basic HTML
+import './index.html'
+// Recent JS features
+import './es-future'
+// React
+import './app'

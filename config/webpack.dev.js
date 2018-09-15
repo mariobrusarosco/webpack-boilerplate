@@ -14,7 +14,8 @@ module.exports = {
   },
   devServer : {
     contentBase: 'dist',
-    hot: true
+    hot: true,
+    overlay: false
   },
   module: {
     rules: [
