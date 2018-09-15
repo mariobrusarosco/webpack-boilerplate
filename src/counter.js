@@ -23,7 +23,7 @@ class Counter extends Component {
     return (
       <>
         <h1>
-          [Counter]: <strong>{this.state.counter}</strong>
+          [Counter]!!!!!!!!!!!: <strong>{this.state.counter}</strong>
         </h1>
         <button onClick={this.increment}>+</button>
       </>
