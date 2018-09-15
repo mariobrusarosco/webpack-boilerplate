@@ -2,7 +2,8 @@ const path = require("path")
 
 module.exports = {
   entry: {
-    main: "./src/main.js"
+    // main: ["./src/main.js"]
+    main: ["@babel/polyfill", "./src/main.js"]
   },
   mode: "development",
   output: {
@@ -16,7 +17,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.css$/,
+        test: /\.js/,
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
         use: [
           {
             loader: 'style-loader'
@@ -27,7 +37,7 @@ module.exports = {
         ]
       },
       {
-        test: /.html$/,
+        test: /\.html$/,
         use: [
           {
             loader: 'file-loader',
@@ -47,7 +57,7 @@ module.exports = {
         ]
       },
       {
-        test: /.(jpg|jpeg|gif|png)$/,
+        test: /\.(jpg|jpeg|gif|png)$/,
         use: [
           {
             loader: 'file-loader',

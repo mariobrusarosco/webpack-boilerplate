@@ -2,12 +2,14 @@
   "presets": [
     [
       "@babel/preset-env",
-      {"targets": { "browsers": ["last 2 versions"] } }
+      {
+        "targets": { "browsers": ["last 2 versions"] },
+        "debug": true
+      }
     ],
     "@babel/preset-react"
   ],
   "plugins": [
-    "@babel/plugin-transform-runtime",
     "@babel/plugin-proposal-optional-chaining"
   ]
 }
