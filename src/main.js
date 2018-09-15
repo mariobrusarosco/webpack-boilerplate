@@ -12,6 +12,8 @@ import './test.css'
 import './test.scss'
 // SASS
 import './test.sass'
+// STYLUS
+import './test.styl'
 // A basic HTML
 import './index.html'
 // Recent JS features
