@@ -11,7 +11,7 @@ console.log(!drugLord.real?.lastName && 'This approach used to be an error. Not 
 
 const arrowFunction = async () => {
   await console.log(1);
-  console.log(1777770);
+  console.log(22233);
 }
 
 arrowFunction()

@@ -8,6 +8,8 @@ if(module.hot) {
 
 // Plain CSS
 import './test.css'
+// Plain SCSS
+import './test.scss'
 // A basic HTML
 import './index.html'
 // Recent JS features
