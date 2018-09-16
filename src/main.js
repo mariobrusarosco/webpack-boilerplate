@@ -19,3 +19,7 @@ import './test.styl'
 import './es-future'
 // React
 import './app'
+
+
+console.log(`Environment: ${ENV}`);
+console.log(`App name: ${APP_NAME}`);

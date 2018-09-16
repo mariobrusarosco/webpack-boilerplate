@@ -1,11 +1,10 @@
-
-  const path = require("path")
+const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 
-module.exports = {
+const prodConfig = env => ({
   entry: {
     // main: ["./src/main.js"]
     main: ["@babel/polyfill", "./src/main.js"]
@@ -124,6 +123,12 @@ module.exports = {
     new optimizeCSSAssets(),
     new miniCSSExtractPlugin({
       filename: "[name]-bundle-[hash:8].css"
+    }),
+    new webpack.DefinePlugin({
+      'ENV': JSON.stringify('production'),
+      'APP_NAME': JSON.stringify(process.env.APP_NAME)
     })
   ]
-}
+})
+
+module.exports = prodConfig()

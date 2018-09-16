@@ -2,7 +2,7 @@ const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
 
-module.exports = {
+const devConfig = env => ({
   entry: {
     main: [
       "@babel/polyfill",
@@ -125,6 +125,12 @@ module.exports = {
       template: './src/index.ejs',
       title: 'Test'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'ENV': JSON.stringify('development'),
+      'APP_NAME': JSON.stringify(process.env.APP_NAME)
+    })
   ]
-}
+})
+
+module.exports = devConfig()
