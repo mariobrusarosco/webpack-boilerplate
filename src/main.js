@@ -1,10 +1,7 @@
 // Setting up 'HMR'
-// require('webpack-hot-middleware/client')
-//
-// if(module.hot) {
-//   module.hot.accept()
-// }
-
+if(module.hot) {
+  module.hot.accept()
+}
 
 // Plain CSS
 import './test.css'

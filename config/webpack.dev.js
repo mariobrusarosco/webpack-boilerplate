@@ -4,8 +4,10 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   entry: {
-    // main: ["./src/main.js"]
-    main: ["@babel/polyfill", "./src/main.js"]
+    main: [
+      "@babel/polyfill",
+      "webpack-hot-middleware/client",
+      "./src/main.js"]
   },
   mode: "development",
   output: {
@@ -123,6 +125,6 @@ module.exports = {
       template: './src/index.ejs',
       title: 'Test'
     }),
-    // new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
