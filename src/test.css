@@ -3,3 +3,11 @@
   font-size: 25px;
   color: red;
 }
+
+div {
+  display: grid;
+}
+
+::placeholder {
+  color: gray;
+}
