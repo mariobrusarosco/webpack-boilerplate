@@ -111,7 +111,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: 'images/[name]-[hash:6].[ext]'
+              name: 'images/[name].[ext]'
             }
           }
         ]
@@ -123,6 +123,6 @@ module.exports = {
       template: './src/index.ejs',
       title: 'Test'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    // new webpack.HotModuleReplacementPlugin()
   ]
 }
