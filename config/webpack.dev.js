@@ -127,7 +127,7 @@ const devConfig = env => ({
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
-      'ENV': JSON.stringify('development'),
+      'ENV': JSON.stringify(process.env.ENV),
       'APP_NAME': JSON.stringify(process.env.APP_NAME)
     })
   ]

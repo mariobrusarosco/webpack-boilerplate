@@ -18,7 +18,7 @@ import './test.styl'
 // Recent JS features
 import './es-future'
 // React
-import './app'
+// import './app'
 
 
 console.log(`Environment: ${ENV}`);

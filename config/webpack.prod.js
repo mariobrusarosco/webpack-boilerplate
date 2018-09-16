@@ -3,6 +3,8 @@ const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
+// const babelMinify = require('babel-minify-webpack-plugin')
+// const uglify = require('uglifyjs-webpack-plugin')
 
 const prodConfig = env => ({
   entry: {
@@ -125,9 +127,11 @@ const prodConfig = env => ({
       filename: "[name]-bundle-[hash:8].css"
     }),
     new webpack.DefinePlugin({
-      'ENV': JSON.stringify('production'),
+      'ENV': JSON.stringify(process.env.ENV),
       'APP_NAME': JSON.stringify(process.env.APP_NAME)
-    })
+    }),
+    // new babelMinify()
+    // new uglify()
   ]
 })
 
