@@ -14,8 +14,8 @@ import './test.scss'
 import './test.sass'
 // STYLUS
 import './test.styl'
-// A basic HTML
-import './index.html'
+// // A basic HTML
+// import './index.html'
 // Recent JS features
 import './es-future'
 // React

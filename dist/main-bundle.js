@@ -64,7 +64,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "e3397fc5e90157ac4c1c";
+/******/ 	var hotCurrentHash = "15b503671d2cddd3a204";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -4412,17 +4412,6 @@ eval("var _drugLord$real;\n\nfunction asyncGeneratorStep(gen, resolve, reject, _
 
 /***/ }),
 
-/***/ "./src/index.html":
-/*!************************!*\
-  !*** ./src/index.html ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("module.exports = __webpack_require__.p + \"index.html\";\n\n//# sourceURL=webpack:///./src/index.html?");
-
-/***/ }),
-
 /***/ "./src/main.js":
 /*!*********************!*\
   !*** ./src/main.js ***!
@@ -4431,7 +4420,7 @@ eval("module.exports = __webpack_require__.p + \"index.html\";\n\n//# sourceURL=
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.css */ \"./src/test.css\");\n/* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_test_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _test_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.scss */ \"./src/test.scss\");\n/* harmony import */ var _test_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_test_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _test_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./test.sass */ \"./src/test.sass\");\n/* harmony import */ var _test_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_test_sass__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _test_styl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./test.styl */ \"./src/test.styl\");\n/* harmony import */ var _test_styl__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_test_styl__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./index.html */ \"./src/index.html\");\n/* harmony import */ var _index_html__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_html__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _es_future__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./es-future */ \"./src/es-future.js\");\n/* harmony import */ var _es_future__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_es_future__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n// Setting up 'HMR'\n__webpack_require__(/*! webpack-hot-middleware/client */ \"./node_modules/webpack-hot-middleware/client.js\");\n\nif (true) {\n  module.hot.accept();\n} // Plain CSS\n\n\n // SCSS\n\n // SASS\n\n // STYLUS\n\n // A basic HTML\n\n // Recent JS features\n\n // React\n\n\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test.css */ \"./src/test.css\");\n/* harmony import */ var _test_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_test_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _test_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./test.scss */ \"./src/test.scss\");\n/* harmony import */ var _test_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_test_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _test_sass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./test.sass */ \"./src/test.sass\");\n/* harmony import */ var _test_sass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_test_sass__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _test_styl__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./test.styl */ \"./src/test.styl\");\n/* harmony import */ var _test_styl__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_test_styl__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _es_future__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./es-future */ \"./src/es-future.js\");\n/* harmony import */ var _es_future__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_es_future__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n// Setting up 'HMR'\n__webpack_require__(/*! webpack-hot-middleware/client */ \"./node_modules/webpack-hot-middleware/client.js\");\n\nif (true) {\n  module.hot.accept();\n} // Plain CSS\n\n\n // SCSS\n\n // SASS\n\n // STYLUS\n\n // // A basic HTML\n// import './index.html'\n// Recent JS features\n\n // React\n\n\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ }),
 
