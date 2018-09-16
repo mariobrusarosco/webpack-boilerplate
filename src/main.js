@@ -1,13 +1,15 @@
 // Setting up 'HMR'
-require('webpack-hot-middleware/client')
-
-if(module.hot) {
-  module.hot.accept()
-}
+// require('webpack-hot-middleware/client')
+//
+// if(module.hot) {
+//   module.hot.accept()
+// }
 
 
 // Plain CSS
 import './test.css'
+// Duplicated test Plain CSS
+import './test-duplicated.css'
 // SCSS
 import './test.scss'
 // SASS
