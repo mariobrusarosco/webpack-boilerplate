@@ -13,7 +13,6 @@ class Counter extends Component {
   }
 
   increment () {
-    console.log(1);
     this.setState(prevState => ({
       counter: ++prevState.counter
     }))
