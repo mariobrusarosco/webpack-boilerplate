@@ -3,23 +3,11 @@ if(module.hot) {
   module.hot.accept()
 }
 
-// Plain CSS
-import './test.css'
-// Duplicated test Plain CSS
-import './test-duplicated.css'
-// SCSS
-import './test.scss'
-// SASS
-import './test.sass'
-// STYLUS
-import './test.styl'
-// // A basic HTML
-// import './index.html'
-// Recent JS features
-import './es-future'
+// WEBPACK FEATURES
 // React
-// import './app'
+import './webpack-tests/react/app.js';
 
+// import './styles/main.scss';
 
-console.log(`Environment: ${ENV}`);
+console.log(`Environment: ${NODE_ENV}`);
 console.log(`App name: ${APP_NAME}`);

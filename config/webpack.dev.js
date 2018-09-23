@@ -1,6 +1,7 @@
 const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
+const globalVariables = require('./globalVariables')
 
 const devConfig = env => ({
   entry: {
@@ -86,13 +87,20 @@ const devConfig = env => ({
             loader: 'style-loader'
           },
           {
-            loader: 'css-loader'
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 1
+            },
           },
           {
             loader: 'postcss-loader'
           },
           {
-            loader: 'sass-loader'
+            loader: 'sass-loader',
+            options: {
+             includePaths: ["src/styles/config"]
+           }
           }
         ]
       },
@@ -126,10 +134,7 @@ const devConfig = env => ({
       title: 'Test'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin({
-      'ENV': JSON.stringify(process.env.ENV),
-      'APP_NAME': JSON.stringify(process.env.APP_NAME)
-    })
+    globalVariables
   ]
 })
 

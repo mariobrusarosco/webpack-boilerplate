@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+body {
+  font-size: 16px;
+  font-family: $mainFont;
+  color: tomato;
+}
+
+.test { counter-reset: 1;}
+
+.img {
+  width: 200px;
+  height: 200px;
+}
