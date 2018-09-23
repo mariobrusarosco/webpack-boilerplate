@@ -79,7 +79,7 @@ const prodConfig = env => ({
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: miniCSSExtractPlugin.loader
           },
           {
             loader: 'css-loader',
