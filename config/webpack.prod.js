@@ -4,6 +4,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const globalVariables = require('./globalVariables')
+const scssConfig = require('./scss-config')
 
 const prodConfig = env => ({
   entry: {
@@ -75,30 +76,7 @@ const prodConfig = env => ({
           }
         ]
       },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: miniCSSExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              importLoaders: 1
-            },
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-             includePaths: ["src/styles/config"]
-           }
-          }
-        ]
-      },
+      scssConfig,
       {
         test: /\.html$/,
         use: [

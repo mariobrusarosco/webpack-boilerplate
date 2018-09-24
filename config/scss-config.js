@@ -1,9 +1,22 @@
+const miniCSSExtractPlugin = require('mini-css-extract-plugin')
+
 module.exports = {
-  test: /.scss$/,
-  include: /src\/styles/,
+  test: /\.scss$/,
   use: [
-    'style-loader',
-    'css-loader',
-    'sass-loader'
+    process.env.production ? miniCSSExtractPlugin.loader : 'style-loader',
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+        importLoaders: 1
+      },
+    },
+    'postcss-loader',
+    {
+      loader: 'sass-loader',
+      options: {
+       includePaths: ["src/styles/config"]
+     }
+    }
   ]
 }

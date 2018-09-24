@@ -9,7 +9,7 @@ const express = require('express'),
   staticMiddleWare = express.static('dist')
 
 const server = express(),
-  isProd = process.env.NODE_ENV === 'production'
+  isProd = process.env.production
 
 if (!isProd) {
   // Runs our loaders and plugin using webpack
