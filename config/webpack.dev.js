@@ -2,6 +2,7 @@ const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
 const globalVariables = require('./globalVariables')
+const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
 
 const devConfig = env => ({
@@ -33,20 +34,8 @@ const devConfig = env => ({
         ],
         exclude: /node_modules/
       },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          }
-        ]
-      },
+      cssConfig,
+      scssConfig,
       {
         test: /\.sass$/,
         use: [
@@ -81,7 +70,6 @@ const devConfig = env => ({
           }
         ]
       },
-      scssConfig,
       {
         test: /\.html$/,
         use: [

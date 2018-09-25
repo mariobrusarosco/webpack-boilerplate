@@ -8,7 +8,7 @@
     "start": "webpack-dev-server --config=config/webpack.dev.js",
     "dev": "cross-env development=true APP_NAME=WEBPACK_BOILERPALTE nodemon --inspect --watch config --watch server server/main.js",
     "build": "cross-env production=true APP_NAME=WEBPACK_BOILERPALTE webpack --config=config/webpack.prod.js",
-    "build:dev": "cross-env ENV=development APP_NAME=WEBPACK_BOILERPALTE webpack --config=config/webpack.dev.js",
+    "build:dev": "cross-env development=true APP_NAME=WEBPACK_BOILERPALTE webpack --config=config/webpack.dev.js",
     "prod": "yarn build && cross-env production=true node server/main.js"
   },
   "license": "MIT",

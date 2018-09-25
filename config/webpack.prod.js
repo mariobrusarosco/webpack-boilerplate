@@ -4,6 +4,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const globalVariables = require('./globalVariables')
+const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
 
 const prodConfig = env => ({
@@ -28,20 +29,8 @@ const prodConfig = env => ({
         ],
         exclude: /node_modules/
       },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            loader: miniCSSExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          }
-        ]
-      },
+      cssConfig,
+      scssConfig,
       {
         test: /\.sass$/,
         use: [
@@ -76,7 +65,6 @@ const prodConfig = env => ({
           }
         ]
       },
-      scssConfig,
       {
         test: /\.html$/,
         use: [

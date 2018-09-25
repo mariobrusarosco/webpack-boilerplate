@@ -4,8 +4,15 @@ if(module.hot) {
 }
 
 // WEBPACK FEATURES
+
+// Pure class
+import './webpack-tests/pure-css/pure-css.css'
+
+// scss
+import './webpack-tests/scss/scss.scss'
+
 // React
-import './webpack-tests/react/app.js';
+// import './webpack-tests/react/app.js';
 
 // import './styles/main.scss';
 
