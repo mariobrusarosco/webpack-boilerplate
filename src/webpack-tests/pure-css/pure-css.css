@@ -1,1 +1,4 @@
-.test-pure-css { color: red; }
+.test-pure-css {
+  color: red;
+  overscroll-behavior: contain;
+}

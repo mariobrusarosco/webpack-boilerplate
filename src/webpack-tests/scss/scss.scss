@@ -1,1 +1,4 @@
-.test-scss { color: green; }
+.test-scss {
+  color: green;
+  overscroll-behavior: contain; 
+}

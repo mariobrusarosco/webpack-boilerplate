@@ -1,18 +1,19 @@
-# INSTALLATION
+# Installation
 
-#### INSTALL YARN
+#### Install Yarn
 ```sh
 npm i yarn -g
 ```
 
-#### INSTALL THE PROJECT
+#### Install the Project
 
 ```sh
  yarn
 ```
 
-# SUPPORTED FEATURES
+# Supported Features
 
 * CSS
 * SCSS
 * SASS
+* STYLUS
