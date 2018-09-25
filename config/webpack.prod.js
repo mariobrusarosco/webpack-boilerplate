@@ -6,6 +6,7 @@ const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const globalVariables = require('./globalVariables')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
+const sassConfig = require('./sass-config')
 
 const prodConfig = env => ({
   entry: {
@@ -31,23 +32,7 @@ const prodConfig = env => ({
       },
       cssConfig,
       scssConfig,
-      {
-        test: /\.sass$/,
-        use: [
-          {
-            loader: miniCSSExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
-      },
+      sassConfig,
       {
         test: /\.styl$/,
         use: [

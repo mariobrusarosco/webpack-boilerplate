@@ -1,7 +1,7 @@
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-  test: /\.scss$/,
+  test: /\.sass$/,
   include: /src/,
   use: [
     process.env.production ? miniCSSExtractPlugin.loader : 'style-loader',

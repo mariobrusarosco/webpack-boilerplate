@@ -4,6 +4,8 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 const globalVariables = require('./globalVariables')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
+const sassConfig = require('./sass-config')
+
 
 const devConfig = env => ({
   entry: {
@@ -36,23 +38,7 @@ const devConfig = env => ({
       },
       cssConfig,
       scssConfig,
-      {
-        test: /\.sass$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader'
-          }
-        ]
-      },
+      sassConfig,
       {
         test: /\.styl$/,
         use: [

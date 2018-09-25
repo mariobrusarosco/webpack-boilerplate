@@ -11,6 +11,9 @@ import './webpack-tests/pure-css/pure-css.css'
 // scss
 import './webpack-tests/scss/scss.scss'
 
+// sass
+import './webpack-tests/sass/sass.sass'
+
 // React
 // import './webpack-tests/react/app.js';
 
