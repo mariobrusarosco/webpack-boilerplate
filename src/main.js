@@ -17,13 +17,12 @@ import './webpack-tests/stylus/stylus.styl'
 // sass
 import './webpack-tests/sass/sass.sass'
 
-
-
+// ES future syntax
+import './webpack-tests/js-future'
 // React
 // import './webpack-tests/react/app.js';
 
 // import './styles/main.scss';
-console.log(NODE_ENV);
 
 console.log(`Environment: ${NODE_ENV.production ? 'production' : 'development'}`);
 console.log(`App name: ${APP_NAME}`);

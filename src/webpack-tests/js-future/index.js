@@ -5,13 +5,13 @@ const drugLord = {
   },
   firstName: 'Heisenberg'
 }
- console.log(drugLord.cover.firstName)
+console.log(drugLord.cover.firstName)
 console.log(!drugLord.real?.lastName && 'This approach used to be an error. Not anymore!!!')
 
 
 const arrowFunction = async () => {
   await console.log(1);
-  console.log('aaaaaaaaaaaaaa');
+  console.log('2');
 }
 
 arrowFunction()

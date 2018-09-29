@@ -4,6 +4,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const globalVariables = require('./globalVariables')
+const babelConfig = require('./babel-config')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
 const sassConfig = require('./sass-config')
@@ -22,15 +23,7 @@ const prodConfig = env => ({
   },
   module: {
     rules: [
-      {
-        test: /\.js/,
-        use: [
-          {
-            loader: 'babel-loader'
-          }
-        ],
-        exclude: /node_modules/
-      },
+      babelConfig,
       cssConfig,
       scssConfig,
       sassConfig,
