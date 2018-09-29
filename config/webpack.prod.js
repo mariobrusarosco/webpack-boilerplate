@@ -1,8 +1,8 @@
 const path = require("path")
-const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
+const compressionPlugin = require('compression-webpack-plugin')
 const globalVariables = require('./globalVariables')
 const babelConfig = require('./babel-config')
 const cssConfig = require('./pure-css-config')
@@ -59,9 +59,12 @@ const prodConfig = env => ({
     }),
     new optimizeCSSAssets(),
     new miniCSSExtractPlugin({
-      filename: "[name]-bundle-[hash:8].css"
+      filename: '[name]-bundle-[hash:8].css'
     }),
-    globalVariables
+    globalVariables,
+    new compressionPlugin({
+      algorithm: 'gzip'
+    })
   ]
 })
 
