@@ -7,6 +7,7 @@ const globalVariables = require('./globalVariables')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
 const sassConfig = require('./sass-config')
+const stylusConfig = require('./stylus-config')
 
 const prodConfig = env => ({
   entry: {
@@ -33,23 +34,7 @@ const prodConfig = env => ({
       cssConfig,
       scssConfig,
       sassConfig,
-      {
-        test: /\.styl$/,
-        use: [
-          {
-            loader: miniCSSExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'stylus-loader'
-          }
-        ]
-      },
+      stylusConfig,
       {
         test: /\.html$/,
         use: [
@@ -77,7 +62,7 @@ const prodConfig = env => ({
   plugins: [
     new htmlWebpackPlugin({
       template: './src/index.ejs',
-      title: 'Test'
+      title: 'Webpack Boilterplate'
     }),
     new optimizeCSSAssets(),
     new miniCSSExtractPlugin({

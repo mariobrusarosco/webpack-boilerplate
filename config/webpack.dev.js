@@ -5,7 +5,7 @@ const globalVariables = require('./globalVariables')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
 const sassConfig = require('./sass-config')
-
+const stylusConfig = require('./stylus-config')
 
 const devConfig = env => ({
   entry: {
@@ -39,23 +39,7 @@ const devConfig = env => ({
       cssConfig,
       scssConfig,
       sassConfig,
-      {
-        test: /\.styl$/,
-        use: [
-          {
-            loader: 'style-loader'
-          },
-          {
-            loader: 'css-loader'
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'stylus-loader'
-          }
-        ]
-      },
+      stylusConfig,
       {
         test: /\.html$/,
         use: [

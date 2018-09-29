@@ -1,8 +1,8 @@
 {
-  "name": "webpack-course",
+  "name": "Webpack-Boilerplate",
   "version": "1.0.0",
-  "description": "Webpack Beyond the Basics Course",
-  "repository": "https://github.com/lawwantsin/webpack-course.git",
+  "description": "Webpack Boilterplate",
+  "repository": "https://github.com/mariobrusarosco/webpack-boilerplate.git",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
