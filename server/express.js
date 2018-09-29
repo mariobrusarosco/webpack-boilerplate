@@ -19,14 +19,15 @@ if (!isProd) {
   ))
   // Enables Hot Module Reload
   server.use(webpackHotMiddleware(compiler))
+  //Servers the result stored in a 'dist' folder
+  server.use(staticMiddleWare)
 }
-
-// Servers the result stored in a 'dist' folder
-// server.use(staticMiddleWare)
 
 // Servers the result stored in a 'dist' folder with gzip
 const expressGzip = require('express-static-gzip')
 server.use(expressGzip('dist'))
+
+
 
 server.listen(PORT, () => {
   console.log(`Server listening at ${PORT}`);
