@@ -25,7 +25,10 @@ if (!isProd) {
 
 // Servers the result stored in a 'dist' folder with gzip
 const expressGzip = require('express-static-gzip')
-server.use(expressGzip('dist'))
+server.use(expressGzip('dist', {
+  enableBrotli: true,
+  orderPreference: ['br']
+}))
 
 
 

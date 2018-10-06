@@ -3,6 +3,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const compressionPlugin = require('compression-webpack-plugin')
+const brotliPlugin = require('brotli-webpack-plugin')
 const globalVariables = require('./global-variables')
 const globalVendors = require('./global-vendors')
 const babelConfig = require('./babel-config')
@@ -66,7 +67,8 @@ const prodConfig = env => ({
     globalVendors,
     new compressionPlugin({
       algorithm: 'gzip'
-    })
+    }),
+    new brotliPlugin()
   ]
 })
 
