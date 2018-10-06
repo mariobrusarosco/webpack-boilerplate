@@ -3,7 +3,8 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const compressionPlugin = require('compression-webpack-plugin')
-const globalVariables = require('./globalVariables')
+const globalVariables = require('./global-variables')
+const globalVendors = require('./global-vendors')
 const babelConfig = require('./babel-config')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
@@ -62,6 +63,7 @@ const prodConfig = env => ({
       filename: '[name]-bundle-[hash:8].css'
     }),
     globalVariables,
+    globalVendors,
     new compressionPlugin({
       algorithm: 'gzip'
     })

@@ -23,6 +23,7 @@ import './webpack-tests/js-future'
 // import './webpack-tests/react/app.js';
 
 // import './styles/main.scss';
+console.log(React)
 
 console.log(`Environment: ${NODE_ENV.production ? 'production' : 'development'}`);
 console.log(`App name: ${APP_NAME}`);

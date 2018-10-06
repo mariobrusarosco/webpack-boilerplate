@@ -1,7 +1,8 @@
 const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
-const globalVariables = require('./globalVariables')
+const globalVariables = require('./global-variables')
+const globalVendors = require('./global-vendors')
 const babelConfig = require('./babel-config')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
@@ -63,7 +64,8 @@ const devConfig = env => ({
       title: 'Test'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    globalVariables
+    globalVariables,
+    globalVendors
   ]
 })
 
