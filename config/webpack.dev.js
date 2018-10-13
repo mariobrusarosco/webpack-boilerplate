@@ -8,6 +8,7 @@ const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
 const sassConfig = require('./sass-config')
 const stylusConfig = require('./stylus-config')
+const imagesConfig = require('./images-config')
 
 const devConfig = env => ({
   entry: {
@@ -35,6 +36,7 @@ const devConfig = env => ({
       scssConfig,
       sassConfig,
       stylusConfig,
+      imagesConfig,
       {
         test: /\.html$/,
         use: [
@@ -42,17 +44,6 @@ const devConfig = env => ({
             loader: 'html-loader',
             options: {
               attrs: ['img:src']
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(jpg|jpeg|gif|png)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'images/[name].[ext]'
             }
           }
         ]
