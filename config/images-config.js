@@ -1,5 +1,5 @@
 module.exports = {
-  test: /.(png|jpg|jpeg)$/,
+  test: /.(png|gif|jpg|jpeg)$/,
   include: /src/,
   use: [
     {
