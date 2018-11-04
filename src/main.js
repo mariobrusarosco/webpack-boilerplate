@@ -20,7 +20,7 @@ import './webpack-tests/sass/sass.sass'
 // ES future syntax
 import './webpack-tests/js-future'
 // React
-// import './webpack-tests/react/app.js';
+import './webpack-tests/react/app.js';
 
 // import './styles/main.scss';
 
