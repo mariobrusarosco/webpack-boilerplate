@@ -4,6 +4,8 @@ const miniCSSExtractPlugin = require('mini-css-extract-plugin')
 const optimizeCSSAssets = require('optimize-css-assets-webpack-plugin')
 const compressionPlugin = require('compression-webpack-plugin')
 const brotliPlugin = require('brotli-webpack-plugin')
+
+// Configuration files
 const globalVariables = require('./global-variables')
 const globalVendors = require('./global-vendors')
 const babelConfig = require('./babel-config')
@@ -12,6 +14,7 @@ const scssConfig = require('./scss-config')
 const sassConfig = require('./sass-config')
 const stylusConfig = require('./stylus-config')
 const imagesConfig = require('./images-config')
+const markdownConfig = require('./markdown-config')
 
 const prodConfig = env => ({
   entry: {
@@ -32,6 +35,7 @@ const prodConfig = env => ({
       sassConfig,
       stylusConfig,
       imagesConfig,
+      markdownConfig,
       {
         test: /\.html$/,
         use: [

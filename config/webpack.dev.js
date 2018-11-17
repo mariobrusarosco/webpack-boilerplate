@@ -1,6 +1,8 @@
 const path = require("path")
 const webpack = require("webpack")
 const htmlWebpackPlugin = require("html-webpack-plugin")
+
+// Configuration files
 const globalVariables = require('./global-variables')
 const globalVendors = require('./global-vendors')
 const babelConfig = require('./babel-config')
@@ -9,6 +11,7 @@ const scssConfig = require('./scss-config')
 const sassConfig = require('./sass-config')
 const stylusConfig = require('./stylus-config')
 const imagesConfig = require('./images-config')
+const markdownConfig = require('./markdown-config')
 
 const devConfig = env => ({
   entry: {
@@ -37,6 +40,7 @@ const devConfig = env => ({
       sassConfig,
       stylusConfig,
       imagesConfig,
+      markdownConfig,
       {
         test: /\.html$/,
         use: [
@@ -47,7 +51,7 @@ const devConfig = env => ({
             }
           }
         ]
-      }
+      },
     ]
   },
   plugins: [
