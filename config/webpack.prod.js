@@ -8,6 +8,7 @@ const brotliPlugin = require('brotli-webpack-plugin')
 // Configuration files
 const globalVariables = require('./global-variables')
 const globalVendors = require('./global-vendors')
+const resolveConfig = require('./resolve-config')
 const babelConfig = require('./babel-config')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
@@ -64,7 +65,8 @@ const prodConfig = env => ({
       algorithm: 'gzip'
     }),
     new brotliPlugin()
-  ]
+  ],
+  ...resolveConfig,
 })
 
 module.exports = prodConfig()

@@ -6,22 +6,22 @@ if(module.hot) {
 // WEBPACK FEATURES
 
 // Pure class
-import './webpack-tests/pure-css/pure-css.css'
+import 'pure-css/pure-css.css'
 
 // scss
-import './webpack-tests/scss/scss.scss'
+import 'scss/scss.scss'
 
 // stylus
-import './webpack-tests/stylus/stylus.styl'
+import 'stylus/stylus.styl'
 
 // sass
-import './webpack-tests/sass/sass.sass'
+import 'sass/sass.sass'
 
 // ES future syntax
-import './webpack-tests/js-future'
+import 'js-future'
 
 // React
-import './webpack-tests/react/app.js';
+import 'react/app.js';
 
 console.log(`Environment: ${NODE_ENV.production ? 'production' : 'development'}`);
 console.log(`App name: ${APP_NAME}`);
