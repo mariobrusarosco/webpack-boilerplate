@@ -5,6 +5,7 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 // Configuration files
 const globalVariables = require('./global-variables')
 const globalVendors = require('./global-vendors')
+const resolveConfig = require('./resolve-config')
 const babelConfig = require('./babel-config')
 const cssConfig = require('./pure-css-config')
 const scssConfig = require('./scss-config')
@@ -61,8 +62,9 @@ const devConfig = env => ({
     }),
     new webpack.HotModuleReplacementPlugin(),
     globalVariables,
-    globalVendors
-  ]
+    globalVendors,
+  ],
+  ...resolveConfig,
 })
 
 module.exports = devConfig()

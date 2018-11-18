@@ -4,15 +4,15 @@ import { hot } from 'react-hot-loader'
 import styles from './app.scss'
 
 // Other Components and/or Assets
-import ted from '../../../images/ted.png'
-import Counter from '../Counter'
+import ted from 'images/ted.png'
+import Counter from 'webpack-tests/react/Counter'
 import markdown from '../../../../readme.md'
 
 const Root = () => (
   <div>
     <h1 className={styles.title}>React Components</h1>
     <p>Via require ()</p>
-    <img className={styles.img} src={require('../../../images/ted.png')} alt="TED" />
+    <img className={styles.img} src={require('images/ted.png')} alt="TED" />
     <p>Via import</p>
     <img className={styles.img} src={ted} alt="TED" />
     <Counter />
