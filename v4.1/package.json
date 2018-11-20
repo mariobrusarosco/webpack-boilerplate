@@ -1,0 +1,33 @@
+{
+  "name": "webpack-boilerplate",
+  "version": "4.0.0",
+  "description": "Webpack Boilerplate",
+  "private": true,
+  "config": {
+    "css-modules": false,
+    "sass": false,
+    "scss": true,
+    "stylus": false,
+    "postcss": true
+  },
+  "scripts": {
+    "dev": "webpack --config ./webpack/webpack.dev.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariobrusarosco/webpack-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mariobrusarosco/webpack-boilerplate/issues"
+  },
+  "homepage": "https://github.com/mariobrusarosco/webpack-boilerplate#readme",
+  "dependencies": {
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.1.10"
+  }
+}
