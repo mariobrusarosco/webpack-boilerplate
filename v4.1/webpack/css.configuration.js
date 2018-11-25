@@ -1,7 +1,7 @@
 const { css_modules, postcss } = require('../package.json').configuration
 
 module.exports = {
-  test: /.css$/,
+  test: /\.css$/,
   use: [
     'style-loader',
     {

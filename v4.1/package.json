@@ -25,6 +25,7 @@
   "homepage": "https://github.com/mariobrusarosco/webpack-boilerplate#readme",
   "dependencies": {
     "css-loader": "^1.0.1",
+    "file-loader": "^2.0.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.26.0",

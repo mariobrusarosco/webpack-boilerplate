@@ -1,7 +1,14 @@
 import './css-support.css'
 
-const container = document.createElement('div')
-  container.textContent = 'CSS support. This text must be on blue'
-  container.classList.add('css-support')
+const markup = `
+  <div class="box">
+    <h2>CSS Support</h2>
+    <h3 class="text-styled">This text must be on blue</h3>
+  </div>
+`
 
-  document.body.appendChild(container)
+const container = document.createElement('div')
+  container.classList.add('css-support')
+  container.innerHTML = markup
+
+document.body.append(container)

@@ -5,3 +5,6 @@ document.body.appendChild(elem)
 
 // CSS support
 import '../src/boilterplate-features/css'
+
+// Image support
+import '../src/boilterplate-features/images'
