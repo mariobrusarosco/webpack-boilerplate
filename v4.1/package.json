@@ -11,7 +11,8 @@
     "postcss": false
   },
   "scripts": {
-    "dev": "webpack --config ./webpack/webpack.dev.config.js"
+    "dev": "webpack --config ./webpack/webpack.dev.config.js",
+    "test": "jasmine my-folder/**/*.spec.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
   "dependencies": {
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
+    "jasmine": "^3.3.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.26.0",

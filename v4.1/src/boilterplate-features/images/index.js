@@ -3,7 +3,7 @@ import Heisenberg from '../images/breaking-bad.jpg'
 
 const markup = `
   <div class="box image-via-js">
-    <h2>Image's Support</h2>
+    <h2>Image Support</h2>
     <h3>This Image was added via JS's 'import'</h3>
     <img src="${Heisenberg}" alt="Image Via JS" />
   </div>
