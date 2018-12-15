@@ -5,17 +5,31 @@ const cssConfiguration = require('./css.configuration')
 const imageConfiguration = require('./image.configuration')
 const fontConfiguration = require('./font.configuration')
 
+// Third Party Plugins
+const htmlWebpack = require('html-webpack-plugin')
+
 module.exports = {
-  entry: './src/index.js',
+  mode: 'development',
+  // entry: './src/index.js',
+  // In case of multiple entry points
+  entry: {
+    'main': './src/index.js',
+    'second': './src/index-optional.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
+  plugins: [
+    new htmlWebpack({
+      title: "Webpack Boilerplate: ",
+    })
+  ],
   module: {
     rules: [
       cssConfiguration,
       imageConfiguration,
       fontConfiguration,
     ]
-  }
+  },
 }
