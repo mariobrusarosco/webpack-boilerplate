@@ -7,6 +7,7 @@ const fontConfiguration = require('./font.configuration')
 
 // Third Party Plugins
 const htmlWebpack = require('html-webpack-plugin')
+const cleanWebpack = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -23,6 +24,9 @@ module.exports = {
   plugins: [
     new htmlWebpack({
       title: "Webpack Boilerplate: ",
+    }),
+    new cleanWebpack(['dist'], {
+      root: process.cwd()
     })
   ],
   module: {

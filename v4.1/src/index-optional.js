@@ -1,1 +1,1 @@
-console.log('second entry point')
+console.log('second entry point.')
