@@ -11,6 +11,7 @@ const cleanWebpack = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
+  devtool: 'eval-source-map',
   // entry: './src/index.js',
   // In case of multiple entry points
   entry: {
@@ -20,6 +21,9 @@ module.exports = {
   output: {
     filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, '../dist')
+  },
+  devServer: {
+    contentBase: '../dist'
   },
   plugins: [
     new htmlWebpack({

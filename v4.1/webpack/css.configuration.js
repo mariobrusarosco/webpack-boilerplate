@@ -9,7 +9,7 @@ module.exports = {
       options: {
         // ...(css_modules && { modules: true, localIdentName: '[name]__[hash:base64:8]' }), 
         // ...(postcss && { importLoaders: 1 })
-      }
+	}
     },
     // ...(postcss && 'postcss-loader')
   ]
