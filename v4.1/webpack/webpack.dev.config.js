@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 
 // Configuration Files
 const cssConfiguration = require('./css.configuration')
@@ -16,14 +17,15 @@ module.exports = {
   // In case of multiple entry points
   entry: {
     'main': './src/index.js',
-    'second': './src/index-optional.js'
+    'second': './src/index-second.js',
   },
   output: {
     filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, '../dist')
   },
   devServer: {
-    contentBase: '../dist'
+    contentBase: '../dist',
+    hot: true,
   },
   plugins: [
     new htmlWebpack({
@@ -31,7 +33,8 @@ module.exports = {
     }),
     new cleanWebpack(['dist'], {
       root: process.cwd()
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [

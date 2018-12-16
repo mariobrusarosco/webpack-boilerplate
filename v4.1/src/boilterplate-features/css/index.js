@@ -1,4 +1,5 @@
 import './css-support.css'
+import { generateBox } from '../utils'
 
 const markup = `
   <div class="box">
@@ -6,9 +7,4 @@ const markup = `
     <h3 class="text-styled">This text must be on blue</h3>
   </div>
 `
-
-const container = document.createElement('div')
-  container.classList.add('css-support')
-  container.innerHTML = markup
-
-document.body.append(container)
+generateBox('css-support', markup)
