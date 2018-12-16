@@ -11,7 +11,7 @@ const htmlWebpack = require('html-webpack-plugin')
 const cleanWebpack = require('clean-webpack-plugin')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   devtool: 'eval-source-map',
   // entry: './src/index.js',
   // In case of multiple entry points
@@ -23,10 +23,6 @@ module.exports = {
     filename: '[name].[hash].bundle.js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
-  },
-  devServer: {
-    contentBase: '../dist',
-    hot: true,
   },
   plugins: [
     new htmlWebpack({
