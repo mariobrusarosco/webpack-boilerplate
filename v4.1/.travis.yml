@@ -1,12 +1,1 @@
 language: node_js
-  node_js>
-    - "7"
-before_deploy:
-  - yarn e2e:prod
-deploy:
-  provider: heroku
-  api_key:
-    secure: S3URILBCfNBmg2FKUxa++74YRkWu2hfrXjYjhAtUByVor0GMIrpPzvaShFum48t+FogJP6JxNaic3J8SGwGMzfqYN/FVeKT+CzpXfuR9Ume8x+/PVamLDB3xphmrsBRFiz2VbooK8OdCmkJvl4ceM8Ggn8/mPRqiZAjhHhuRF20x0CnTVLbInfQBUjB45bV5QCuax6S04NDyxQS8qS7Nn7Bw3ndyckiCkz77S7xSSMhiCz/f6BJBm+ObZeDRMXZ7oeRsqFeqUu5/Ws6lT9dC+3z20sVIQDOPQX74iUGEdfdJTfw0ezrN1S+Mvr90rQVun4YPnQMJnnwmv3h8fF3phdIae7jlRSg9Hv0VnOcjS4gWsFYPB/k5HP6ph59s34mmS0rG7lUfjMyIEm98XcQXTZa2fJO81Mzg86qk4kGGUI3u0qxeLdHrhrCYNoqzK/4NAPwm4RhJCaoYrB2xaHp8Jf4mAwe7cwRPFo7X0fssogV0IwehwyHlVPWtDyPntvcYuuJRAJYUjEUoEm6JJjxM+dPT+0vlV2u8dY96zVF7GLdHKhSDZuKVcGfel52Iv4OGVajbt7aIJNldWwgFHV1KmMUEATe7YaYvLqU1lCbLGV8+Y9d72bQjQjF64DjKFdQhpaGQX/Pw9YMc70H4jsKCeBUYBzWB8oT7fRIb+vw6Mmg=
-  app: dev-mario-webpack-boilerplate
-  on:
-    branch: v4.1
