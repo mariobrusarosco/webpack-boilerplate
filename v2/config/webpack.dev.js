@@ -14,11 +14,11 @@ const stylusConfig = require('./stylus-config')
 const imagesConfig = require('./images-config')
 const markdownConfig = require('./markdown-config')
 
-const devConfig = env => ({
+const devConfig = {
   entry: {
     main: [
-      "@babel/polyfill",
-      "webpack-hot-middleware/client",
+      // "@babel/polyfill",
+      // "webpack-hot-middleware/client",
       "./src/main.js"]
   },
   mode: "development",
@@ -65,6 +65,10 @@ const devConfig = env => ({
     globalVendors,
   ],
   ...resolveConfig,
+<<<<<<< HEAD:config/webpack.dev.js
 })
+=======
+}
+>>>>>>> v4.1:v2/config/webpack.dev.js
 
-module.exports = devConfig()
+module.exports = devConfig

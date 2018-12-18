@@ -1,17 +1,25 @@
 {
   "name": "webpack-boilerplate",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "description": "Webpack Boilterplate",
   "repository": "https://github.com/mariobrusarosco/webpack-boilerplate.git",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js",
-    "dev": "cross-env development=true APP_NAME=WEBPACK_BOILERPALTE nodemon --inspect --watch config --watch server server/main.js",
+    "dev": "cross-env APP_NAME=WEBPACK_BOILERPALTE webpack-dev-server --config=config/webpack.dev.js",
     "build": "cross-env production=true APP_NAME=WEBPACK_BOILERPALTE webpack --config=config/webpack.prod.js",
     "build:dev": "cross-env development=true APP_NAME=WEBPACK_BOILERPALTE webpack --config=config/webpack.dev.js",
     "prod": "yarn build && cross-env production=true node server/main.js"
   },
   "license": "MIT",
+  "app-configuration": {
+    "css-modules": false,
+    "stylus": false,
+    "scss": false,
+    "sass": false,
+    "css": false,
+    "ssr": false
+  },
   "dependencies": {
     "@babel/core": "^7.0.1",
     "@babel/plugin-proposal-optional-chaining": "^7.0.0",

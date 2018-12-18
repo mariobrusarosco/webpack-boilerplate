@@ -1,0 +1,33 @@
+/* CSS Support */
+.css-support {
+}
+
+.text-styled { 
+  color: blue; 
+}
+
+.box h2 {
+  font-size: 20px;
+  color: tomato;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 900;
+}
+.box h3 {
+  font-size: 19px;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 100;
+}
+
+/* Image's Support */
+.image-via-js img {
+  width: 100%;
+  max-width: 290px;
+}
+.test-image-holder {
+  width: 100%;
+  height: 163px;
+  max-width: 290px;
+  background-image: url('../images/breaking-bad.jpg');
+  background-repeat: no-repeat; 
+  background-size: contain;
+}
