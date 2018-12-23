@@ -18,5 +18,5 @@ new Promise((resolve, reject) => {
         `
         generateBox('hrm-support', newMarkup)
         resolve()
-    },3000)
+    },2000)
 }).then(() => console.log('hrm text was called!'))

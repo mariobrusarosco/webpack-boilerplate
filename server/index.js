@@ -4,7 +4,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')
 const PORT = 8080
 
 const app = express()
-const config = require('../webpack/webpack.prod.config')
+// const config = require('../webpack/webpack.prod.config')
 // const compiler = webpack(config)
 
 app.use(express.static('../dist'))

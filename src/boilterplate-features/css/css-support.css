@@ -9,13 +9,10 @@
 .box h2 {
   font-size: 20px;
   color: tomato;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 900;
 }
 .box h3 {
   font-size: 19px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 100;
+
 }
 
 /* Image's Support */
