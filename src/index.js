@@ -18,3 +18,10 @@ import '../src/boilterplate-features/fonts'
 
 // Hot Module Replacement support
 import '../src/boilterplate-features/hmr'
+
+//  Tree Shaking support
+import { treeShakingExample } from '../src/boilterplate-features/utils/tree-shaking.example'
+treeShakingExample()
+
+// import { deadCodeFunction, } from '../src/boilterplate-features/utils/tree-shaking.example'
+// deadCodeFunction()

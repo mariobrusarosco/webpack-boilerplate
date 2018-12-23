@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/share/yarn/bin/yarn.js e2e:dev-webpack
+  /usr/bin/node /usr/share/yarn/bin/yarn.js serve
 
 PATH: 
   /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  SyntaxError: /var/www/html/webpack-boilerplate/v4.1/package.json: Unexpected string in JSON at position 682
+  SyntaxError: /var/www/html/webpack-boilerplate/package.json: Unexpected token / in JSON at position 249
       at JSON.parse (<anonymous>)
       at /usr/share/yarn/lib/cli.js:1631:59
       at Generator.next (<anonymous>)
@@ -35,18 +35,18 @@ npm manifest:
       "stylus": false,
       "postcss": false
     },
+    // "sideEffects": false,
     "scripts": {
       "dev": "webpack-dev-server --config ./webpack/webpack.dev.config.js",
       "prod": "webpack --config ./webpack/webpack.prod.config.js",
-      "start1": "serve --no-clipboard --single --listen 8080 dist",
-      "start": "yarn dev",
+      "server": "yarn prod && serve --no-clipboard --single --listen 8080 dist",
       "cy:run": "cypress run",
       "cy:open": "cypress open",
-      "e2e:dev-webpack": "start-server-and-test  dev http-get://localhost:8080 cy:run",
-      "e2e:dev": "start-server-and-test "
-      "test:e2e:prod": "start-server-and-test  start  :8080 cy:run"
+      "e2e:dev-webpack": "start-server-and-test  dev http-get://localhost:8080 cy:open",
+      "e2e:dev": "start-server-and-test  server :8080 cy:open",
+      "e2e:prod": "start-server-and-test  server  :8080 cy:run --record --key cfb5f996-514b-40e7-9c91-ab08a0fb92ff"
     },
-    "author": "",
+    "author": "Mario Brusarosco",
     "license": "ISC",
     "repository": {
       "type": "git",

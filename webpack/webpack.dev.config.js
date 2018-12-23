@@ -10,7 +10,7 @@ const fontConfiguration = require('./font.configuration')
 const htmlWebpack = require('html-webpack-plugin')
 const cleanWebpack = require('clean-webpack-plugin')
 
-module.exports = {
+module.exports = () => ({
   mode: 'development',
   devtool: 'eval-source-map',
   // entry: './src/index.js',
@@ -44,4 +44,4 @@ module.exports = {
       fontConfiguration,
     ]
   },
-}
+})

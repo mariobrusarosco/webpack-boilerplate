@@ -20,7 +20,7 @@
     "e2e:dev": "start-server-and-test  server :8080 cy:open",
     "e2e:prod": "start-server-and-test  server  :8080 cy:run --record --key cfb5f996-514b-40e7-9c91-ab08a0fb92ff"
   },
-  "author": "",
+  "author": "Mario Brusarosco",
   "license": "ISC",
   "repository": {
     "type": "git",

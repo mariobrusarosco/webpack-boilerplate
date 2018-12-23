@@ -12,7 +12,7 @@ const cleanWebpack = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'production',
-  devtool: 'eval-source-map',
+  // devtool: 'eval-source-map',
   // entry: './src/index.js',
   // In case of multiple entry points
   entry: {
