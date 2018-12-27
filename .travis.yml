@@ -1,1 +1,13 @@
-language: node
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - "node_modules"
+script: "yarn e2e:dev-webpack && yarn e2e:prod"
+
+# safelist
+branches:
+  only:
+  - master
+  - v4.1

@@ -16,9 +16,9 @@
     "server": "yarn prod && serve --no-clipboard --single --listen 8080 dist",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "e2e:dev-webpack": "start-server-and-test  dev http-get://localhost:8080 cy:open",
-    "e2e:dev": "start-server-and-test  server :8080 cy:open",
-    "e2e:prod": "start-server-and-test  server  :8080 cy:run --record --key cfb5f996-514b-40e7-9c91-ab08a0fb92ff"
+    "e2e:dev-webpack": "start-server-and-test dev http-get://localhost:8080 cy:open",
+    "e2e:dev": "start-server-and-test server :8080 cy:open",
+    "e2e:prod": "start-server-and-test server :8080 cy:run"
   },
   "author": "Mario Brusarosco",
   "license": "ISC",
