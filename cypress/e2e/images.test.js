@@ -6,7 +6,7 @@ describe('Test for support of Images', () => {
 
     it('Must find an image import as a background-image url() function', () => {
         cy.visit('/')
-            get('#image-via-css')
+            .get('#image-via-css')
             .should('have.css', 'background-image')
     })
 })
