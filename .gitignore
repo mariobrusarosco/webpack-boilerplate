@@ -7,4 +7,5 @@ yarn-error.log
 
 .vscode
 
-cypress
+cypress/screenshots
+cypress/videos
