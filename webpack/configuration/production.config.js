@@ -7,7 +7,7 @@ const productionLoaders = require('../loaders/production')
 
 // Plugins
 const commonPlugins = require('../plugins/common')
-const productionPlugins = require('../plugins/production')
+
 
 module.exports = {
   mode: 'production',
@@ -25,12 +25,11 @@ module.exports = {
   },
   plugins: [
     ...commonPlugins,
-    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
-      ...productionLoaders,
       ...commonLoaders,
+      ...productionLoaders,
     ]
   },
 }

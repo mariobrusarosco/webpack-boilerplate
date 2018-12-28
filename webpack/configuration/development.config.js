@@ -19,7 +19,7 @@ module.exports = () => ({
     'second': './src/index-second.js',
   },
   output: {
-    filename: '[name].[hash].bundle.js',
+    filename: '[name].development.bundle.js',
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/'
   },
@@ -29,12 +29,12 @@ module.exports = () => ({
   },
   plugins: [
 		...commonPlugins,
-    new webpack.HotModuleReplacementPlugin(),
+		...developmentPlugins,
   ],
   module: {
     rules: [
-      ...developmenLoaders,
       ...commonLoaders,
+      ...developmenLoaders,
     ]
   },
 })
