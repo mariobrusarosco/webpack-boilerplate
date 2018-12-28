@@ -3,6 +3,8 @@ if(module && module.hot) {
     module.hot.accept()
 }
 
+document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${process.env.NODE_ENV}`)
+
 // CSS support
 import '../src/boilterplate-features/css'
 
@@ -19,9 +21,8 @@ import '../src/boilterplate-features/hmr'
 import { treeShakingExample } from '../src/boilterplate-features/utils/tree-shaking.example'
 treeShakingExample()
 
-// import { deadCodeFunction, } from '../src/boilterplate-features/utils/tree-shaking.example'
-// deadCodeFunction()
-
-const elem = document.createElement('div')
-elem.innerHTML = "Starting Webpack!!!"
-document.body.appendChild(elem)
+/* Importing lodash in this entry point to check
+*  if Static Code Splitting optimization is working!!!
+*/  
+import _ from 'lodash'
+console.log(_.join(['main', 'entry', 'point, made with lodash!!!!!!']))

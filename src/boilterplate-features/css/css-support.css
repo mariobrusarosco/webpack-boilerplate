@@ -5,6 +5,7 @@
 .text-styled { 
   color: blue; 
 }
+/*  Duplicated on purpose to test CSS's Duplicated rules 'removal' */
 .text-styled { 
   color: blue; 
 }
