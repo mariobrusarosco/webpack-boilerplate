@@ -1,18 +1,13 @@
 const path = require('path')
 const webpack = require('webpack')
 
-// Configuration Files
-const cssConfiguration = require('../css.configuration')
-const imageConfiguration = require('../image.configuration')
-const fontConfiguration = require('../font.configuration')
-
-// Third Party Plugins
-const htmlWebpack = require('html-webpack-plugin')
-const cleanWebpack = require('clean-webpack-plugin')
-
 // Loaders
 const commonLoaders = require('../loaders/common')
-const developmenLoaders = require('../loaders/development') 
+const developmenLoaders = require('../loaders/development')
+
+// Plugins
+const commonPlugins = require('../plugins/common')
+const developmentPlugins = require('../plugins/development')
 
 module.exports = () => ({
   mode: 'development',
@@ -29,16 +24,11 @@ module.exports = () => ({
     publicPath: '/'
   },
   devServer: {
-    contentBase: '../dist',
+    contentBase: 'dist',
     hot: true,
   },
   plugins: [
-    new htmlWebpack({
-      title: "Webpack Boilerplate: ",
-    }),
-    new cleanWebpack(['dist'], {
-      root: process.cwd()
-    }),
+		...commonPlugins,
     new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
