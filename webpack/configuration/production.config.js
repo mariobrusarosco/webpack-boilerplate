@@ -11,7 +11,7 @@ const htmlWebpack = require('html-webpack-plugin')
 const cleanWebpack = require('clean-webpack-plugin')
 
 // Loaders
-// const commonLoaders = require('../loaders/common')
+const commonLoaders = require('../loaders/common')
 const productionLoaders = require('../loaders/production')
 
 module.exports = {
@@ -40,8 +40,7 @@ module.exports = {
   module: {
     rules: [
       ...productionLoaders,
-      imageConfiguration,
-      fontConfiguration,
+      ...commonLoaders,
     ]
   },
 }

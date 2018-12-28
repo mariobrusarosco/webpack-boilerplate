@@ -10,6 +10,8 @@ const fontConfiguration = require('../font.configuration')
 const htmlWebpack = require('html-webpack-plugin')
 const cleanWebpack = require('clean-webpack-plugin')
 
+// Loaders
+const commonLoaders = require('../loaders/common')
 const developmenLoaders = require('../loaders/development') 
 
 module.exports = () => ({
@@ -42,8 +44,7 @@ module.exports = () => ({
   module: {
     rules: [
       ...developmenLoaders,
-      imageConfiguration,
-      fontConfiguration,
+      ...commonLoaders,
     ]
   },
 })
