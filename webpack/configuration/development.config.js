@@ -35,5 +35,5 @@ const developmentConfig = () => ({
   },
 })
 
-
+// Merging Common and Development configurations
 module.exports = Object.assign(commonConfig() , developmentConfig())

@@ -1,4 +1,5 @@
 const path = require('path')
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 // Loaders
 const commonLoaders = require('../loaders/common')
@@ -6,6 +7,7 @@ const productionLoaders = require('../loaders/production')
 
 // Plugins
 const commonPlugins = require('../plugins/common')
+const productionPlugins = require('../plugins/production')
 
 // Webpacks's Configurations
 const commonConfig = require('./common.config')
@@ -17,8 +19,10 @@ const productionConfig = () => ({
     path: path.resolve(__dirname, '../../dist'),
     publicPath: '/'
   },
+  
   plugins: [
     ...commonPlugins,
+    ...productionPlugins,
   ],
   module: {
     rules: [
@@ -28,4 +32,5 @@ const productionConfig = () => ({
   },
 })
 
+// Merging Common and Production configurations
 module.exports = Object.assign(commonConfig() , productionConfig())

@@ -3,10 +3,6 @@ if(module && module.hot) {
     module.hot.accept()
 }
 
-const elem = document.createElement('div')
-elem.innerHTML = "Starting Webpack!!!"
-document.body.appendChild(elem)
-
 // CSS support
 import '../src/boilterplate-features/css'
 
@@ -25,3 +21,7 @@ treeShakingExample()
 
 // import { deadCodeFunction, } from '../src/boilterplate-features/utils/tree-shaking.example'
 // deadCodeFunction()
+
+const elem = document.createElement('div')
+elem.innerHTML = "Starting Webpack!!!"
+document.body.appendChild(elem)

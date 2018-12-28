@@ -1,7 +1,7 @@
-const HmrPlugin = require('./hot-module-replacment.plugin')
+const webpack = require('webpack')
 
 const developmentPlugins = [
-	HmrPlugin()
+	new webpack.HotModuleReplacementPlugin()
 ]
 
 module.exports = developmentPlugins
