@@ -10,6 +10,10 @@ const fontConfiguration = require('../font.configuration')
 const htmlWebpack = require('html-webpack-plugin')
 const cleanWebpack = require('clean-webpack-plugin')
 
+// Loaders
+// const commonLoaders = require('../loaders/common')
+const productionLoaders = require('../loaders/production')
+
 module.exports = {
   mode: 'production',
   // devtool: 'eval-source-map',
@@ -35,7 +39,7 @@ module.exports = {
   ],
   module: {
     rules: [
-      cssConfiguration,
+      ...productionLoaders,
       imageConfiguration,
       fontConfiguration,
     ]
