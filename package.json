@@ -3,22 +3,15 @@
   "version": "4.1.0",
   "description": "Webpack Boilerplate",
   "private": true,
-  "configuration": {
-    "css_modules": false,
-    "sass": false,
-    "scss": true,
-    "stylus": false,
-    "postcss": false
-  },
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack/webpack.dev.config.js",
-    "prod": "webpack --config ./webpack/webpack.prod.config.js",
+    "dev": "webpack-dev-server --config ./webpack/configuration/development.config.js",
+    "prod": "webpack --config ./webpack/configuration/production.config.js",
     "server": "yarn prod && serve --no-clipboard --single --listen 8080 dist",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "e2e:dev-webpack": "start-server-and-test dev http-get://localhost:8080 cy:open",
+    "e2e:dev-webpack": "start-server-and-test dev http-get://localhost:8080 cy:run",
     "e2e:dev": "start-server-and-test  server :8080 cy:open",
-    "e2e:prod": "start-server-and-test  server :8080 cy:run"
+    "e2e:prod": "start-server-and-test  server :8080 cy:run",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "author": "Mario Brusarosco",
   "license": "ISC",

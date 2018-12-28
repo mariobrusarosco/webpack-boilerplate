@@ -1,5 +1,3 @@
-const { css_modules, postcss } = require('../package.json').configuration
-
 module.exports = {
   test: /\.css$/,
   use: [
