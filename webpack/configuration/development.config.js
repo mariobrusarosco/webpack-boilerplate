@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require('webpack')
 
 // Loaders
 const commonLoaders = require('../loaders/common')
@@ -9,15 +8,12 @@ const developmenLoaders = require('../loaders/development')
 const commonPlugins = require('../plugins/common')
 const developmentPlugins = require('../plugins/development')
 
-module.exports = () => ({
+// Webpacks's Configurations
+const commonConfig = require('./common.config')
+
+const developmentConfig = () => ({
   mode: 'development',
   devtool: 'eval-source-map',
-  // entry: './src/index.js',
-  // In case of multiple entry points
-  entry: {
-    'main': './src/index.js',
-    'second': './src/index-second.js',
-  },
   output: {
     filename: '[name].development.bundle.js',
     path: path.resolve(__dirname, '../dist'),
@@ -38,3 +34,6 @@ module.exports = () => ({
     ]
   },
 })
+
+
+module.exports = Object.assign(commonConfig() , developmentConfig())
