@@ -16,6 +16,7 @@ const productionConfig = () => ({
   // devtool: 'eval-source-map',
   output: {
     filename: '[name].[hash].bundle.js',
+    chunkFilename: '[name].[hash].chunk.js',
     path: path.resolve(__dirname, '../../dist'),
     publicPath: '/'
   },

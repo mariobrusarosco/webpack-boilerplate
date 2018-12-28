@@ -4,6 +4,8 @@ node_js:
 cache:
   directories:
     - "node_modules"
+    - "/home/travis/.cache/Cypress"
+    
 script: 
   - yarn e2e:prod
   - yarn e2e:dev-webpack
