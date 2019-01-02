@@ -1,4 +1,9 @@
 const commonLoaders = [
+	{
+		test: /\.js$/,
+		exclude: /node_modules/,
+		use: 'babel-loader'
+	},
   {
     test: /\.(ttf|woff|woff2|oet|otf)$/,
     use: [

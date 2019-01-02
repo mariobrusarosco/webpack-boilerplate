@@ -23,6 +23,9 @@ treeShakingExample()
 
 /* Importing lodash in this entry point to check
 *  if Static Code Splitting optimization is working!!!
-*/  
+*/
 import _ from 'lodash'
 console.log(_.join(['main', 'entry', 'point, made with lodash!!!!!!']))
+
+// React support
+import '../src/boilterplate-features/react'
