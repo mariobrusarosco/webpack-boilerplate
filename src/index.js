@@ -21,11 +21,15 @@ import '../src/boilterplate-features/hmr'
 import { treeShakingExample } from '../src/boilterplate-features/utils/tree-shaking.example'
 treeShakingExample()
 
+// React support
+import '../src/boilterplate-features/react'
+
+// Code Splitting
+
 /* Importing lodash in this entry point to check
 *  if Static Code Splitting optimization is working!!!
 */
 import _ from 'lodash'
 console.log(_.join(['main', 'entry', 'point, made with lodash!!!!!!']))
 
-// React support
-import '../src/boilterplate-features/react'
+import '../src/boilterplate-features/code-splitting'

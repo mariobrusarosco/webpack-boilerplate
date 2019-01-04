@@ -11,8 +11,9 @@ document.body.appendChild(container)
 class App extends Component {
 	render() {
 		return (
-			<div>
-				React
+			<div className="box">
+        <h2>React Support</h2>
+				<p>Made with React</p>
 			</div>
 		)
 	}

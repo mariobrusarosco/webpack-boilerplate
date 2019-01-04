@@ -1,8 +1,14 @@
 module.exports = () => ({
-	// entry: './src/index.js',
+	// entry: [
+	// '@babel/polyfill',
+	// './src/index.js'
+	// ],
 	// In case of multiple entry points
 	entry: {
-		'main': './src/index.js',
-		'second': './src/index-second.js',
+		'main': [
+			'@babel/polyfill',
+			'./src/index.js'
+		],
+		'second': './src/index-second.js'
 	}
 })

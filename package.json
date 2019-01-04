@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/mariobrusarosco/webpack-boilerplate#readme",
   "dependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.1",
     "express": "^4.16.4",
