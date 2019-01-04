@@ -4,7 +4,6 @@
   "description": "Webpack Boilerplate",
   "private": true,
   "scripts": {
-    "start": "yarn && yarn prod",
     "dev": "webpack-dev-server --config ./webpack/configuration/development.config.js",
     "prod": "webpack --config ./webpack/configuration/production.config.js",
     "server": "yarn prod && serve --no-clipboard --single --listen 8080 dist",

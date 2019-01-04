@@ -1,1 +1,1 @@
-web: yarn install && yarn prod
+web: yarn prod
