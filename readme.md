@@ -2,7 +2,10 @@
 
 ## Features
 
-* Babel
-* React Support
+* Pure CSS
+* Fonts (hosted by you, not by Google Fonts)
 * Hot Module Replacement
 * Tree Shaking
+* Babel
+* React Support
+<!-- * React Support -->
