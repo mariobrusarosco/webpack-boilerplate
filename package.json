@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack/configuration/development.config.js",
-    "prod": "webpack --config ./webpack/configuration/production.config.js",
+    "prod": "webpack --config ./webpack/configuration/production.config.js && node server/index.js",
     "server": "yarn prod && serve --no-clipboard --single --listen 8080 dist",
     "e2e:dev-webpack": "start-server-and-test dev http-get://localhost:8080 cy:run",
     "e2e:dev": "start-server-and-test  server :8080 cy:open",

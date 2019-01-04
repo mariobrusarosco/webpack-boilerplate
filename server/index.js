@@ -1,14 +1,12 @@
 const express = require('express')
-const webpack = require('webpack')
-const webpackDevMiddleware = require('webpack-dev-middleware')
-const PORT = 8080
-
+const PORT = process.env.PORT || 8080
 const app = express()
-// const config = require('../webpack/webpack.prod.config')
-// const compiler = webpack(config)
 
-app.use(express.static('../dist'))
+app.use(express.static('dist'))
 
+app.get('/test', (req, res) => res.send('ok'))
 app.listen(PORT,  () => {
-    console.log('server listening at 8080')
+	console.log(`server listening at ${PORT}`)
 })
+
+
