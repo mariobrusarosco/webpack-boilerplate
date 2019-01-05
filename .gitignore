@@ -4,6 +4,7 @@ build
 
 .env
 yarn-error.log
+npm-debug.log
 
 .vscode
 
