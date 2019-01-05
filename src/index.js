@@ -32,4 +32,4 @@ import '../src/boilterplate-features/react'
 import _ from 'lodash'
 console.log(_.join(['main', 'entry', 'point, made with lodash!!!!!!']))
 
-import '../src/boilterplate-features/code-splitting'
+import '../src/boilterplate-features/dynamic-code-splitting'

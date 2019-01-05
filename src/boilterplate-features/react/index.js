@@ -9,7 +9,7 @@ const container = document.createElement('div')
 document.body.appendChild(container)
 
 class App extends Component {
-	render() {
+	render () {
 		return (
 			<div className="box">
         <h2>React Support</h2>
