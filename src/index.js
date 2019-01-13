@@ -6,23 +6,23 @@ if(module && module.hot) {
 document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${process.env.NODE_ENV}`)
 
 // CSS support
-import '../src/boilterplate-features/css'
+import 'css'
 
 // Image support
-import '../src/boilterplate-features/images'
+import 'images'
 
 // Font support
-import '../src/boilterplate-features/fonts'
+import 'fonts'
 
 // Hot Module Replacement support
-import '../src/boilterplate-features/hmr'
+import 'hmr'
 
 //  Tree Shaking support
-import { treeShakingExample } from '../src/boilterplate-features/utils/tree-shaking.example'
+import { treeShakingExample } from 'utils/tree-shaking.example'
 treeShakingExample()
 
 // React support
-import '../src/boilterplate-features/react'
+import 'react-feature'
 
 // Code Splitting
 
@@ -32,4 +32,7 @@ import '../src/boilterplate-features/react'
 import _ from 'lodash'
 console.log(_.join(['main', 'entry', 'point, made with lodash!!!!!!']))
 
-import '../src/boilterplate-features/dynamic-code-splitting'
+import 'boilerplate-features/dynamic-code-splitting'
+
+// Resolving absolute paths
+import 'boilerplate-features/resolving-paths'

@@ -4,7 +4,7 @@ const CleanWebpack = require('clean-webpack-plugin')
 
 const commonPlugins = [
   new HtmlWebpack({
-		template: "./src/index.html"
+		template: path.resolve('src','index.html')
   }),
   new CleanWebpack(['dist'], {
 		root: process.cwd()
