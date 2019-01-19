@@ -3,7 +3,7 @@ if(module && module.hot) {
     module.hot.accept()
 }
 
-document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${process.env.NODE_ENV}`)
+document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${process.env.NODE_ENV}!!!`)
 
 // CSS support
 import 'css'

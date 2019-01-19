@@ -3,10 +3,11 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 const productionPlugins = [
   new MiniCssExtractPlugin({
-    filename: "[name]-[hash].css",
-    chunkFilename: "[id].css"
+    filename: "[name]-[contenthash].css",
+    chunkFilename: "[id]-[contenthash].css"
   }),
-  new OptimizeCSSAssetsPlugin({})
+  new OptimizeCSSAssetsPlugin({}),
+	// new webpack.HashedModuleIdsPlugin() // Apparently, webpack is not requiring this plugin anymore. It may be doing the job without it!
 ]
 
 module.exports = productionPlugins
