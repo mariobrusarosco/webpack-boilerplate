@@ -1,9 +1,12 @@
 // Enables Hot Module Replacement
-if(module && module.hot) {
-    module.hot.accept()
+if (module && module.hot) {
+  module.hot.accept()
 }
 
-document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${process.env.NODE_ENV}!!!`)
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `Starting Webpack: ${process.env.NODE_ENV}!!!`
+)
 
 // CSS support
 import 'css'
@@ -27,8 +30,8 @@ import 'react-feature'
 // Code Splitting
 
 /* Importing lodash in this entry point to check
-*  if Static Code Splitting optimization is working!!!
-*/
+ *  if Static Code Splitting optimization is working!!!
+ */
 import _ from 'lodash'
 console.log(_.join(['main', 'entry', 'point, made with lodash!!!!!!']))
 

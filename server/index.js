@@ -4,8 +4,6 @@ const app = express()
 
 app.use(express.static('dist'))
 
-app.listen(PORT,  () => {
-	console.log(`server listening at ${PORT}`)
+app.listen(PORT, () => {
+  console.log(`server listening at ${PORT}`)
 })
-
-

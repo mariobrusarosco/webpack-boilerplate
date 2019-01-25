@@ -1,5 +1,5 @@
 const path = require('path')
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 // Loaders
 const commonLoaders = require('../loaders/common')
@@ -21,29 +21,23 @@ const productionConfig = () => ({
     publicPath: '/'
   },
   optimization: {
-		// runtimeChunk: 'single', // @TODO Check the purpose of these option
+    // runtimeChunk: 'single', // @TODO Check the purpose of these option
     splitChunks: {
-			cacheGroups: {
-				vendor: {
+      cacheGroups: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all'
-				}
-			},
-			// chunks: 'all'
+        }
+      }
+      // chunks: 'all'
     }
   },
-  plugins: [
-    ...commonPlugins,
-    ...productionPlugins,
-  ],
+  plugins: [...commonPlugins, ...productionPlugins],
   module: {
-    rules: [
-      ...commonLoaders,
-      ...productionLoaders,
-    ]
-  },
+    rules: [...commonLoaders, ...productionLoaders]
+  }
 })
 
 // Merging Common and Production configurations
-module.exports = Object.assign(commonConfig() , productionConfig())
+module.exports = Object.assign(commonConfig(), productionConfig())
