@@ -1,8 +1,10 @@
+const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const productionLoaders = [
   {
     test: /\.css$/,
+    include: path.resolve('src'),
     use: [
       MiniCssExtractPlugin.loader,
       {

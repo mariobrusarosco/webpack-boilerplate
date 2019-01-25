@@ -1,6 +1,9 @@
+const path = require('path')
+
 const developmentLoaders = [
   {
     test: /\.css$/,
+    include: path.resolve('src'),
     use: [
       'style-loader',
       {
