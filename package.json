@@ -18,7 +18,7 @@
 		"cy:run": "cypress run",
     "cy:open": "cypress open",
 
-    "server": "yarn prod && serve --listen 8080 dist"
+    "server": "yarn build:front && node server/index.js"
   },
   "author": "Mario Brusarosco",
   "license": "ISC",
