@@ -8,7 +8,7 @@
 		"lint": "eslint src",
 
 		"dev:front": "yarn && yarn format && webpack-dev-server --config ./webpack/configuration/development.config.js",
-		"build:front": "yarn && yarn format && webpack --config ./webpack/configuration/production.config.js",
+		"build:front": "yarn format && webpack --config ./webpack/configuration/production.config.js",
 
 		"serve:front": "yarn build:front && node server/serve-front-end.js",
 
@@ -18,7 +18,8 @@
 		"cy:run": "cypress run",
     "cy:open": "cypress open",
 
-    "server": "yarn build:front && node server/index.js"
+		"postinstall": "yarn build:front",
+		"start": "node server/index.js"
   },
   "author": "Mario Brusarosco",
   "license": "ISC",
