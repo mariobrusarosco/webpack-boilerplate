@@ -5,7 +5,7 @@ if (module && module.hot) {
 
 document.body.insertAdjacentHTML(
   'afterbegin',
-  `Starting Webpack: ${process.env.NODE_ENV}!!!`
+  `Starting Webpack: ${process.env.NODE_ENV}..............`
 )
 
 // CSS support
@@ -39,3 +39,6 @@ import 'boilerplate-features/dynamic-code-splitting'
 
 // Resolving absolute paths
 import 'boilerplate-features/resolving-paths'
+
+// Babel Support
+import 'boilerplate-features/babel'
