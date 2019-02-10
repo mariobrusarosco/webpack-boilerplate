@@ -10,5 +10,6 @@ app.use(assetsCompression('dist', {
 app.use(express.static('dist'))
 
 app.listen(PORT, '0.0.0.0', () => {
+	console.log(`Boilerplate: ${process.env.TEST_ENV_VAR}`)
   console.log(`server listening at ${PORT}`)
 })
