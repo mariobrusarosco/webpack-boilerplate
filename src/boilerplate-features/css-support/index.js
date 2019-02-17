@@ -8,5 +8,3 @@ const markup = `
   </div>
 `
 generateBox('css-support', markup)
-
-export const test = 'aaaaaaaaaa'

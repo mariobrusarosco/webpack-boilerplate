@@ -13,7 +13,7 @@ class App extends Component {
 		return (
 			<div className="box">
         <h2>React Support</h2>
-				<p>Made with React</p>
+				<p>Made with React via Class Component</p>
 			</div>
 		)
 	}
