@@ -17,6 +17,23 @@ jobs:
       - run:
           name: Running E2E tests
           command: yarn e2e:prod
+  deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
       - run:
-          name: Deploy to Heroku (Development Branch)
-          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git feature/circleci-deploy
+        name: Deploy to Heroku (Development Branch)
+        command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git feature/circleci-deploy
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: feature/circleci-deploy
