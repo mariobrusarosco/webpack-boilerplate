@@ -6,7 +6,9 @@
   "rules": {
     "comma-dangle": 2
 	},
+	"parser": "babel-eslint",
 	"parserOptions": {
-		"sourceType": "module"
+		"sourceType": "module",
+    "allowImportExportEverywhere": false
 	}
 }

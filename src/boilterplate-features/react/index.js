@@ -19,7 +19,7 @@ class App extends Component {
 	}
 }
 
-render(<App />, document.querySelector('#app'))
+render(<App />, document.querySelector('.app'))
 
 
 
