@@ -1,13 +1,21 @@
 version: 2
 jobs:
-  deploy-development:
-    - run:
-        name: Deploy Development branch to Heroku
-        command: git push f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master:development
-  deploy-master:
-    - run:
-        name: Deploy Development branch to Heroku
+#   deploy-development:
+#     - run:
+#         name: Deploy Development branch to Heroku
+#         command: git push f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master:development
+#   deploy-master:
+#     - run:
+#         name: Deploy Development branch to Heroku
         command: git push f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+  deploy-prod:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy master to Heroku
+          command: git push f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
   build:
     docker:
       # - image: circleci/node:10
@@ -42,13 +50,13 @@ workflows:
   build-deploy:
     jobs:
       - build
-      - test_dev:
+      - deploy-dev:
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
                 - development
                 - /(feature|hotfix)\/.*/
-      - test_prod:
+      - deploy-prod:
           filters:  # using regex filters requires the entire branch to match
             branches:
               only:  # only branches matching the below regex filters will run
