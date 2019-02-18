@@ -43,16 +43,16 @@ workflows:
     jobs:
       - build
       - test_dev:
-        filters:  # using regex filters requires the entire branch to match
-          branches:
-            only:  # only branches matching the below regex filters will run
-              - development
-              - /(feature|hotfix)\/.*/
-    - test_prod:
-        filters:  # using regex filters requires the entire branch to match
-          branches:
-            only:  # only branches matching the below regex filters will run
-              - master
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - development
+                - /(feature|hotfix)\/.*/
+      - test_prod:
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - master
 #       - build
 #       - deploy:
 #           requires:
