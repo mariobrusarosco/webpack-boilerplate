@@ -8,4 +8,4 @@
 * Tree Shaking
 * Babel
 * React Support
-<!-- * React Support -->
+* Code Splitting usign 'import()'

@@ -1,5 +1,5 @@
-import '../css/css-support.css'
-import Heisenberg from '../images/breaking-bad.jpg'
+import '../css-support/css-support.css'
+import Heisenberg from 'assets/images/breaking-bad.jpg'
 import { generateBox } from '../utils'
 
 const markup = `

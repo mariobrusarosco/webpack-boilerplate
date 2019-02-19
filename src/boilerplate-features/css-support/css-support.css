@@ -2,12 +2,12 @@
 .css-support {
 }
 
-.text-styled { 
-  color: blue; 
+.text-styled {
+  color: blue;
 }
 /*  Duplicated on purpose to test CSS's Duplicated rules 'removal' */
-.text-styled { 
-  color: blue; 
+.text-styled {
+  color: blue;
 }
 
 .box h2 {
@@ -28,7 +28,7 @@
   width: 100%;
   height: 163px;
   max-width: 290px;
-  background-image: url('../images/breaking-bad.jpg');
-  background-repeat: no-repeat; 
+  background-image: url('../../assets/images/breaking-bad.jpg');
+  background-repeat: no-repeat;
   background-size: contain;
 }
