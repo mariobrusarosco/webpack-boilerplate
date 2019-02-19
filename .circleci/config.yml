@@ -33,7 +33,8 @@ jobs:
       - checkout
       - run:
           name: Deploy 'development' to Heroku
-          command: git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_DEV_WEBPACK_BOILERPLATE.git development:master
+          command: | 
+            git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_DEV_WEBPACK_BOILERPLATE.git feature/circleci-deploy:master
 
 workflows:
   version: 2
