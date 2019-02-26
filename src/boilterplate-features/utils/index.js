@@ -1,17 +1,19 @@
 const generateBox = (boxName, markup) => {
-	const boxContent = document.querySelector(`.${boxName}`)
+  
+    let boxContent = document.querySelector(`.${boxName}`) 
 
-	if(!!boxContent) {
-		boxContent.innerHTML = markup
-		return
-	}
+    if(boxContent) {
+      boxContent.insertAdjacentHTML('beforeend', markup)
+      return Promise.resolve() 
+    }
+    
+    
+    boxContent = document.createElement('div')
+    boxContent.classList.add(boxName)
+    boxContent.innerHTML = markup
 
-	const newboxContent = document.createElement('div')
-		newboxContent.classList.add(boxName)
-		newboxContent.innerHTML = markup
-
-		document.body.append(newboxContent)
-		return
+    document.body.append(boxContent)
+    return Promise.resolve() 
 }
 
 export {
