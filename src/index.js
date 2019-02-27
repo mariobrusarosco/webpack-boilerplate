@@ -36,3 +36,6 @@ import 'code-splitting-support'
 
 // Resolving some absolute paths
 import 'resolving-paths-support'
+
+// Babel and ES new features
+import 'babel-support'
