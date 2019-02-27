@@ -1,27 +1,45 @@
-import { generateBox } from '../utils'
+const insertText = text => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const wrapper = document.querySelector('.async-await-wrapper')
+
+       const p = document.createElement('p')
+         p.textContent = text
+
+       wrapper.appendChild(p)
+
+       resolve()
+    }, 500)
+  })
+}
+
+const asyncAwaitFlow = async () => {
+  await insertText(`I'm the one who knocks`)
+  console.log('waiting...')
+
+  await insertText(`I'm the danger`)
+  console.log('waiting...')
+
+  await insertText(`Yeah Mr. White!`)
+  console.log('waiting...')
+
+  await insertText(`Say my name!`)
+  console.log('Done!')
+}
+
+const attachAsyncAwait = async () => {
+  const btn = document.querySelector('.async-await-btn')
+
+  btn.addEventListener('click', asyncAwaitFlow)
+}
 
 const markup = `
-  <div class='box'>
-    <h3>Async Await</h3>
-		<button type='button' class='async-await-btn'>Start an Async / Await flow</button>
-	</div>
+  <h3>Async Await</h3>
+  <button class='async-await-btn'>Start</button>
+  <div class='async-await-wrapper'></div>
 `
 
-// const insertText = (text, DOMElement) => {
-//   const wrapper = document.querySelector('.async-await-support')
-//     wrapper.classList.add('wrapper')
-
-
-//   const p = documen.createElement('p')
-//     p.textContent = text
-
-//   DOMElement.appendChild(p)
-// }
-
-// insertText(`Science Bitch!`, markup)
-// insertText(`I'm the one who knocks!`, markup)
-// insertText(`Yes Mr. White!`, markup)
-// insertText(`Your're god damn right!`, markup)
-
-
-generateBox('async-await-support', markup)
+export {
+  markup,
+  attachAsyncAwait
+}
