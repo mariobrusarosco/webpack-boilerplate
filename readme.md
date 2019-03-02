@@ -10,3 +10,4 @@
 * Babel
 * React Support
 * Code Splitting usign 'import()'
+* Generate assets as 'gzip' and 'brotli' files (.gz & .br)
