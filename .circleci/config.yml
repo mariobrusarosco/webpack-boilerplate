@@ -42,14 +42,14 @@ workflows:
   build-deploy:
     jobs:
       - build
-      # - deploy-dev:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - development
-      #           - /(feature|hotfix)\/.*/
+      - deploy-dev:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - development
+                - /(feature|hotfix)\/.*/
       - deploy-prod:
           requires:
             - build
