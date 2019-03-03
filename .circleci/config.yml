@@ -55,8 +55,7 @@ workflows:
           requires:
             - build
           filters:
-            # branches:
-            #   only:
-            #     - master
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
