@@ -1,5 +1,8 @@
 # Webpack Boilterplate
 
+## Build
+[![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
+
 ## Features
 
 * Pure CSS
