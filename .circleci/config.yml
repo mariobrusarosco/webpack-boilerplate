@@ -15,8 +15,13 @@ jobs:
       - run:
           name: Running E2E tests
           command: |
+<<<<<<< HEAD
             yarn e2e:dev-webpack
             yarn e2e:prod
+=======
+            yarn e2e-dev-webpack
+            yarn e2e-prod
+>>>>>>> feature/scripts-structure
 
   deploy-prod:
     docker:
@@ -55,8 +60,7 @@ workflows:
           requires:
             - build
           filters:
-            # branches:
-            #   ignore:
-            #     - /.*/
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
