@@ -1,7 +1,7 @@
 # Webpack Boilterplate
 
-## Build
-[![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
+## CI
+* Circle CI: [![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
 
 ## Features
 
@@ -14,3 +14,4 @@
 * React Support
 * Code Splitting usign 'import()'
 * Generate assets as 'gzip' and 'brotli' files (.gz & .br)
+* Environment Variables via '.env' files

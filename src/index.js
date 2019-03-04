@@ -1,9 +1,12 @@
 // Enables Hot Module Replacement
 if(module && module.hot) {
-    module.hot.accept()
+  module.hot.accept()
 }
 
 document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${process.env.NODE_ENV}`)
+
+// Global Custom Variables
+import 'global-information'
 
 // CSS support
 import 'css-support'

@@ -5,8 +5,8 @@ const chainingResult = `${obj?.instanceInfo?.firstname} ${obj?.instanceInfo?.sur
 
 const markup = `
   <h3>Optional Chaining Operatpr</h3>
-  <p data-test='optional-chaining-operator-success'>Druglord: ${chainingResult}</p>
-  <p data-test='optional-chaining-operator-success-fallback'>${obj?.instanceInfo?.jesse ? 'this part should be unreachable' : 'no undefined errors here'}</p>
+  <p data-info='optional-chaining-operator-success'>Druglord: ${chainingResult}</p>
+  <p data-info='optional-chaining-operator-success-fallback'>${obj?.instanceInfo?.jesse ? 'this part should be unreachable' : 'no undefined errors here'}</p>
 `
 
 export default markup
