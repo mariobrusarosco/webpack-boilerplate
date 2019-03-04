@@ -1,21 +1,29 @@
 {
   "name": "webpack-boilerplate",
-  "version": "4.1.8",
+  "version": "4.1.12",
   "description": "Webpack Boilerplate",
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack/configuration/development.config.js",
-    "prod": "webpack --config ./webpack/configuration/production.config.js",
-    "server": "yarn prod && node server/index.js",
-    "e2e:dev-webpack": "start-server-and-test dev http-get://localhost:8080 cy:run",
-    "e2e:dev": "start-server-and-test front-end-server-for-tests :8080 cy:open",
-    "e2e:prod": "start-server-and-test front-end-server-for-tests :8080 cy:run",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "front-end-server-for-tests": "yarn prod && node server/front-end-server-for-tests.js",
-    "lint": "eslint",
-    "dev:back": "nodemon -r dotenv/config server/index.js"
-  },
+
+    "dev-front": "webpack-dev-server --config ./webpack/configuration/development.config.js",
+    "prod-front": "webpack --config ./webpack/configuration/production.config.js",
+    "serve-front-end": "yarn prod-front && node server/serve-front-end.js",
+
+    "dev-back": "nodemon -r dotenv/config server/index.js",
+    "prod-back": "",
+
+    "server": "yarn prod-front && node server/index.js",
+
+    "e2e-dev-webpack": "start-server-and-test serve-front-end http-get://localhost:8080 cy-run",
+    "e2e-dev": "start-server-and-test serve-front-end :8080 cy-open",
+    "e2e-prod": "start-server-and-test serve-front-end :8080 cy-run",
+    "cy-run": "cypress run",
+    "cy-open": "cypress open",
+
+    "lint": "eslint src",
+    "format": ""
+
+    },
   "author": "Mario Brusarosco",
   "license": "ISC",
   "repository": {
