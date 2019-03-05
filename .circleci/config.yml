@@ -42,25 +42,15 @@ workflows:
 
   build-deploy:
     jobs:
-      - build
-          filters:
-            branches:
-              ignore: /.*/
+      - build:
+          filters:  # required since `deploy` has tag filters AND requires `build`
             tags:
-              only: /^v.*/
-      # - deploy-dev:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - development
-      #           - /(feature|hotfix)\/.*/
-      - deploy-prod:
+              only: /.*/
+      - deploy:
           requires:
             - build
           filters:
-            branches:
-              ignore: /.*/
             tags:
               only: /^v.*/
+            branches:
+              ignore: /.*/
