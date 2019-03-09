@@ -1,7 +1,9 @@
 # Webpack Boilterplate
 
 ## Build
-[![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
+* Circle CI [![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
+
+* Travis CI [![Build Status](https://travis-ci.org/mariobrusarosco/webpack-boilerplate.svg?branch=master)](https://travis-ci.org/mariobrusarosco/webpack-boilerplate)
 
 ## Features
 
@@ -14,3 +16,4 @@
 * React Support
 * Code Splitting usign 'import()'
 * Generate assets as 'gzip' and 'brotli' files (.gz & .br)
+* Prettier Support - Ran after every commit
