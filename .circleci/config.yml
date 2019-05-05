@@ -56,6 +56,9 @@ workflows:
             - build
           filters:
             branches:
-              ignore: /.*/
+              only:
+                - feature/master-deploy
+                - master
             tags:
-              only: /^v.*/
+              only:
+                - /^v.*/
