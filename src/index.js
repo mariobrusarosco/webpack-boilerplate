@@ -3,6 +3,8 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
+console.log('bundle process.env.NODE_ENV', process.env.APP)
+
 document.body.insertAdjacentHTML(
   'afterbegin',
   `Starting Webpack: ${process.env.NODE_ENV}`

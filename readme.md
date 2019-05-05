@@ -17,3 +17,4 @@
 * Code Splitting usign 'import()'
 * Generate assets as 'gzip' and 'brotli' files (.gz & .br)
 * Prettier Support - Ran after every commit
+* A configuration file that puts all its content into 'env.process'
