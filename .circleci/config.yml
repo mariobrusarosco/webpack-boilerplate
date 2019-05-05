@@ -15,7 +15,7 @@ jobs:
           command: yarn
       - run:
           name: Running E2E tests
-          command: yarn e2e:prod
+          command: yarn e2e-prod
 
   deploy-prod:
     docker:
