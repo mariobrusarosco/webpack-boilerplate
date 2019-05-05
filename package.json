@@ -1,10 +1,10 @@
 {
   "name": "webpack-boilerplate",
-  "version": "4.1.15",
+  "version": "4.2.0",
   "description": "Webpack Boilerplate",
   "private": true,
   "scripts": {
-    "dev-front": "webpack-dev-server --config ./webpack/configuration/development.config.js",
+    "dev-front": "webpack-dev-server -r dotenv/config --config ./webpack/configuration/development.config.js",
     "prod-front": "webpack --config ./webpack/configuration/production.config.js",
     "serve-front-end": "yarn prod-front && node server/serve-front-end.js",
     "dev-back": "nodemon -r dotenv/config server/index.js",
