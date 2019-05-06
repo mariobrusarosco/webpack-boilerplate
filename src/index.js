@@ -5,7 +5,7 @@ if (module && module.hot) {
 
 document.body.insertAdjacentHTML(
   'afterbegin',
-  `Starting Webpack: ${process.env.NODE_ENV}..............`
+  `Starting Webpack: Forcing!!!! ${process.env.NODE_ENV}..............`
 )
 
 // CSS support
