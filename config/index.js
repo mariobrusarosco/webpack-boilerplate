@@ -13,7 +13,7 @@ const appConfig = () => {
   )
   console.log(
     'process.env.NODE_ENV--------------------------------',
-    process.env.APP_ENVIRONMENT
+    process.env.NODE_ENV
   )
   return {
     ...options[process.env.APP_ENVIRONMENT],

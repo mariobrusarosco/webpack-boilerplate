@@ -3,7 +3,7 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
-console.log('bundle process.env.NODE_ENV', process.env.APP_ENVIRONMENT)
+console.log('bundle process.env.APP', APP)
 
 document.body.insertAdjacentHTML(
   'afterbegin',
