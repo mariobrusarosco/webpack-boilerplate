@@ -63,4 +63,5 @@ workflows:
             #   only:
             #     - master
             tags:
-              only: /^v.*/
+              only:
+                - /^v.*/
