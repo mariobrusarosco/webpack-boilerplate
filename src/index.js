@@ -3,11 +3,11 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
-console.log('bundle process.env.NODE_ENV', process.env.APP)
+console.log('APP Info', process.env.APP)
 
 document.body.insertAdjacentHTML(
   'afterbegin',
-  `Starting Webpack: ${process.env.NODE_ENV} -- Deployed via tag`
+  `Starting Webpack: ${process.env.APP.version} -- Deployed via tag`
 )
 
 // CSS support
