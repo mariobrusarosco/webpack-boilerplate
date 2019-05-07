@@ -7,7 +7,7 @@ console.log('bundle process.env.NODE_ENV', process.env.APP)
 
 document.body.insertAdjacentHTML(
   'afterbegin',
-  `Starting Webpack: ${process.env.NODE_ENV} with CD`
+  `Starting Webpack: ${process.env.NODE_ENV} with CD default checkout`
 )
 
 // CSS support

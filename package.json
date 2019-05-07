@@ -19,13 +19,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn e2e-prod"
+
     }
   },
   "lint-staged": {
     "linters": {
-      "*.{js,css}": [
+      "*.{js,css,yml}": [
         "prettier --write",
         "git add"
       ]
