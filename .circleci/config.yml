@@ -46,10 +46,15 @@ workflows:
               only:
                 - master
                 - development
-                - /(feature|hotfix)\/.*/
+
       - deploy-dev:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - development
+
       - deploy-prod:
           requires:
             - build
