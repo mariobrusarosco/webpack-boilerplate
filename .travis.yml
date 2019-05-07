@@ -8,7 +8,6 @@ cache:
 
 script:
   - yarn e2e-prod
-  - yarn e2e-dev-webpack
 
 # safelist
 branches:
