@@ -7,7 +7,14 @@ const options = {
 }
 
 const appConfig = () => {
-  console.log('appConfig--------------------------------', process.env.APP_ENVIRONMENT)
+  console.log(
+    'process.env.APP_ENVIRONMENT--------------------------------',
+    process.env.APP_ENVIRONMENT
+  )
+  console.log(
+    'process.env.NODE_ENV--------------------------------',
+    process.env.APP_ENVIRONMENT
+  )
   return {
     ...options[process.env.APP_ENVIRONMENT],
     ...require('./common')
