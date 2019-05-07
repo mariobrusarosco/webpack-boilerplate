@@ -46,6 +46,8 @@ workflows:
               only:
                 - master
                 - development
+            tags:
+              only: /^v.*/
 
       - deploy-dev:
           requires:
