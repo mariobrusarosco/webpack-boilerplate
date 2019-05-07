@@ -7,7 +7,7 @@ console.log('bundle process.env.NODE_ENV', process.env.APP)
 
 document.body.insertAdjacentHTML(
   'afterbegin',
-  `Starting Webpack: ${process.env.NODE_ENV} Fixing Typo`
+  `Starting Webpack: ${process.env.NODE_ENV} -- Deployed via tag`
 )
 
 // CSS support
