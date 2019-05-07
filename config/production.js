@@ -1,5 +1,5 @@
 const productionConfiguration = {
-  AccessControlAllowOrigin: 'https://pro-code-notes.herokuapp.com/'
+  AccessControlAllowOrigin: 'prod-code-notes.herokuapp.com/'
 }
 
 module.exports = productionConfiguration

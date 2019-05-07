@@ -12,7 +12,7 @@
     "server": "yarn prod-front && node server/index.js",
     "e2e-dev-webpack": "start-server-and-test serve-front-end http-get://localhost:8080 cy-run",
     "e2e-dev": "start-server-and-test serve-front-end :8080 cy-open",
-    "e2e-prod": "start-server-and-test serve-front-end :8080 cy-run",
+    "e2e-prod": "start-server-and-test -r dotenv/config serve-front-end :8080 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
     "lint": "eslint src"
