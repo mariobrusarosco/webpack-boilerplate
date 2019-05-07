@@ -13,15 +13,9 @@ jobs:
       - run:
           name: Installation
           command: yarn
-<<<<<<< HEAD
-      # - run:
-      #     name: Running E2E tests
-          # command: yarn e2e-prod
-=======
       - run:
           name: Running E2E tests
           command: yarn e2e-prod
->>>>>>> master
 
   deploy-prod:
     docker:
