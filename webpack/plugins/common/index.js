@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpack = require('html-webpack-plugin')
 const CleanWebpack = require('clean-webpack-plugin')
+const WebpackPwaManifest = require('webpack-pwa-manifest')
 
 // Project's configuration
 const config = require('../../../config')
@@ -20,6 +21,20 @@ const commonPlugins = env => [
   }),
   new webpack.EnvironmentPlugin({
     APP: config()
+  }),
+  new WebpackPwaManifest({
+    name: 'Code Notes',
+    short_name: 'CodeNotes',
+    inject: true,
+    description: 'Code Notes!',
+    background_color: '#ff6347',
+    crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+    icons: [
+      {
+        src: path.resolve('src/assets/icon.png'),
+        sizes: [72, 96, 128, 144, 152, 192, 384, 512] // multiple sizes
+      },
+    ]
   })
 ]
 

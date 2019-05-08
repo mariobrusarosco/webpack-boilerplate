@@ -1,6 +1,6 @@
 {
   "name": "webpack-boilerplate",
-  "version": "4.4.3",
+  "version": "4.4.7",
   "description": "Webpack Boilerplate",
   "private": true,
   "scripts": {
@@ -18,9 +18,7 @@
     "lint": "eslint src"
   },
   "husky": {
-    "hooks": {
-
-    }
+    "hooks": {}
   },
   "lint-staged": {
     "linters": {
@@ -81,6 +79,7 @@
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-manifest-plugin": "^2.0.4"
   }
 }
