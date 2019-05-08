@@ -23,11 +23,13 @@ const commonPlugins = env => [
     APP: config()
   }),
   new WebpackPwaManifest({
-    name: 'Code Notes',
-    short_name: 'CodeNotes',
+    name: 'React Boilerplate',
+    start_url: 'index.html',
+    short_name: 'ReactBoilerplate',
     inject: true,
-    description: 'Code Notes!',
+    description: 'A Front End React Boilerplate!',
     background_color: '#ff6347',
+    theme_color: '#045a65',
     crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
     icons: [
       {
