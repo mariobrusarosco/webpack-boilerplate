@@ -3,15 +3,15 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
-console.log('APP Info', process.env.APP)
+console.log('APP Info', process.env.APP, process.env.NODE_ENV)
 
 document.body.insertAdjacentHTML(
   'afterbegin',
-  `Starting Webpack: ${process.env.APP.version} -- Deployed via tag`
+  `Starting Webpack: ${process.env.APP.VERSION}`
 )
 
 // CSS support
-import 'css-support'
+// import 'css-support'
 
 // Image support
 import 'images-support'
@@ -50,12 +50,15 @@ import { Provider } from 'react-redux'
 // Store
 import rootReducer from './redux/reducers'
 
-const StoreEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const StoreEnhancer = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
 
 const store = createStore(rootReducer, StoreEnhancer(applyMiddleware()))
 
 // Components
 import App from 'components/App'
+
+// App Style Global Features
+import './styles/app.scss'
 
 render(
   <Provider store={store}>

@@ -11,10 +11,14 @@ const commonLoaders = [
     ]
   },
   {
-    test: /\.(png|gif|jpe?g)$/,
-    use: [
-      'file-loader'
-    ]
+    test: /\.(png|gif|jpe?g|svg)$/,
+    use: [{
+      loader: 'url-loader',
+      options: {
+        limit: 15000, // Convert images < 8kb to base64 strings
+        name: 'images/[hash].[ext]'
+      }
+    }],
   },
 ]
 
