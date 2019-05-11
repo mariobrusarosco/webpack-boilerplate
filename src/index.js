@@ -11,7 +11,7 @@ document.body.insertAdjacentHTML(
 )
 
 // CSS support
-// import 'css-support'
+import 'css-support'
 
 // Image support
 import 'images-support'
@@ -50,7 +50,10 @@ import { Provider } from 'react-redux'
 // Store
 import rootReducer from './redux/reducers'
 
-const StoreEnhancer = process.env.NODE_ENV !== 'production' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+const StoreEnhancer =
+  process.env.NODE_ENV !== 'production'
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose
 
 const store = createStore(rootReducer, StoreEnhancer(applyMiddleware()))
 
