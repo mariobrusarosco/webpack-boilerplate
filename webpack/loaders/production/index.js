@@ -11,19 +11,13 @@ const productionLoaders = [
           // modules: true,
           // localIdentName: '[name]__[hash:base64:8]',
         }
-      },
-      {
+      }, {
         loader: "sass-loader",
         options: {
-            includePaths: ["./src/styles/variables.scss"]
+          data: "@import 'variables';",
+          includePaths: ["./src/styles"]
         }
       },
-      {
-        loader: 'sass-resources-loader',
-        options: {
-          resources: ['./src/styles/variables.scss']
-        },
-      }
     ]
   },
 ]
