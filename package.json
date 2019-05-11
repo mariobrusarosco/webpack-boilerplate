@@ -18,7 +18,10 @@
     "lint": "eslint src"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "commit": "lint-stage",
+      "push": "yarn prod"
+    }
   },
   "lint-staged": {
     "linters": {
