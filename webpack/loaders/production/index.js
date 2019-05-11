@@ -1,4 +1,4 @@
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const productionLoaders = [
   {
@@ -11,15 +11,19 @@ const productionLoaders = [
           // modules: true,
           // localIdentName: '[name]__[hash:base64:8]',
         }
-      }, {
-        loader: "sass-loader",
-        options: {
-          data: "@import 'variables';",
-          includePaths: ["./src/styles"]
-        }
       },
+      {
+        loader: 'sass-loader',
+        options: {
+          data: `
+            @import 'variables';
+            @import 'reset';
+          `,
+          includePaths: ['./src/styles']
+        }
+      }
     ]
-  },
+  }
 ]
 
 module.exports = productionLoaders
