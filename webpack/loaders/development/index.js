@@ -10,12 +10,15 @@ const developmentLoaders = [
           // localIdentName: '[name]__[hash:base64:8]',
         }
       },
-      "sass-loader",
       {
-        loader: 'sass-resources-loader',
+        loader: "sass-loader",
         options: {
-          resources: ['./src/styles/variables.scss']
-        },
+          data: `
+            @import 'variables';
+            @import 'reset';
+          `,
+          includePaths: ["./src/styles"]
+        }
       },
     ]
   },
