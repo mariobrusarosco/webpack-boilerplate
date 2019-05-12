@@ -44,7 +44,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
                 - development
             tags:
               only: /^v.*/
