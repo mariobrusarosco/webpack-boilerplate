@@ -1,7 +1,4 @@
 /* CSS Support */
-.css-support {
-}
-
 .text-styled {
   color: blue;
 }
@@ -30,4 +27,9 @@
   background-image: url('../../assets/images/breaking-bad.jpg');
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+.image-svg {
+  width: 100px;
+  height: 100px;
 }

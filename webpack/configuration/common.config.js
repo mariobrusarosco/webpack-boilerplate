@@ -12,7 +12,7 @@ const developmentConfig = () => ({
   },
   resolve: {
     // alias: {
-    //   "boilerplate-features": path.resolve('src','boilerplate-features')
+    //   "imagesPath": path.resolve('src','assets','images')
     // },
     modules: [
       path.resolve('node_modules'),
