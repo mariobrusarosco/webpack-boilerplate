@@ -46,6 +46,7 @@ import 'babel-support'
 import { render } from 'react-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
+import reduxThunk from 'redux-thunk'
 
 // Store
 import rootReducer from './redux/reducers'
@@ -55,7 +56,7 @@ const StoreEnhancer =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     : compose
 
-const store = createStore(rootReducer, StoreEnhancer(applyMiddleware()))
+const store = createStore(rootReducer, StoreEnhancer(applyMiddleware(reduxThunk)))
 
 // Components
 import App from 'components/App'

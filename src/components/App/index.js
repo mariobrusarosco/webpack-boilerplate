@@ -1,12 +1,12 @@
+// React Hot Loader
+import { hot } from 'react-hot-loader/root'
 // Components
-import AppRouter from "components/AppRouter"
+import AppRouter from 'components/AppRouter'
 
 class App extends Component {
   render() {
-    return (
-      <AppRouter />
-    )
+    return <AppRouter />
   }
 }
 
-export default App
+export default hot(App)
