@@ -11,6 +11,18 @@
 </head>
 <body>
 	<h1 class="template-heading">Webpack Boilerplate</h1>
-	<div class="app"></div>
+  <div class="app"></div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((registration) => console.log('Service Worker registered', registration))
+          .catch((err) => console.log('Service Worker could not be registered', err))
+      })
+    }
+
+  </script>
 </body>
 </html>
