@@ -1,7 +1,10 @@
+// Styles
+import styles from './styles.scss'
+
 const PageOne = () => {
   return (
-    <div className="page_one">
-      Page One
+    <div className={styles.pageOne}>
+      <h2 className={styles.title}>Page One</h2>
     </div>
   )
 }
