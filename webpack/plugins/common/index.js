@@ -42,6 +42,7 @@ const commonPlugins = env => [
   new InjectManifest({
     swSrc: './src/sw.js',
     swDest: 'sw.js'
+    // exlcude: /\.(js|html)$/ig
   })
 ]
 

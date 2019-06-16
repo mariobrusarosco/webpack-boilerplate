@@ -15,7 +15,8 @@ const commonLoaders = [
         loader: 'url-loader',
         options: {
           limit: 15000, // Convert images < 8kb to base64 strings
-          name: 'images/[hash].[ext]'
+          name: 'images/[name].[ext]'
+          // name: 'images/[hash].[ext]'
         }
       }
     ]
