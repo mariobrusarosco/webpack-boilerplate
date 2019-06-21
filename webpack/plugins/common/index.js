@@ -25,7 +25,8 @@ const commonPlugins = env => [
   }),
   new WebpackPwaManifest({
     name: 'React Boilerplate',
-    start_url: 'index.html',
+    start_url: 'index.html?origin=pwa',
+    display: 'standalone',
     short_name: 'ReactBoilerplate',
     inject: true,
     description: 'A Front End React Boilerplate!',

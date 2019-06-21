@@ -2,24 +2,36 @@
 const toAssetString = asset => asset.url || asset
 
 const cacheAssets = () =>
-  new Promise((resolve, reject) => {
-    caches
-      .open(staticCache)
-      .then(cache => {
-        console.log('Caching Assets...')
-        cache.addAll(contentToCache)
-        resolve()
-      })
-      .catch(error => {
-        console.log('-- Caching Assets Error --', error)
-        reject()
-      })
+  caches
+    .open(staticCachePath)
+    .then(cache => {
+      console.log('-- Caching Assets... --')
+      cache.addAll(contentToCache)
+    })
+    .catch(error => {
+      console.log('-- Caching Assets Error --', error)
+    })
+
+const clearPreviousCache = () => {
+  caches.keys().then(keys => {
+    return Promise.all(
+      keys
+        .filter(key => key !== staticCachePath)
+        .map(keyToDelete => caches.delete(keyToDelete))
+    )
   })
+}
+
+const cacheDynamicAsset = event => fetchResponse => {
+  return caches
+    .open(dynamicCachePath)
+    .then(cache => cache.put(event.request.url, fetchResponse) && fetchResponse)
+}
 
 // Configuration
-const staticCache = 'static-cache-v1'
+const staticCachePath = 'static-cache-v1'
+const dynamicCachePath = 'dynamic-cache-v1'
 const dynamicAssetsToCache = self.__precacheManifest
-const preDefinedAssetsToCache = []
 
 const listOfAssets = [...dynamicAssetsToCache]
 
@@ -34,7 +46,9 @@ self.addEventListener('install', event => {
 
 // Activation Process
 self.addEventListener('activate', event => {
-  // console.log('Activating SW...')
+  console.log('Activating SW...')
+  // Clearing Cache Process
+  // event.waitUntil(clearPreviousCache())
 })
 
 // Fetch Process
@@ -43,13 +57,11 @@ self.addEventListener('fetch', event => {
     caches
       .match(event.request)
       .then(chachedResponse => {
-        // console.log('[ --- Fetch Intercepted for: ', event.request.url, ' ]')
+        // chachedResponse
+        //   ? console.log('[ --- Responded with: ', chachedResponse.url, ' ]')
+        //   : console.log('[ --- No Chached Response for: ', event.request.url, ' ]')
 
-        chachedResponse
-          ? console.log('[ --- Responded with: ', chachedResponse.url, ' ]')
-          : console.log('[ --- No Chached Response for: ', event.request.url, ' ]')
-
-        return chachedResponse || fetch(event.request)
+        return chachedResponse || fetch(event.request).then(cacheDynamicAsset(event))
       })
       .catch(e => console.log('-- Error When matching assets --', e))
   )
