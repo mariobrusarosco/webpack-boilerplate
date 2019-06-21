@@ -1,36 +1,35 @@
-// console.log('My SW')
 // Helpers
 const toAssetString = asset => asset.url || asset
 
+const cacheAssets = () =>
+  new Promise((resolve, reject) => {
+    caches
+      .open(staticCache)
+      .then(cache => {
+        console.log('Caching Assets...')
+        cache.addAll(contentToCache)
+        resolve()
+      })
+      .catch(error => {
+        console.log('-- Caching Assets Error --', error)
+        reject()
+      })
+  })
+
 // Configuration
-const staticCache = 'static-cache'
-
+const staticCache = 'static-cache-v1'
 const dynamicAssetsToCache = self.__precacheManifest
-const preDefinedAssetsToCache = ['/']
+const preDefinedAssetsToCache = []
 
-const listOfAssets = [...dynamicAssetsToCache, ...preDefinedAssetsToCache]
+const listOfAssets = [...dynamicAssetsToCache]
 
 const contentToCache = listOfAssets.map(toAssetString)
-// console.log(listOfAssets)
-// console.log(workbox.precaching.precacheAndRoute)
 
 // Install Process
 self.addEventListener('install', event => {
   console.log('Installing SW...')
 
-  // workbox.precaching.precacheAndRoute(listOfAssets)
-
-  event.waitUntil(
-    caches
-      .open(staticCache)
-      .then(cache => {
-        console.log('Caching Assets...', contentToCache)
-        cache.addAll(contentToCache)
-      })
-      .catch(error => {
-        console.log('-- Caching Assets Error --', error)
-      })
-  )
+  event.waitUntil(cacheAssets())
 })
 
 // Activation Process
@@ -40,5 +39,18 @@ self.addEventListener('activate', event => {
 
 // Fetch Process
 self.addEventListener('fetch', event => {
-  // console.log('fetched -> ', event.request.url)
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then(chachedResponse => {
+        // console.log('[ --- Fetch Intercepted for: ', event.request.url, ' ]')
+
+        chachedResponse
+          ? console.log('[ --- Responded with: ', chachedResponse.url, ' ]')
+          : console.log('[ --- No Chached Response for: ', event.request.url, ' ]')
+
+        return chachedResponse || fetch(event.request)
+      })
+      .catch(e => console.log('-- Error When matching assets --', e))
+  )
 })
