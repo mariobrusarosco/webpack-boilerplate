@@ -5,10 +5,8 @@ const BrotliPlugin = require('brotli-webpack-plugin')
 
 const productionPlugins = [
   new MiniCssExtractPlugin({
-    filename: '[name].css',
-    chunkFilename: '[id].css'
-    // filename: '[name]-[contenthash].css',
-    // chunkFilename: '[id]-[contenthash].css'
+    filename: '[name]-[contenthash].css',
+    chunkFilename: '[id]-[contenthash].css'
   }),
   new OptimizeCSSAssetsPlugin({}),
   new CompressionPlugin({

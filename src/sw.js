@@ -23,6 +23,8 @@ const clearPreviousCache = () => {
 }
 
 const cacheDynamicAsset = event => fetchResponse => {
+  console.log('cacheDynamicAsset', event.request.url)
+
   return caches
     .open(dynamicCachePath)
     .then(cache => cache.put(event.request.url, fetchResponse) && fetchResponse)
@@ -31,9 +33,11 @@ const cacheDynamicAsset = event => fetchResponse => {
 // Configuration
 const staticCachePath = 'static-cache-v1'
 const dynamicCachePath = 'dynamic-cache-v1'
-const dynamicAssetsToCache = self.__precacheManifest
 
-const listOfAssets = [...dynamicAssetsToCache]
+const buildGeneratedAssets = self.__precacheManifest
+const preDefinedAssets = [{ url: '/fake404.html' }]
+
+const listOfAssets = [...buildGeneratedAssets, ...preDefinedAssets]
 
 const contentToCache = listOfAssets.map(toAssetString)
 
@@ -57,11 +61,18 @@ self.addEventListener('fetch', event => {
     caches
       .match(event.request)
       .then(chachedResponse => {
-        // chachedResponse
-        //   ? console.log('[ --- Responded with: ', chachedResponse.url, ' ]')
-        //   : console.log('[ --- No Chached Response for: ', event.request.url, ' ]')
+        chachedResponse
+          ? console.log('[ --- Chached Response for: ', chachedResponse.url, ' ]')
+          : console.warn('[ --- No Chached Response for: ', event.request.url, ' ]')
 
-        return chachedResponse || fetch(event.request).then(cacheDynamicAsset(event))
+        return (
+          chachedResponse ||
+          fetch(event.request)
+            .then(cacheDynamicAsset(event))
+            .catch(e => {
+              console.log('-- No cached response found +  Error when fetching --', e)
+            })
+        )
       })
       .catch(e => console.log('-- Error When matching assets --', e))
   )
