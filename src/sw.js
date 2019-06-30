@@ -1,8 +1,9 @@
 // Helpers
 const toAssetString = asset => asset.url || asset
 
-const cacheAssets = () =>
-  caches
+const cacheAssets = () => {
+  console.log('cacheAssets')
+  return caches
     .open(staticCachePath)
     .then(cache => {
       console.log('-- Caching Assets... --')
@@ -11,6 +12,7 @@ const cacheAssets = () =>
     .catch(error => {
       console.log('-- Caching Assets Error --', error)
     })
+}
 
 const clearPreviousCache = () => {
   caches.keys().then(keys => {
