@@ -15,7 +15,8 @@
     "e2e-prod": "start-server-and-test serve-front-end :8080 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
-    "lint": "eslint src"
+    "eslint": "eslint src",
+    "stylelint": "stylelint"
   },
   "husky": {
     "hooks": {
@@ -87,6 +88,8 @@
     "sass-loader": "^7.1.0",
     "start-server-and-test": "^1.7.11",
     "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.1.2",
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",

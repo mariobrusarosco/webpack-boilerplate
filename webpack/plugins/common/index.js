@@ -1,6 +1,7 @@
 // Vendors and Libs
 const webpack = require('webpack')
 const path = require('path')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
 const HtmlWebpack = require('html-webpack-plugin')
 const CleanWebpack = require('clean-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
@@ -44,7 +45,8 @@ const commonPlugins = env => [
     swSrc: './src/sw.js',
     swDest: 'sw.js'
     // exlcude: /\.(js|html)$/ig
-  })
+  }),
+  new StyleLintPlugin()
 ]
 
 module.exports = commonPlugins

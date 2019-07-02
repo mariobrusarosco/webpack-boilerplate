@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "block-no-empty": true,
+    "declaration-colon-space-after": "always",
+    "indentation": 2,
+    "max-empty-lines": 2,
+    "unit-whitelist": ["em", "rem", "%", "s", "px"]
+  },
+  "ignoreFiles": "**/reset.scss"
+}
