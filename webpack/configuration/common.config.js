@@ -6,6 +6,7 @@ const developmentConfig = () => ({
     // alias: {
     //   "imagesPath": path.resolve('src','assets','images')
     // },
+    alias: { 'react-dom': '@hot-loader/react-dom' },
     modules: [
       path.resolve('node_modules'),
       path.resolve('src'),
