@@ -16,7 +16,8 @@
     "cy-run": "cypress run",
     "cy-open": "cypress open",
     "eslint": "eslint src",
-    "stylelint": "stylelint"
+    "stylelint": "stylelint",
+    "test": "yarn eslint & yarn stylelint"
   },
   "husky": {
     "hooks": {
@@ -26,7 +27,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,css,yml}": [
+      "*.{js,css,scss,yml}": [
         "prettier --write",
         "git add"
       ]
