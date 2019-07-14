@@ -1,19 +1,11 @@
 // Vendors
 import { lazy } from 'react'
 
-// Components
+// Configuration
+const { ROOT_URL } = APP
 
 // Pages
 import Home from 'pages/Home'
-
-// Lazy Components
-const PageOne = lazy(() => import('pages/PageOne'))
-const PageTwo = lazy(() => import('pages/PageTwo'))
-const Products = lazy(() => import('pages/Products'))
-const Product = lazy(() => import('pages/Product'))
-const NotFound = lazy(() => import('pages/NotFound'))
-
-const { ROOT_URL } = APP
 
 const routes = [
   {
@@ -25,28 +17,28 @@ const routes = [
   {
     name: 'PageOne',
     path: `${ROOT_URL}one`,
-    component: PageOne
+    component: lazy(() => import('pages/PageOne'))
   },
   {
     name: 'PageTwo',
     path: `${ROOT_URL}two`,
-    component: PageTwo
+    component: lazy(() => import('pages/PageTwo'))
   },
   {
     name: 'Products',
     path: `${ROOT_URL}products`,
-    component: Products,
+    component: lazy(() => import('pages/Products')),
     exact: true
   },
   {
     name: 'Product',
     path: `${ROOT_URL}products/:id`,
-    component: Product
+    component: lazy(() => import('pages/Product'))
   },
   {
     name: 'NotFound',
     path: `*`,
-    component: NotFound
+    component: lazy(() => import('pages/NotFound'))
   }
 ]
 
