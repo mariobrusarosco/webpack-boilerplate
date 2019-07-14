@@ -28,6 +28,7 @@
   "lint-staged": {
     "linters": {
       "*.{js,css,scss,yml}": [
+        "eslint",
         "prettier --write",
         "git add"
       ]
