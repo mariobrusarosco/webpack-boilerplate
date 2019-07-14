@@ -59,7 +59,6 @@ const store = createStore(rootReducer, StoreEnhancer(applyMiddleware(reduxThunk)
 import App from 'components/App'
 
 // App Style Global
-// import 'semantic-ui-css/semantic.min.css'
 import './styles/app.scss'
 
 render(
