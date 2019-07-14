@@ -1,19 +1,12 @@
 const path = require('path')
 
 const developmentConfig = () => ({
-  // entry: [
-  //   '@babel/polyfill',
-  //   './src/index.js'
-  // ],
-  // In case of multiple entry points
-  entry: {
-    main: ['@babel/polyfill', './src/index.js'],
-    second: './src/index-second.js'
-  },
+  entry: ['@babel/polyfill', './src/index.js'],
   resolve: {
-    // alias: {
-    //   "imagesPath": path.resolve('src','assets','images')
-    // },
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+      configPath: path.resolve('config')
+    },
     modules: [
       path.resolve('node_modules'),
       path.resolve('src'),

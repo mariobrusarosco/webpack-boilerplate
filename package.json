@@ -15,7 +15,9 @@
     "e2e-prod": "start-server-and-test serve-front-end :8080 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
-    "lint": "eslint src"
+    "eslint": "eslint src",
+    "stylelint": "stylelint",
+    "test": "yarn eslint & yarn stylelint"
   },
   "husky": {
     "hooks": {
@@ -25,7 +27,8 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js,css,yml}": [
+      "*.{js,css,scss,yml}": [
+        "eslint",
         "prettier --write",
         "git add"
       ]
@@ -45,12 +48,16 @@
   },
   "homepage": "https://github.com/mariobrusarosco/webpack-boilerplate#readme",
   "dependencies": {
+    "@hot-loader/react-dom": "16.7.0",
     "express": "^4.16.4",
     "express-static-gzip": "^1.1.3",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "semantic-ui-css": "^2.4.1",
+    "webpack-pwa-manifest": "^4.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -70,6 +77,8 @@
     "css-loader": "^1.0.1",
     "cypress": "^3.2.0",
     "dotenv": "^6.2.0",
+    "eslint": "^6.0.1",
+    "eslint-loader": "^2.2.1",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.3.1",
@@ -84,10 +93,13 @@
     "sass-loader": "^7.1.0",
     "start-server-and-test": "^1.7.11",
     "style-loader": "^0.23.1",
+    "stylelint": "^10.1.0",
+    "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.1.2",
     "webpack": "^4.26.0",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-manifest-plugin": "^2.0.4"
   }
 }

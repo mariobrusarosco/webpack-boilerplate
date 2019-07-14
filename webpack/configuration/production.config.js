@@ -1,5 +1,4 @@
 const path = require('path')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 // Loaders
 const commonLoaders = require('../loaders/common')

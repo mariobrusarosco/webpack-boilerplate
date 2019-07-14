@@ -35,7 +35,7 @@ const attachAsyncAwait = async () => {
 
 const markup = `
   <h3>Async Await</h3>
-  <button class='async-await-btn'>Start</button>
+    <button class='async-await-btn'>Start</button>
   <div class='async-await-wrapper'></div>
 `
 
