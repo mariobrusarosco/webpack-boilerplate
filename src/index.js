@@ -3,12 +3,9 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
-console.log('APP Info', process.env.APP, process.env.NODE_ENV)
+console.log('APP Info', APP)
 
-document.body.insertAdjacentHTML(
-  'afterbegin',
-  `Starting Webpack: ${process.env.APP.VERSION}`
-)
+document.body.insertAdjacentHTML('afterbegin', `Starting Webpack: ${APP.VERSION}`)
 
 // CSS support
 // import 'css-support'

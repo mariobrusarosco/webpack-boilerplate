@@ -9,10 +9,16 @@ const Header = () => {
     <header className={styles.header}>
       <ul className={styles.list}>
         <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
           <Link to="/one">Page One</Link>
         </li>
         <li>
           <Link to="/two">Page Two</Link>
+        </li>
+        <li>
+          <Link to="/products">Products</Link>
         </li>
       </ul>
     </header>
