@@ -27,7 +27,7 @@
   },
   "lint-staged": {
     "linters": {
-      "*.{js}": [
+      "*.{js,ts}": [
         "eslint"
       ],
       "*.{js,css,scss,yml}": [

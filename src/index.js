@@ -26,6 +26,11 @@ const store = createStore(rootReducer, StoreEnhancer(applyMiddleware(reduxThunk)
 // Components
 import App from 'components/App'
 
+// Utils
+import lazyload from 'utils/lazyload'
+
+lazyload()
+
 // App Style Global
 import './styles/app.scss'
 
