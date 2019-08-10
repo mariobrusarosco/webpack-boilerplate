@@ -12,15 +12,37 @@
 
 ## FEATURES
 
-* Pure CSS
-* SCSS
-* Fonts (hosted by you, not by Google Fonts)
-* Hot Module Replacement
-* Tree Shaking
-* Babel
-* React Support
-* Code Splitting usign 'import()'
-* Generate assets as 'gzip' and 'brotli' files (.gz & .br)
-* Prettier Support - Ran after every commit
-* A configuration file that puts all its content into 'env.process'
-* Tests can be run: Before every `git push` command, in `CircleCI` or `Travis CI`
+### CSS
+  * CSS Modules
+  * Pure CSS
+  * SCSS
+  * Global SCSS variables that can be acessed in any file
+  * Fonts (hosted by you, not by Google Fonts)
+  * StyleLint
+
+### Javascript
+  * Hot Module Replacement
+  * Tree Shaking
+  * Babel
+  * React Support
+  
+### Performance
+  * Code Splitting usign 'import()'
+  * Generate assets as 'gzip' and 'brotli' files (.gz & .br)
+  
+### Workflow
+  * Prettier Support - Ran after every commit
+  * A configuration file that puts all its content into 'env.process'
+
+### Testing
+  * Places where your're able to run a test: 
+    * Before every `git push` command
+    * On `CircleCI` 
+    * On `Travis CI`
+
+  * Scripts
+    * `test` -  Will lint your .js and (.scss | .css)
+
+## CI
+  * Circle CI
+  * Travis

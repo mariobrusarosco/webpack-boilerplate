@@ -33,6 +33,7 @@ const commonPlugins = env => [
     description: 'A Front End React Boilerplate!',
     background_color: '#ff6347',
     theme_color: '#045a65',
+    scope: '.', // Which pages are included in a PWA Experience
     crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
     icons: [
       {
