@@ -1,9 +1,4 @@
-const modernLazyload = () => {
-  console.log('lazy...')
-
-  const queryImagesOnDOM = () =>
-    Array.prototype.slice.call(document.querySelectorAll('img'))
-
+const modernLazyload = (imagesOnDOM = []) => {
   const lazy = () => {
     const imagesOnDOM = imagesOnDOM || queryImagesOnDOM()
 
@@ -30,6 +25,8 @@ const modernLazyload = () => {
   }
 
   window.addEventListener('scroll', lazy)
+  window.addEventListener('resize', lazy)
+  window.addEventListener('orientationchange', lazy)
   document.addEventListener('DOMContentLoaded', lazy)
 }
 
