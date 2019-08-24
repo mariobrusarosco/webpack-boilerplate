@@ -12,10 +12,10 @@
     "e2e-prod": "start-server-and-test serve-front-end :8080 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
-    "server": "yarn prod-front && node server/index.js",
-    "prod-front": "export NODE_ENV=production && webpack --config ./webpack/configuration/production.config.js",
-    "serve-front-end": "yarn prod-front && node server/serve-front-end.js",
-    "dev-front": "webpack-dev-server -r dotenv/config --config ./webpack/configuration/development.config.js"
+    "server": "yarn prod && node server/index.js",
+    "prod": "export NODE_ENV=production && webpack --config ./webpack/configuration/production.config.js",
+    "serve-front-end": "yarn prod && node server/serve-front-end.js",
+    "dev": "webpack-dev-server -r dotenv/config --config ./webpack/configuration/development.config.js"
   },
   "husky": {
     "hooks": {

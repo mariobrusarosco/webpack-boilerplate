@@ -23,7 +23,7 @@ $ yarn
 Comando:
 
 ```sh
-$ yarn dev-front
+$ yarn dev
 ```
 O projeto rodará na porta `8080` --> `localhost:8080`
 
@@ -67,7 +67,7 @@ Esse comando abrirá o utilitário do  ```Cypress ``` em sua máquina.
 ## Como fazer o deploy
 
 ```sh
-$ yarn prod-front
+$ yarn prod
 ```
 
 > O resultado estará dentro de uma pasta ```/dist``` no nĩvel raiz do projeto
