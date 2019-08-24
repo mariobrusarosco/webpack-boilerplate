@@ -5,8 +5,6 @@ import css from './styles.scss'
 import support from 'utils/lazyload/support'
 
 const Img = ({ src, alt, lazy }) => {
-  console.log(support())
-
   return (
     <div className={`${css.imageWrapper} lazy`}>
       <img
