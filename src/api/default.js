@@ -4,7 +4,7 @@ import axios from 'axios'
 const { API } = APP
 const { API_ROOT } = API
 
-const zapAPI = axios.create({
+const defaultAPI = axios.create({
   baseURL: API_ROOT,
   headers: {
     Accept: 'application/json',
@@ -12,4 +12,4 @@ const zapAPI = axios.create({
   }
 })
 
-export default zapAPI
+export default defaultAPI

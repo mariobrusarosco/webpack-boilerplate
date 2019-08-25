@@ -1,5 +1,5 @@
 // Api Helpers
-import zapAPI from 'api/zap'
+import defaultAPI from 'api/default'
 
 // Vendors
 import { pathOr } from 'ramda'
@@ -10,48 +10,49 @@ import paginate from 'utils/paginate'
 
 // CONSTANTS
 const { BUSINESS, ERRORS } = APP || global.APP
-const { ZAP, VIVA_REAL } = BUSINESS
 
-export const fetchProperties = () => async dispatch => {
+export const fetchSomeData = () => async dispatch => {
   try {
-    const { data: allProperties } = await zapAPI.get('/sources/source-1.json')
-
-    // Evaluate all Properties
-    const evaluation = evaluateProperties(allProperties)
-    const allEvaluatedProperties = pathOr([], ['all'], evaluation)
-    const evaluatedZap = pathOr([], [ZAP], evaluation)
-    const evaluatedViva = pathOr([], [VIVA_REAL], evaluation)
-
-    // Paginate ZAP and VIVA REAL Properties
-    const paginatedZap = paginate({
-      array: evaluatedZap,
-      itemsPerPage: 20,
-      resultStructureAs: 'object'
-    })
-
-    const paginatedVivaReal = paginate({
-      array: evaluatedViva,
-      itemsPerPage: 20,
-      resultStructureAs: 'object'
-    })
+    const response = await defaultAPI.get('/comments')
 
     // Dispatch them into the store
     dispatch({
-      type: 'FETCH_PROPERTIES',
-      all: allEvaluatedProperties,
-      [ZAP]: paginatedZap,
-      [VIVA_REAL]: paginatedVivaReal
+      type: 'FETCH_SOME_DATA',
+      response
     })
   } catch (fetchError) {
     console.error(fetchError)
 
     throw {
-      src: 'fetchingProperties',
+      src: 'fetchingSomeData',
       errorID: 'A01',
       ...pathOr(fetchError, ['response'], fetchError)
     }
   }
 }
+
+
+// export const fetchSomeData = () => async dispatch => {
+//   try {
+//     const data = await defaultAPI.get('/comments')
+//     console.log({data})
+//     // Dispatch them into the store
+//     // dispatch({
+//     //   type: 'FETCH_PROPERTIES',
+//     //   all: allEvaluatedProperties,
+//     //   [ZAP]: paginatedZap,
+//     //   [VIVA_REAL]: paginatedVivaReal
+//     // })
+//   } catch (fetchError) {
+//     console.error(fetchError)
+
+//     throw {
+//       src: 'fetchingProperties',
+//       errorID: 'A01',
+//       ...pathOr(fetchError, ['response'], fetchError)
+//     }
+//   }
+// }
 
 export const setAppAsLoaded = () => {
   return {

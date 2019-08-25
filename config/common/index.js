@@ -5,11 +5,11 @@ const packageJSON = require('../../package.json')
 const errorsMap = require('./errorsMap')
 
 const commonConfiguration = {
-  APP_NAME: 'Zap Challenge',
+  APP_NAME: 'Boilerplate',
   VERSION: packageJSON.version,
   ROOT_URL: '/',
   API: {
-    API_ROOT: 'http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/'
+    API_ROOT: 'https://jsonplaceholder.typicode.com/'
   },
   BUSINESS: {
     VIVA_REAL: 'vivaReal',
