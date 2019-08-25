@@ -33,7 +33,7 @@ const RouterStructure = () => {
 const AppRouter = () => {
   const appIsLoaded = useSelector(({ app }) => app.appIsLoaded)
 
-  return appIsLoaded ? <AppBootstrap /> : <RouterStructure />
+  return true ? <AppBootstrap /> : <RouterStructure />
 }
 
 export default AppRouter

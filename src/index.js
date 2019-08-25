@@ -19,7 +19,7 @@ const StoreEnhancer =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
     : compose
 
-const store = createStore(rootReducer, StoreEnhancer(applyMiddleware(reduxThunk)))
+const store = createStore(rootReducer, StoreEnhancer(applyMiddleware()))
 
 // Components
 import App from 'components/App'

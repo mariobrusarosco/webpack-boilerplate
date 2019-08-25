@@ -12,47 +12,26 @@ import paginate from 'utils/paginate'
 const { BUSINESS, ERRORS } = APP || global.APP
 
 export const fetchSomeData = () => async dispatch => {
-  try {
+  // try {
     const response = await defaultAPI.get('/comments')
-
+    const data = pathOr({}, ['data'], response)
     // Dispatch them into the store
     dispatch({
       type: 'FETCH_SOME_DATA',
-      response
+      data
     })
-  } catch (fetchError) {
-    console.error(fetchError)
 
-    throw {
-      src: 'fetchingSomeData',
-      errorID: 'A01',
-      ...pathOr(fetchError, ['response'], fetchError)
-    }
-  }
+    return data
+  // } catch (fetchError) {
+    // console.error(fetchError)
+
+    // throw {
+    //   src: 'fetchingProperties',
+    //   errorID: 'A01',
+    //   ...pathOr(fetchError, ['response'], fetchError)
+    // }
+  // }
 }
-
-
-// export const fetchSomeData = () => async dispatch => {
-//   try {
-//     const data = await defaultAPI.get('/comments')
-//     console.log({data})
-//     // Dispatch them into the store
-//     // dispatch({
-//     //   type: 'FETCH_PROPERTIES',
-//     //   all: allEvaluatedProperties,
-//     //   [ZAP]: paginatedZap,
-//     //   [VIVA_REAL]: paginatedVivaReal
-//     // })
-//   } catch (fetchError) {
-//     console.error(fetchError)
-
-//     throw {
-//       src: 'fetchingProperties',
-//       errorID: 'A01',
-//       ...pathOr(fetchError, ['response'], fetchError)
-//     }
-//   }
-// }
 
 export const setAppAsLoaded = () => {
   return {
@@ -60,12 +39,19 @@ export const setAppAsLoaded = () => {
   }
 }
 
-export const setAppCriticalError = errorDescription => {
-  const { status, statusText, src, errorID } = errorDescription
+export const setAppCriticalError = errorStructure => {
+  console.log('setAppCriticalError' , errorStructure)
+  // debugger
+  // const e = error
+  // const { status, statusText, src, errorID } = error
+
+  // const testing = error
 
   return {
     type: 'APP_HAS_CRITICAL_ERROR',
-    userMessage: ERRORS[errorID],
-    errorDescription: { src, errorID, status, statusText }
+    errorStructure,
+  //   testing
+  //   // userMessage: ERRORS[errorID],
+  //   // errorDescription: { src, errorID, status, statusText }
   }
 }

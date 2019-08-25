@@ -1,7 +1,11 @@
+// Vendors
+import { pathOr } from 'ramda'
+
 const initialState = {
   appIsLoaded: false,
   appCriticalError: {
     status: false,
+    error: '',
     userMessage: '',
     errorDescription: ''
   }
@@ -15,14 +19,15 @@ const appReducer = (state = initialState, action) => {
         appIsLoaded: true
       }
     case 'APP_HAS_CRITICAL_ERROR':
-      const { userMessage, errorDescription } = action
+      const { stack, message } = pathOr('', ['errorStructure'], action)
 
       return {
         ...state,
         appCriticalError: {
           status: true,
-          userMessage,
-          errorDescription
+          error: {
+            stack, message
+          }
         }
       }
 
