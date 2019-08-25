@@ -6,7 +6,7 @@ import { withRouter } from 'react-router'
 import css from './styles.scss'
 
 const AppLayout = ({ children, history }) => {
-  const appCriticalError = useSelector(({ App }) => App.appCriticalError)
+  const appCriticalError = useSelector(({ app }) => app.appCriticalError)
 
   useEffect(() => {
     if (appCriticalError.status) {

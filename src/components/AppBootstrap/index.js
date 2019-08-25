@@ -12,20 +12,12 @@ const AppBootrap = () => {
 
   const bootsrapApplication = async () => {
     try {
-      const result = await dispatch(fetchSomeData())
+      await dispatch(fetchSomeData())
 
-      console.log('result', result)
     } catch (e) {
-      const { message, stack } = e
-
-      dispatch(setAppCriticalError({
-        // error: {
-          message,
-          stack
-        // }
-      }))
+      dispatch(setAppCriticalError({ error: e }))
     } finally {
-      // dispatch(setAppAsLoaded())
+      dispatch(setAppAsLoaded())
     }
   }
 

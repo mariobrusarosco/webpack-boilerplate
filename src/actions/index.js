@@ -5,32 +5,28 @@ import defaultAPI from 'api/default'
 import { pathOr } from 'ramda'
 
 // Utils
-import evaluateProperties from 'utils/evaluateProperties'
-import paginate from 'utils/paginate'
 
 // CONSTANTS
-const { BUSINESS, ERRORS } = APP || global.APP
+const { ERRORS } = APP || global.APP
 
 export const fetchSomeData = () => async dispatch => {
-  // try {
+  try {
     const response = await defaultAPI.get('/comments')
     const data = pathOr({}, ['data'], response)
-    // Dispatch them into the store
-    dispatch({
-      type: 'FETCH_SOME_DATA',
-      data
-    })
+
+    dispatch({ type: 'FETCH_SOME_DATA', data })
 
     return data
-  // } catch (fetchError) {
-    // console.error(fetchError)
-
-    // throw {
-    //   src: 'fetchingProperties',
-    //   errorID: 'A01',
-    //   ...pathOr(fetchError, ['response'], fetchError)
-    // }
-  // }
+  } catch (e) {
+    dispatch(setAppCriticalError({
+      error: e,
+      additionalInfo: {
+        source: 'fetchingSomeData',
+        errorID: 'A01',
+        messageForUsers: ERRORS['A01'],
+      }
+    }))
+  }
 }
 
 export const setAppAsLoaded = () => {
@@ -39,19 +35,14 @@ export const setAppAsLoaded = () => {
   }
 }
 
-export const setAppCriticalError = errorStructure => {
-  console.log('setAppCriticalError' , errorStructure)
-  // debugger
-  // const e = error
-  // const { status, statusText, src, errorID } = error
-
-  // const testing = error
+export const setAppCriticalError = ({ error, additionalInfo }) => {
+  const stack = pathOr(null, ['stack'], error)
+  const message = pathOr(null, ['message'], error)
 
   return {
     type: 'APP_HAS_CRITICAL_ERROR',
-    errorStructure,
-  //   testing
-  //   // userMessage: ERRORS[errorID],
-  //   // errorDescription: { src, errorID, status, statusText }
+    errorData: {
+      stack, message, ...additionalInfo
+    }
   }
 }
