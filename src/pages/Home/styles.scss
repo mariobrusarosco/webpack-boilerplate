@@ -32,15 +32,6 @@
   align-items: center;
 }
 
-.linkViva {
-  composes: link;
-  width: 140px;
-}
-
-.linkZap {
-  width: 90px;
-  composes: link;
-}
 
 .list {
   display: flex;

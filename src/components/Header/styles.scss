@@ -8,19 +8,13 @@
   z-index: 100000;
 }
 
-.link {
+.wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
+  composes: import mainWrapper from 'styles/app-wrappers.scss';
 }
 
-.linkGrupoZap {
-  composes: link;
-  width: 140px;
-}
-
-.list {
-  display: flex;
-  justify-content: space-around;
-  max-width: 700px;
-  margin: 0 auto;
+.logo {
+  width: 40px;
 }

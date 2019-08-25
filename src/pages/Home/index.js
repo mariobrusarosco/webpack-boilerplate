@@ -1,15 +1,14 @@
 // Vendors
 import { Link } from 'react-router-dom'
-
+import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { pathOr, isEmpty } from 'ramda'
 // Styles
 import css from './styles.scss'
 
-// Assets
-import logoViva from 'assets/images/logo.svg'
-import logoZap from 'assets/images/logo.svg'
-
 // Components
 import Image from 'components/Image'
+import GoBack from 'components/GoBack'
 
 // E2E Data
 const {
@@ -17,22 +16,55 @@ const {
 } = APP
 
 const Home = () => {
+  // Store - Redux
+  const example = useSelector(({ example }) => example)
+
+  // State
+  const [currentItem, setCurrentItem] = useState({})
+  // LifeCycle
+  useEffect(() => {
+    const ID = 0
+    const item = example[ID]
+    // const item = allProperties.find(property => property.id === ID)
+
+    setCurrentItem(item)
+  }, [])
+
+  if (isEmpty(currentItem)) {
+    return null
+  }
+
+
   return (
     <section className={css.home} data-id={HOME}>
       <div className={css.wrapper}>
         <div className={css.infoBox}>
-          <p>Escolha entre Viva Real e Zap para filtrar seus imóveis por portal.</p>
+          <p>Home Information goes here</p>
         </div>
 
         <ul className={css.list}>
-          <li className={css.linkViva}>
-            <Link to="/viva">
-              <Image src={logoViva.src} alt="Logo Viva Real" />
+          <li className={css.linkOne}>
+            <Link to="/one">
+              <Image alt="Logo One" />
+              Page One
             </Link>
           </li>
-          <li className={css.linkZap}>
-            <Link to="/zap">
-              <Image src={logoZap.src} alt="Logo Zap" />
+          <li className={css.linkTwo}>
+            <Link to='/two'>
+              <Image alt="Logo Two" />
+              Page Two
+            </Link>
+          </li>
+          <li className={css.linkOne}>
+            <Link to="/products">
+              <Image alt="Logo One" />
+              Products
+            </Link>
+          </li>
+          <li className={css.linkTwo}>
+            <Link to={`/product/${currentItem.id}`}>
+              <Image alt="Logo Two" />
+              Specific Product
             </Link>
           </li>
         </ul>

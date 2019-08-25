@@ -7,10 +7,10 @@ const Products = () => {
       All Products
       <ul>
         <li>
-          <Link to="/products/one">Product</Link>
+          <Link to="/product/1">Product</Link>
         </li>
         <li>
-          <Link to="/products/two">Product</Link>
+          <Link to="/products/2">Product</Link>
         </li>
       </ul>
     </div>

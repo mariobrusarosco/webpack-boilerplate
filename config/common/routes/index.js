@@ -15,19 +15,24 @@ const routes = [
     exact: true
   },
   {
-    name: 'VivaReal',
-    path: `${ROOT_URL}viva`,
-    component: lazy(() => import('pages/VivaReal'))
+    name: 'Page One',
+    path: `${ROOT_URL}one`,
+    component: lazy(() => import('pages/PageOne'))
   },
   {
-    name: 'Zap',
-    path: `${ROOT_URL}zap`,
-    component: lazy(() => import('pages/Zap'))
+    name: 'Page Two',
+    path: `${ROOT_URL}two`,
+    component: lazy(() => import('pages/PageTwo'))
   },
   {
-    name: 'Property',
-    path: `${ROOT_URL}imovel/:id`,
-    component: lazy(() => import('pages/Property'))
+    name: 'Products',
+    path: `${ROOT_URL}products`,
+    component: lazy(() => import('pages/Products'))
+  },
+  {
+    name: 'Product',
+    path: `${ROOT_URL}product/:id`,
+    component: lazy(() => import('pages/Product'))
   },
   {
     name: 'Ops',

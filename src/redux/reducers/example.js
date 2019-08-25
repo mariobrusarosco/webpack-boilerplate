@@ -8,7 +8,7 @@ const initialState = {}
 const exampleReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_SOME_DATA':
-      const { data } = pathOr({}, ['response'], action)
+      const data = pathOr({}, ['data'], action)
 
       return {
         ...state,
