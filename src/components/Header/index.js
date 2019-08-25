@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 
 // Assets
-import logoGrupoZap from 'assets/images/logo-grupo-zap.png'
+import logoGrupoZap from 'assets/images/logo.svg'
 
 // Components
 import Image from 'components/Image'

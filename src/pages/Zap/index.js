@@ -15,7 +15,7 @@ import PropertyList from 'components/PropertyList'
 import Image from 'components/Image'
 
 // Assets
-import logoZap from 'assets/images/logo-zap.png'
+import logoZap from 'assets/images/logo.svg'
 
 // Styles
 import css from './styles.scss'

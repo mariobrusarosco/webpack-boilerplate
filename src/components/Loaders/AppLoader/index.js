@@ -8,6 +8,9 @@ import css from './styles.scss'
 import Image from 'components/Image'
 import Pulse from 'components/Loaders/Pulse'
 
+// Contants
+const { APP_NAME } = APP
+
 const AppLoader = () => {
   return (
     <section className={css.appLoader}>
@@ -16,11 +19,13 @@ const AppLoader = () => {
           Project Main Heading
         </h1>
 
-        <Image src={logo.src} alt="Logo " />
+        <div className={css.logo}>
+          <Image src={logo} alt={`Logo ${APP_NAME}`} />
+        </div>
 
         <p className={css.intro}>
-          <span className={css.greeting}>Seja Bem Vindo!</span>
-          Estamos buscando as melhores ofertas para você!
+          <span className={css.greeting}>Introduction Greeeting!</span>
+          Introduction main text
         </p>
         <div className={css.pulseWrapper}>
           <Pulse />

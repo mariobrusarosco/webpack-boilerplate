@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom'
 import css from './styles.scss'
 
 // Assets
-import logoViva from 'assets/images/logo-viva.png'
-import logoZap from 'assets/images/logo-zap.png'
+import logoViva from 'assets/images/logo.svg'
+import logoZap from 'assets/images/logo.svg'
 
 // Components
 import Image from 'components/Image'
