@@ -8,9 +8,9 @@ const developmentLoaders = [
       {
         loader: 'css-loader',
         options: {
-          importLoaders: 1,
+          importLoaders: 2,
           modules: true,
-          localIdentName: '[name]__[hash:base64:8]'
+          localIdentName: '[folder]__[local]'
         }
       },
       {
@@ -18,6 +18,7 @@ const developmentLoaders = [
         options: {
           data: `
             @import 'variables';
+            @import 'functions_mixins/media-query';
           `,
           includePaths: ['./src/styles']
         }

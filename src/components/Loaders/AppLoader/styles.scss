@@ -1,0 +1,47 @@
+.appLoader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  background-color: $primary-color;
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.h1 {
+  display: none;
+}
+
+.intro {
+  padding: 0 20px 40px;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.greeting {
+  display: block;
+  padding-bottom: 20px;
+  font-weight: 900;
+  font-size: 30px;
+  color: var(--secondary-color);
+  color: $secondary-color;
+}
+
+.appLoader img {
+  margin: 30px auto;
+}
+
+.pulseWrapper {
+  width: 50px;
+  margin: 20px auto;
+}

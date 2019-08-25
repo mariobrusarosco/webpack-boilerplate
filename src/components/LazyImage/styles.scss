@@ -1,0 +1,16 @@
+.image {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.picture {
+  display: block;
+  text-align: center;
+}
+
+:global(img[data-src]:before) {
+  content: '';
+  padding-top: 56.25%;
+  display: block;
+}

@@ -13,12 +13,12 @@ jobs:
       - run:
           name: Installation
           command: yarn
-      # - run:
-      #     name: Running Unit Tests
-      #     command: yarn unit-test
-      # - run:
-      #     name: Running E2E tests
-      #     command: yarn e2e-prod
+      - run:
+          name: Running Unit Tests
+          command: yarn unit-test
+      - run:
+          name: Running E2E tests
+          command: yarn e2e-prod
 
   deploy-prod:
     docker:

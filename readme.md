@@ -1,15 +1,10 @@
-# Webpack Boilterplate
+# ZAP Challenge
 
 ## BUILD
-* Circle CI [![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
 
-* Travis CI [![Build Status](https://travis-ci.org/mariobrusarosco/webpack-boilerplate.svg?branch=master)](https://travis-ci.org/mariobrusarosco/webpack-boilerplate)
+[![CircleCI](https://circleci.com/gh/mbrusarosco/eng-zap-challenge-javascript.svg?style=svg)](https://circleci.com/gh/mbrusarosco/eng-zap-challenge-javascript)
 
-## AMBIENTES
-* [Development](https://dev-webpack-boilerplate.herokuapp.com)
-
-* [Production](https://prod-webpack-boilerplate.herokuapp.com)
-
+[![Build Status](https://travis-ci.com/mbrusarosco/eng-zap-challenge-javascript.svg?token=jKoVXZguKDp75tuZjxU5&branch=master)](https://travis-ci.com/mbrusarosco/eng-zap-challenge-javascript)
 
 ## INSTALAÇÃO
 
@@ -23,7 +18,7 @@ $ yarn
 Comando:
 
 ```sh
-$ yarn dev
+$ yarn dev-front
 ```
 O projeto rodará na porta `8080` --> `localhost:8080`
 
@@ -67,7 +62,7 @@ Esse comando abrirá o utilitário do  ```Cypress ``` em sua máquina.
 ## Como fazer o deploy
 
 ```sh
-$ yarn prod
+$ yarn prod-front
 ```
 
 > O resultado estará dentro de uma pasta ```/dist``` no nĩvel raiz do projeto
@@ -168,12 +163,18 @@ Exemplo dessa constante: ```APP```
 ```js
 {
   API: {
-    API_ROOT: "http://some-api.com/"
+    API_ROOT: "http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
   },
-  APP_NAME: "Boilerplate",
+  APP_NAME: "Zap Challenge",
+  BUSINESS: {
+    VIVA_REAL: "vivaReal", 
+    ZAP: "zap"
+  },
   E2E: {
     HEADER: "araDk_lKOpq"
     HOME: "AD4_sdrpaaegp"
+    VIVA_REAL_PAGE: "AADm+k_lASDf"
+    ZAP_PAGE: "4ad__24kpfo"
   },
   VERSION: "0.0.1"
 }
@@ -188,7 +189,7 @@ Caso você precise chamar um endpoint, mas ele será diferente para três ambien
 ```js
 {
   API: {
-    API_ROOT: "localhost:8080/some-api.com/"
+    API_ROOT: "localhost:8080/grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
   },
 }
 ```
@@ -197,7 +198,7 @@ Caso você precise chamar um endpoint, mas ele será diferente para três ambien
 ```js
 {
   API: {
-    API_ROOT: "http://dev-some-api.com/"
+    API_ROOT: "http://dev.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
   },
 }
 ```
@@ -206,7 +207,7 @@ Caso você precise chamar um endpoint, mas ele será diferente para três ambien
 ```js
 {
   API: {
-    API_ROOT: "http://prod-some-api.com/"
+    API_ROOT: "http://prod.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
   },
 }
 ```
@@ -217,13 +218,13 @@ Caso esse endpoint, seja o mesmo nos três ambientes, você pode setá-lo soment
 ```js
 {
   API: {
-    API_ROOT: "http://common-some-api.com/"
+    API_ROOT: "http://common.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
   },
 }
 ```
 
 
-Nesse útlimo caso, não importa o ambiente... ```API_ROOT``` sempre terá o valor ```http://common-some-api.com/```
+Nesse útlimo caso, não importa o ambiente... ```API_ROOT``` sempre terá o valor ```http://common.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/```
 
 ---
 
@@ -318,42 +319,3 @@ A partir daí, um ```chunk``` específico é carregado e as imagens passarão a 
 ```
 
 
-
-
-
-## FEATURES
-
-### CSS
-  * CSS Modules
-  * Pure CSS
-  * SCSS
-  * Global SCSS variables that can be acessed in any file
-  * Fonts (hosted by you, not by Google Fonts)
-  * StyleLint
-
-### Javascript
-  * Hot Module Replacement
-  * Tree Shaking
-  * Babel
-  * React Support
-  
-### Performance
-  * Code Splitting usign 'import()'
-  * Generate assets as 'gzip' and 'brotli' files (.gz & .br)
-  
-### Workflow
-  * Prettier Support - Ran after every commit
-  * A configuration file that puts all its content into 'env.process'
-
-### Testing
-  * Places where your're able to run a test: 
-    * Before every `git push` command
-    * On `CircleCI` 
-    * On `Travis CI`
-
-  * Scripts
-    * `test` -  Will lint your .js and (.scss | .css)
-
-## CI
-  * Circle CI
-  * Travis

@@ -1,9 +1,10 @@
-const support = function() {
-  return {
-    native: 'loading' in HTMLImageElement.prototype,
-    intersectionObeserver: 'IntersectionObserver' in window,
-    legacy: !!this.native || !!this.modern
-  }
+const native = () => 'loading' in HTMLImageElement.prototype
+const modern = () => 'IntersectionObserver' in window
+
+const support = {
+  native: native(),
+  modern: modern(),
+  legacy: !native() && !modern()
 }
 
 export default support

@@ -1,12 +1,43 @@
+// Vendors
+import { Link } from 'react-router-dom'
+
+// Styles
+import css from './styles.scss'
+
+// Assets
+import logoViva from 'assets/images/logo-viva.png'
+import logoZap from 'assets/images/logo-zap.png'
+
 // Components
-import LazyLoad from 'components/LazyLoad'
+import Image from 'components/Image'
+
+// E2E Data
+const {
+  E2E: { HOME }
+} = APP
 
 const Home = () => {
   return (
-    <>
-      <div>Home</div>
-      <LazyLoad />
-    </>
+    <section className={css.home} data-id={HOME}>
+      <div className={css.wrapper}>
+        <div className={css.infoBox}>
+          <p>Escolha entre Viva Real e Zap para filtrar seus imóveis por portal.</p>
+        </div>
+
+        <ul className={css.list}>
+          <li className={css.linkViva}>
+            <Link to="/viva">
+              <Image src={logoViva.src} alt="Logo Viva Real" />
+            </Link>
+          </li>
+          <li className={css.linkZap}>
+            <Link to="/zap">
+              <Image src={logoZap.src} alt="Logo Zap" />
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </section>
   )
 }
 

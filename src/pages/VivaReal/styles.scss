@@ -1,0 +1,14 @@
+.vivaPage {
+  width: 100%;
+  padding: 20px 15px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.wrapper {
+  composes: import mainWrapper from 'styles/app-wrappers.scss';
+}
+
+.paginationArea {
+  composes: import defaultPaginationArea from 'styles/pagination.scss';
+}

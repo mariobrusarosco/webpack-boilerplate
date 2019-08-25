@@ -13,8 +13,8 @@ cache:
     - '/home/travis/.cache/Cypress'
 
 script:
-  # - yarn unit-test
-  # - yarn e2e-prods
+  - yarn unit-test
+  - yarn e2e-prod
 
 # safelist
 branches:

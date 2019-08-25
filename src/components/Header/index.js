@@ -1,24 +1,28 @@
 // Vendors
 import { Link } from 'react-router-dom'
 
+// Assets
+import logoGrupoZap from 'assets/images/logo-grupo-zap.png'
+
+// Components
+import Image from 'components/Image'
+
 // Styles
-import styles from './styles.scss'
+import css from './styles.scss'
+
+// E2E Data
+const {
+  E2E: { HEADER }
+} = APP
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <ul className={styles.list}>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/one">Page One</Link>
-        </li>
-        <li>
-          <Link to="/two">Page Two</Link>
-        </li>
-        <li>
-          <Link to="/products">Products</Link>
+    <header className={css.header} data-id={HEADER}>
+      <ul className={css.list}>
+        <li className={css.linkGrupoZap}>
+          <Link to="/">
+            <Image src={logoGrupoZap.src} alt="Logo Grupo ZAP" />
+          </Link>
         </li>
       </ul>
     </header>

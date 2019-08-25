@@ -1,33 +1,68 @@
-const modernLazyload = (imagesOnDOM = []) => {
-  const lazy = () => {
-    const imagesOnDOM = imagesOnDOM || queryImagesOnDOM()
+const setLazyloadFlag = image => {
+  if (typeof image.lazyLoaded === 'undefined') {
+    image.lazyLoaded = false
+  }
 
-    imagesOnDOM.forEach(imageNode => {
-      if (typeof imageNode.lazyLoaded === 'undefined') {
-        imageNode.lazyLoaded = false
-      }
+  return image
+}
 
-      if (!imageNode.lazyLoaded) {
-        const {
-          top: imageTopOffset,
-          bottom: imageBottomOffset
-        } = imageNode.getBoundingClientRect()
-        const windowInnerHeight = window.innerHeight
+const toNotLoadedImages = image => !image.lazyLoaded
 
-        if (imageTopOffset <= windowInnerHeight - 200 && imageBottomOffset > 0) {
-          const imageSrc = imageNode.dataset.src
+const queryImagesOnDOM = () => {
+  const images = [...document.querySelectorAll('img[data-src]')]
+  const initializedImages = images.map(setLazyloadFlag)
+  const filteredArray = initializedImages.filter(toNotLoadedImages)
 
-          imageNode.src = imageSrc
-          imageNode.lazyLoaded = true
-        }
+  return filteredArray
+}
+
+const resetImagesOnDOM = () => {
+  const images = [...document.querySelectorAll('img[data-src]')]
+
+  images.forEach(image => {
+    image.src = ''
+    image.lazyLoaded = false
+  })
+
+  setTimeout(() => {
+    legacyLazyload()
+  }, 0)
+
+  document.addEventListener('scroll', legacyLazyload)
+  window.addEventListener('resize', legacyLazyload)
+}
+
+const legacyLazyload = (() => {
+  // Images with data-src attribute inserted on the DOM
+  let lazyImages = queryImagesOnDOM()
+
+  document.addEventListener('resetImagesOnDOM', resetImagesOnDOM)
+
+  return function() {
+    lazyImages = queryImagesOnDOM()
+    console.log('Images to be lazy loaded', lazyImages && lazyImages.length)
+
+    if (!lazyImages.length) {
+      document.removeEventListener('scroll', legacyLazyload)
+      window.removeEventListener('resize', legacyLazyload)
+    }
+
+    lazyImages.forEach(imageNode => {
+      const {
+        top: imageTopOffset,
+        bottom: imageBottomOffset
+      } = imageNode.getBoundingClientRect()
+
+      const windowInnerHeight = window.innerHeight
+
+      if (imageTopOffset <= windowInnerHeight - 200 && imageBottomOffset > 0) {
+        const imageSrc = imageNode.dataset.src
+
+        imageNode.src = imageSrc
+        imageNode.lazyLoaded = true
       }
     })
   }
+})()
 
-  window.addEventListener('scroll', lazy)
-  window.addEventListener('resize', lazy)
-  window.addEventListener('orientationchange', lazy)
-  document.addEventListener('DOMContentLoaded', lazy)
-}
-
-export default modernLazyload
+export default legacyLazyload

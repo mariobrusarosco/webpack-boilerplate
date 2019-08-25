@@ -1,18 +1,18 @@
 // Helpers
 const toAssetString = asset => asset.url || asset
 
-const cacheAssets = () => {
-  return caches
-    .open(staticCachePath)
-    .then(cache => {
-      console.log('-- Caching Assets... --', contentToCache)
-      cache.addAll(contentToCache)
-      console.log('cache: ', cache)
-    })
-    .catch(error => {
-      console.log('-- Caching Assets Error --', error)
-    })
-}
+// const cacheAssets = () => {
+//   return caches
+//     .open(staticCachePath)
+//     .then(cache => {
+//       console.log('-- Caching Assets... --', contentToCache)
+//       cache.addAll(contentToCache)
+//       console.log('cache: ', cache)
+//     })
+//     .catch(error => {
+//       console.log('-- Caching Assets Error --', error)
+//     })
+// }
 
 // Configuration
 const staticCachePath = 'static-cache-v1'
@@ -44,9 +44,8 @@ const contentToCache = listOfAssets.map(toAssetString)
 
 // Install Process
 self.addEventListener('install', event => {
-  console.log('Installing SW...')
-
-  event.waitUntil(cacheAssets())
+  // console.log('Installing SW...')
+  // event.waitUntil(cacheAssets())
 })
 
 // // Activation Process
@@ -57,15 +56,15 @@ self.addEventListener('install', event => {
 // })
 
 // Fetch Process
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(chachedResponse => {
-      if (chachedResponse) {
-        console.log('[ --- Chached Response for: ', chachedResponse.url, ' ]')
-        return chachedResponse
-      }
+// self.addEventListener('fetch', event => {
+//   event.respondWith(
+//     caches.match(event.request).then(chachedResponse => {
+//       if (chachedResponse) {
+//         console.log('[ --- Chached Response for: ', chachedResponse.url, ' ]')
+//         return chachedResponse
+//       }
 
-      fetch(event.request).then(fetchedResponse => fetchedResponse)
-    })
-  )
-})
+//       fetch(event.request).then(fetchedResponse => fetchedResponse)
+//     })
+//   )
+// })

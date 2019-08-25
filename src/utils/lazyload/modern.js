@@ -1,12 +1,18 @@
-const modernLazyload = (imagesOnDOM = []) => {
-  document.addEventListener('DOMContentLoaded', () => {
-    let lazyImageObserver = new IntersectionObserver(
+const queryImagesOnDOM = () => [...document.querySelectorAll('img[data-src]')]
+
+const modernLazyload = function() {
+  // Images with data-src attribute inserted on the DOM
+  let lazyImages = queryImagesOnDOM()
+
+  return function() {
+    lazyImages = queryImagesOnDOM()
+
+    const lazyImageObserver = new IntersectionObserver(
       function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             let lazyImage = entry.target
             lazyImage.src = lazyImage.dataset.src
-            lazyImage.classList.remove('lazy')
             lazyImageObserver.unobserve(lazyImage)
           }
         })
@@ -14,10 +20,10 @@ const modernLazyload = (imagesOnDOM = []) => {
       { threshold: [0.25, 0.75] }
     )
 
-    imagesOnDOM.forEach(function(lazyImage) {
+    lazyImages.forEach(function(lazyImage) {
       lazyImageObserver.observe(lazyImage)
     })
-  })
+  }
 }
 
 export default modernLazyload

@@ -1,0 +1,10 @@
+.baseStyles {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.defaultHover {
+  background-color: darken($primary-color, 0.7);
+}

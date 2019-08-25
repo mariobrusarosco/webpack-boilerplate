@@ -1,5 +1,18 @@
 @import './reset.scss';
+@import '../assets/fonts/fonts.css';
 
-html {
-  font-family: 'Lato', sans-serif;
+// Custom Properties variables
+:root {
+  --primary-color: #00ac95;
+  --primary-color-dark: #025f52;
+  --secondary-color: #c8d419;
+  --primary-bg-color: #ececec;
+  --paginator-tablet-size: 40px;
+  --header-height: 64px;
+  --main-container: 1024px;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  overflow-x: hidden;
 }

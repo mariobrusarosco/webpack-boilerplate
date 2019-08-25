@@ -15,25 +15,24 @@ const routes = [
     exact: true
   },
   {
-    name: 'PageOne',
-    path: `${ROOT_URL}one`,
-    component: lazy(() => import('pages/PageOne'))
+    name: 'VivaReal',
+    path: `${ROOT_URL}viva`,
+    component: lazy(() => import('pages/VivaReal'))
   },
   {
-    name: 'PageTwo',
-    path: `${ROOT_URL}two`,
-    component: lazy(() => import('pages/PageTwo'))
+    name: 'Zap',
+    path: `${ROOT_URL}zap`,
+    component: lazy(() => import('pages/Zap'))
   },
   {
-    name: 'Products',
-    path: `${ROOT_URL}products`,
-    component: lazy(() => import('pages/Products')),
-    exact: true
+    name: 'Property',
+    path: `${ROOT_URL}imovel/:id`,
+    component: lazy(() => import('pages/Property'))
   },
   {
-    name: 'Product',
-    path: `${ROOT_URL}products/:id`,
-    component: lazy(() => import('pages/Product'))
+    name: 'Ops',
+    path: `${ROOT_URL}ops`,
+    component: lazy(() => import('pages/AppError'))
   },
   {
     name: 'NotFound',
