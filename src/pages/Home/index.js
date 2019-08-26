@@ -8,7 +8,6 @@ import css from './styles.scss'
 
 // Components
 import Image from 'components/Image'
-import GoBack from 'components/GoBack'
 
 // E2E Data
 const {
@@ -34,32 +33,36 @@ const Home = () => {
     return null
   }
 
-  console.log(HOME)
-
   return (
     <section className={css.home} data-id={HOME}>
       <div className={css.wrapper}>
         <div className={css.infoBox}>
-          <p>Home Information goes here</p>
+          <p>Welcome to Albuquerque</p>
         </div>
 
         <ul className={css.list}>
           <li className={css.linkOne}>
-            <Link to="/one">
-              <Image alt="Logo One" />
-              Page One
+            <Link to="/los-pollos-hermanos">
+              <Image alt="Los Pollos Hermanos" />
+              Los Pollos Hermanos
             </Link>
           </li>
           <li className={css.linkTwo}>
-            <Link to="/two">
-              <Image alt="Logo Two" />
-              Page Two
+            <Link to="/car-wash">
+              <Image alt="Car Wash" />
+              Car Wash
             </Link>
           </li>
           <li className={css.linkOne}>
-            <Link to="/products">
-              <Image alt="Logo One" />
-              Products
+            <Link to="/member/walter-white">
+              <Image alt="Walter White" />
+              Walter White
+            </Link>
+          </li>
+          <li className={css.linkOne}>
+            <Link to="/member/jesse">
+              <Image alt="Jesse" />
+              Jesse Pinkman
             </Link>
           </li>
           <li className={css.linkTwo}>

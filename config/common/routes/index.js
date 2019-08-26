@@ -15,25 +15,25 @@ const routes = [
     exact: true
   },
   {
-    name: 'Page One',
-    path: `${ROOT_URL}one`,
-    component: lazy(() => import('pages/PageOne'))
+    name: 'Los Pollos Hermanos',
+    path: `${ROOT_URL}los-pollos-hermanos`,
+    component: lazy(() => import('pages/LosPollos'))
   },
   {
-    name: 'Page Two',
-    path: `${ROOT_URL}two`,
-    component: lazy(() => import('pages/PageTwo'))
+    name: 'Car Wash',
+    path: `${ROOT_URL}car-wash`,
+    component: lazy(() => import('pages/CarWash'))
   },
   {
-    name: 'Products',
-    path: `${ROOT_URL}products`,
-    component: lazy(() => import('pages/Products'))
+    name: 'Member',
+    path: `${ROOT_URL}member/:id`,
+    component: lazy(() => import('pages/Member'))
   },
-  {
-    name: 'Product',
-    path: `${ROOT_URL}product/:id`,
-    component: lazy(() => import('pages/Product'))
-  },
+  // {
+  //   name: 'Product',
+  //   path: `${ROOT_URL}product/:id`,
+  //   component: lazy(() => import('pages/Product'))
+  // },
   {
     name: 'Ops',
     path: `${ROOT_URL}ops`,

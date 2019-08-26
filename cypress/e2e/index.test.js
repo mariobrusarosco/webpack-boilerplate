@@ -6,7 +6,6 @@ describe('Initial Fetch', () => {
   it('Must verify if the App was bootstraped', () => {
     cy.visit('/')
 
-    console.log(E2E.HOME)
     // Check if Home Component was loaded
     cy.get(`[data-id=${E2E.HOME}]`)
   })

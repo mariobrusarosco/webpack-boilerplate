@@ -15,19 +15,15 @@ const commonConfiguration = {
     API_ROOT: 'https://jsonplaceholder.typicode.com/'
   },
   BUSINESS: {
-    VIVA_REAL: 'vivaReal',
-    ZAP: 'zap'
+    LOS_POLLOS: 'los-pollos',
+    CAR_WASH: 'car-wash'
   },
-  API_MAPPER: {
-    PROPERTY_CARD: {
-      BUSINESS_TYPE: { sale: 'venda', rental: 'aluguel' }
-    }
-  },
+  API_MAPPER: {},
   E2E: {
-    HOME: generateShortHash(),
     HEADER: generateShortHash(),
-    VIVA_REAL_PAGE: generateShortHash(),
-    ZAP_PAGE: generateShortHash()
+    HOME: generateShortHash(),
+    LOS_POLLOS_PAGE: generateShortHash(),
+    CAR_WASH_PAGE: generateShortHash()
   },
   UNIT: {
     LISTING_STATUS: 'active'

@@ -11,21 +11,23 @@ const { ERRORS } = APP || global.APP
 
 export const fetchSomeData = () => async dispatch => {
   try {
-    const response = await defaultAPI.get('/comments')
+    const response = await defaultAPI.get('/photos')
     const data = pathOr({}, ['data'], response)
 
     dispatch({ type: 'FETCH_SOME_DATA', data })
 
     return data
   } catch (e) {
-    dispatch(setAppCriticalError({
-      error: e,
-      additionalInfo: {
-        source: 'fetchingSomeData',
-        errorID: 'A01',
-        messageForUsers: ERRORS['A01'],
-      }
-    }))
+    dispatch(
+      setAppCriticalError({
+        error: e,
+        additionalInfo: {
+          source: 'fetchingSomeData',
+          errorID: 'A01',
+          messageForUsers: ERRORS['A01']
+        }
+      })
+    )
   }
 }
 
@@ -42,7 +44,9 @@ export const setAppCriticalError = ({ error, additionalInfo }) => {
   return {
     type: 'APP_HAS_CRITICAL_ERROR',
     errorData: {
-      stack, message, ...additionalInfo
+      stack,
+      message,
+      ...additionalInfo
     }
   }
 }
