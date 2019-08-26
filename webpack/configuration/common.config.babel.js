@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 const developmentConfig = () => ({
   entry: ['@babel/polyfill', './src/index.js'],
@@ -11,4 +11,4 @@ const developmentConfig = () => ({
   }
 })
 
-module.exports = developmentConfig
+export default developmentConfig
