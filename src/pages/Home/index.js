@@ -34,6 +34,7 @@ const Home = () => {
     return null
   }
 
+  console.log(HOME)
 
   return (
     <section className={css.home} data-id={HOME}>
@@ -50,7 +51,7 @@ const Home = () => {
             </Link>
           </li>
           <li className={css.linkTwo}>
-            <Link to='/two'>
+            <Link to="/two">
               <Image alt="Logo Two" />
               Page Two
             </Link>

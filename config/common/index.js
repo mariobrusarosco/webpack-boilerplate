@@ -1,8 +1,11 @@
 // Project's Package JSON
-const packageJSON = require('../../package.json')
+import packageJSON from '../../package.json'
+
+// Utils
+import generateShortHash from '../../src/utils/generate-short-hash'
 
 // ERRORS MAP
-const errorsMap = require('./errorsMap')
+import errorsMap from './errorsMap'
 
 const commonConfiguration = {
   APP_NAME: 'Boilerplate',
@@ -21,11 +24,10 @@ const commonConfiguration = {
     }
   },
   E2E: {
-    // This are just examples. In Real World Case we must use random hashes!!
-    HOME: 'AD4_sdrpaaegp',
-    HEADER: 'araDk_lKOpq',
-    VIVA_REAL_PAGE: 'AADm+k_lASDf',
-    ZAP_PAGE: '4ad__24kpfo'
+    HOME: generateShortHash(),
+    HEADER: generateShortHash(),
+    VIVA_REAL_PAGE: generateShortHash(),
+    ZAP_PAGE: generateShortHash()
   },
   UNIT: {
     LISTING_STATUS: 'active'

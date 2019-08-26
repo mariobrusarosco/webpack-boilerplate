@@ -9,9 +9,9 @@ const WebpackPwaManifest = require('webpack-pwa-manifest')
 const { InjectManifest } = require('workbox-webpack-plugin')
 
 // Project's configuration
-const config = require('../../../config')
+import config from '../../../src/app-configuration.json'
 
-const commonPlugins = env => [
+const commonPlugins = () => [
   new FaviconsWebpackPlugin({
     logo: path.resolve('src/assets/favicon-16x16.png'),
     cache: true,
@@ -28,7 +28,7 @@ const commonPlugins = env => [
     Component: ['react', 'Component']
   }),
   new webpack.DefinePlugin({
-    APP: JSON.stringify(config())
+    APP: JSON.stringify(config)
   }),
   new WebpackPwaManifest({
     name: 'Grupo ZAP',
