@@ -15,15 +15,15 @@ export const validateNumber = input => {
 export const validateString = input => {
   if (typeof input !== 'string') return false
 
-  const sanitized = input.replace(/\s/gim, '')
-  const lowercase = sanitized && sanitized.toLowerCase()
-  const trimmed = lowercase.trim()
+  const sanitizedString = input.replace(/\s/gim, '')
+  const lowercaseString = sanitizedString.toLowerCase()
+  const trimmedString = lowercaseString.trim()
 
-  const isFalsyStrings = ['null', 'undefined', 'false', 'nan'].some(
-    string => string === trimmed
+  const isFalsyString = ['null', 'undefined', 'false', 'nan'].some(
+    string => string === trimmedString
   )
 
-  if (isFalsyStrings || !trimmed) {
+  if (isFalsyString || !trimmedString) {
     return false
   }
 
