@@ -21,4 +21,4 @@ branches:
   only:
     - master
     - development
-    - /.*(hotfix|feature).*$/
+    - /feat\/.*/
