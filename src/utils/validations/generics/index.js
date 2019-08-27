@@ -1,7 +1,13 @@
 export const validateNumber = input => {
   if (!input) return false
 
-  const parsedNumber = ~~input // or Number(input)
+  let sanitizedInput
+
+  if (typeof input === 'string') {
+    sanitizedInput = input.replace(/\s/gim, '')
+  }
+
+  const parsedNumber = ~~sanitizedInput || ~~input
 
   return !!parsedNumber ? parsedNumber : false
 }

@@ -19,6 +19,9 @@
     "server-prod": "yarn build-prod && node server/index.js",
     "app-init": "babel-node -r node_modules/dotenv/config scripts/create-config.js"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
