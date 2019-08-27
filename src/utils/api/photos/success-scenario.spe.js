@@ -1,6 +1,6 @@
-import { usableAreasValidation, listingStatusValidation } from '../validations/api'
+import { usableAreasValidation, listingStatusValidation } from '../../validations/api'
 
-import { validateNumber, validateString } from '../validations/generics'
+import { validateNumber, validateString } from '../../validations/generics'
 
 const valuesToTestANumber = [10, '1', ' 10 ']
 const valuesToTestAString = ['RENTAL', '1', 'R$10']

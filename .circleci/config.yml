@@ -48,6 +48,7 @@ workflows:
             branches:
               only:
                 - master
+                - /feat/
             tags:
               only: /^v.*/
       # - deploy-dev:

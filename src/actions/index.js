@@ -5,16 +5,29 @@ import defaultAPI from 'api/default'
 import { pathOr } from 'ramda'
 
 // Utils
+import evaluate from 'utils/evaluation'
 
 // CONSTANTS
-const { ERRORS } = APP || global.APP
+const { ERRORS, BUSINESS } = APP || global.APP
+const { WALTER, JESSE } = BUSINESS
+
+export const evaluateSomeData = data => {
+  const evaluatedItems = evaluate(data)
+
+  console.log({ evaluatedItems })
+
+  return {
+    type: 'EVALUATE_SOME_DATA',
+    evaluation: evaluatedItems
+  }
+}
 
 export const fetchSomeData = () => async dispatch => {
   try {
     const response = await defaultAPI.get('/photos')
     const data = pathOr({}, ['data'], response)
 
-    dispatch({ type: 'FETCH_SOME_DATA', data })
+    dispatch({ type: 'FETCH_SOME_DATA' })
 
     return data
   } catch (e) {

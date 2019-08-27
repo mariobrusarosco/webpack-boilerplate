@@ -2,7 +2,12 @@
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 // Actions
-import { fetchSomeData, setAppAsLoaded, setAppCriticalError } from 'actions'
+import {
+  fetchSomeData,
+  evaluateSomeData,
+  setAppAsLoaded,
+  setAppCriticalError
+} from 'actions'
 
 // Components
 import AppLoader from 'components/Loaders/AppLoader'
@@ -12,9 +17,10 @@ const AppBootrap = () => {
 
   const bootsrapApplication = async () => {
     try {
-      await dispatch(fetchSomeData())
-
+      const data = await dispatch(fetchSomeData())
+      await dispatch(evaluateSomeData(data))
     } catch (e) {
+      console.warn(e)
       dispatch(setAppCriticalError({ error: e }))
     } finally {
       dispatch(setAppAsLoaded())

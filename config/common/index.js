@@ -9,6 +9,7 @@ import errorsMap from './errorsMap'
 
 const commonConfiguration = {
   APP_NAME: 'Boilerplate',
+  ENVIRONMENT: process.env.NODE_ENV,
   VERSION: packageJSON.version,
   ROOT_URL: '/',
   API: {
@@ -16,7 +17,9 @@ const commonConfiguration = {
   },
   BUSINESS: {
     LOS_POLLOS: 'los-pollos',
-    CAR_WASH: 'car-wash'
+    CAR_WASH: 'car-wash',
+    WALTER: 'walterWhite',
+    JESSE: 'jessePinkman'
   },
   API_MAPPER: {},
   E2E: {

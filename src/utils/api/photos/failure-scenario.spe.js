@@ -2,9 +2,9 @@ import {
   usableAreasValidation,
   listingStatusValidation,
   idValidation
-} from '../validations/api'
+} from '../../validations/api'
 
-import { validateNumber, validateString } from '../validations/generics'
+import { validateNumber, validateString } from '../../validations/generics'
 
 const valuesToTestANumber = [null, undefined, false, '', '   ', '100a00', 0, '0', '00000']
 const valuesToTestAString = [
