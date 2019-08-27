@@ -12,7 +12,7 @@
     "e2e-prod": "start-server-and-test server-prod :5000 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
-    "start": "yarn app-init && webpack-dev-server -r dotenv/config --config ./webpack/configuration/development.config.babel.js",
+    "start": "yarn app-init && webpack-dev-server --config ./webpack/configuration/development.config.babel.js",
     "build-dev": "export NODE_ENV=development && yarn app-init && webpack --config ./webpack/configuration/production.config.babel.js",
     "build-prod": "export NODE_ENV=production && yarn app-init && webpack --config ./webpack/configuration/production.config.babel.js",
     "server-dev": "yarn build-dev && node server/index.js",
@@ -22,7 +22,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn e2e-prod"
+      "pre-push": "yarn unit-test && yarn e2e-prod"
     }
   },
   "lint-staged": {
