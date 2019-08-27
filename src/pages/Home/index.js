@@ -23,8 +23,7 @@ const Home = () => {
   // LifeCycle
   useEffect(() => {
     const ID = 0
-    const item = example[ID]
-    // const item = allProperties.find(property => property.id === ID)
+    const item = example['all'][ID]
 
     setCurrentItem(item)
   }, [])

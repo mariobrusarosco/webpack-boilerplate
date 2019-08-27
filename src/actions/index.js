@@ -13,10 +13,9 @@ const { ERRORS, BUSINESS } = APP || global.APP
 const { WALTER, JESSE } = BUSINESS
 
 export const evaluateSomeData = data => {
-  // debugger
   const evaluatedItems = evaluate(data)
 
-  console.log(evaluatedItems.all)
+  // console.log(evaluatedItems.all)
 
   return {
     type: 'EVALUATE_SOME_DATA',
