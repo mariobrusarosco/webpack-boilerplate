@@ -1,14 +1,13 @@
 import walterEvaluator from '../index'
 
-// Fixture
+// Fixtures
 import {
   idSuccess,
   albumIdSuccess,
   ruleNumberOneSucess,
-  ruleNumberTwoSuccess
-} from './fixtures/scenarios/success'
-
-import { allCasesOfFailure } from './fixtures/scenarios/failure'
+  ruleNumberTwoSuccess,
+  allCasesOfFailure
+} from './fixtures'
 
 describe('Evaluation of a Item for [WALTER]', () => {
   describe('[SUCCESS SCENARIO]', () => {

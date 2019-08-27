@@ -7,30 +7,24 @@ const { WALTER, JESSE } = BUSINESS
 
 // Evaluations
 import evaluateForWalter from './walterEvaluation'
-// import evaluateForJesse from './jesseEvaluation'
 
 const evaluateItems = items => {
-  return [items[0]]
   // Using reduce
-  // const initialAccumulator = { [WALTER]: [], [JESSE]: [], all: [] }
+  const initialAccumulator = { [WALTER]: [], all: [] }
 
-  // return items.reduce((gradeList, item, i) => {
-  //   const walterEvaluation = evaluateForWalter(item)
-  //   const jesseEvaluation = evaluateForJesse(item)
+  // debugger
+  return items.reduce((gradeList, item, i) => {
+    const walterEvaluation = evaluateForWalter(item)
 
-  //   // if (walterEvaluation.isValid) {
-  //   //   item[WALTER] = true
-  //   gradeList[WALTER] = [...gradeList[ZAP], item]
-  // }
-  // if (jesseEvaluation.isValid) {
-  //   item[JESSE] = true
-  //   gradeList[JESSE] = [...gradeList[JESSE], item]
-  // }
+    if (walterEvaluation.fillAllConditions) {
+      item[WALTER] = true
+      gradeList[WALTER] = [...gradeList[WALTER], item]
+    }
 
-  // gradeList['all'] = [...gradeList['all'], item]
+    gradeList['all'] = [...gradeList['all'], item]
 
-  //   return [...gradeList, evaluatedItem ]
-  // }, initialAccumulator)
+    return gradeList
+  }, initialAccumulator)
 
   // Using ForEach
   // const walter = []
@@ -41,10 +35,6 @@ const evaluateItems = items => {
 
   //   if(evaluatedItem.isWalter) {
   //     walter = [...walter, item]
-  //   }
-
-  //   if(evaluateItem.isJesse) {
-  //     jesse = [...jesse, item]
   //   }
   // })
 

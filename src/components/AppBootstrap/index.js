@@ -18,6 +18,7 @@ const AppBootrap = () => {
   const bootsrapApplication = async () => {
     try {
       const data = await dispatch(fetchSomeData())
+
       await dispatch(evaluateSomeData(data))
     } catch (e) {
       console.warn(e)

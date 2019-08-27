@@ -7,7 +7,7 @@ import {
   ruleNumberOneFailure,
   ruleNumberTwoFailure,
   allCasesOfFailure
-} from './fixtures/scenarios/failure'
+} from './fixtures'
 
 describe('Evaluation of a Item for [JESSE]', () => {
   describe('[FAILURE SCENARIO]', () => {

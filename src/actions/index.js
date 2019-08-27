@@ -6,15 +6,17 @@ import { pathOr } from 'ramda'
 
 // Utils
 import evaluate from 'utils/evaluation'
+import { validatePhotosRequest } from 'utils/validations/api/photos'
 
 // CONSTANTS
 const { ERRORS, BUSINESS } = APP || global.APP
 const { WALTER, JESSE } = BUSINESS
 
 export const evaluateSomeData = data => {
+  // debugger
   const evaluatedItems = evaluate(data)
 
-  console.log({ evaluatedItems })
+  console.log(evaluatedItems.all)
 
   return {
     type: 'EVALUATE_SOME_DATA',
@@ -25,11 +27,12 @@ export const evaluateSomeData = data => {
 export const fetchSomeData = () => async dispatch => {
   try {
     const response = await defaultAPI.get('/photos')
-    const data = pathOr({}, ['data'], response)
+    const rawData = pathOr({}, ['data'], response)
+    const validatedData = validatePhotosRequest(rawData)
 
     dispatch({ type: 'FETCH_SOME_DATA' })
 
-    return data
+    return validatedData
   } catch (e) {
     dispatch(
       setAppCriticalError({
