@@ -1,10 +1,14 @@
+// Vendors
+import { memo } from 'react'
+import classnames from 'classnames'
 // Utils
 import history from 'utils/app-history'
-import { memo } from 'react'
 
-const GoBack = memo(() => {
+const GoBack = memo(({ customClass }) => {
   return (
-    <button className="go-back" onClick={() => history.goBack()}>back</button>
+    <button className="button go-back" onClick={() => history.goBack()}>
+      back
+    </button>
   )
 })
 

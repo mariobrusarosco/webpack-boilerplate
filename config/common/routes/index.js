@@ -29,11 +29,11 @@ const routes = [
     path: `${ROOT_URL}member/:id`,
     component: lazy(() => import('pages/Member'))
   },
-  // {
-  //   name: 'Product',
-  //   path: `${ROOT_URL}product/:id`,
-  //   component: lazy(() => import('pages/Product'))
-  // },
+  {
+    name: 'Product',
+    path: `${ROOT_URL}product/:id`,
+    component: lazy(() => import('pages/Product'))
+  },
   {
     name: 'Ops',
     path: `${ROOT_URL}ops`,
