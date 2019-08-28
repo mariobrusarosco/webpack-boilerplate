@@ -1,14 +1,13 @@
-const paginate = ({ array, itemsPerPage, resultStructureAs = 'array' }) => {
-  const numberOfPages = Math.ceil(array.length / itemsPerPage)
-
+const paginate = ({ array, perPage, resultStructureAs = 'object' }) => {
+  const numberOfPages = Math.ceil(array.length / perPage)
   let result = resultStructureAs === 'array' ? [] : {}
 
   for (
     let startPoint = 0, page = 1;
-    startPoint < numberOfPages * itemsPerPage;
-    startPoint += itemsPerPage, page++
+    startPoint < numberOfPages * perPage;
+    startPoint += perPage, page++
   ) {
-    const endPoint = startPoint + itemsPerPage
+    const endPoint = startPoint + perPage
 
     if (resultStructureAs === 'array') {
       result = [
@@ -26,10 +25,7 @@ const paginate = ({ array, itemsPerPage, resultStructureAs = 'array' }) => {
     }
   }
 
-  return {
-    all: array,
-    pagination: result
-  }
+  return result
 }
 
 export default paginate

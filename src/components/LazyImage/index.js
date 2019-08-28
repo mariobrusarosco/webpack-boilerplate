@@ -20,7 +20,7 @@ const Img = ({ src, alt }) => {
         alt={alt}
         src={native ? src : ''}
         loading={native ? 'lazy' : undefined}
-        data-src={!native ? src : 'undefined'}
+        data-src={!native ? src : ''}
       />
     </picture>
   )

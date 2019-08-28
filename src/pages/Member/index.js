@@ -1,65 +1,80 @@
 // Vendors
 import { Link } from 'react-router-dom'
-import { pathOr } from 'ramda'
+import { pathOr, length } from 'ramda'
 import { useSelector } from 'react-redux'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Pagination from 'rc-pagination'
 import 'rc-pagination/assets/index.css'
+
+// Utils
+import paginate from 'utils/paginate'
 
 // Styles
 import css from './styles.scss'
 
+// Components
+import ItemsList from 'components/ItemsList'
+import GoBack from 'components/GoBack'
+
 const Member = ({ match }) => {
-  // States / Store selectors and dispatchers
-  const example = useSelector(({ example }) => example)
+  // Redux / Store
+  const ID = pathOr('', ['params', 'id'], match)
+  const allPhotos = useSelector(({ example }) => example[ID] || null)
+
+  // State
+  const [paginatedPhotos, setPaginatedPhotos] = useState(
+    () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
+  )
+  // const [paginatedPhotos, setPaginatedPhotos] = useState([])
+  const [currentPage, setPage] = useState(1)
+
+  // LifeCycle
+  useEffect(() => {
+    console.log('useEffect() on Member')
+
+    // setPaginatedPhotos(paginate({ array: allPhotos, perPage: 20 }))
+  }, [])
 
   // Props
-  const ID = pathOr('', ['params', 'id'], match)
+  const photosToBeShown = paginatedPhotos[currentPage]
 
-  console.log(ID)
+  // Methods
+  const changePage = targetPage => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    document.dispatchEvent(new Event('resetImagesOnDOM'))
+
+    setPage(targetPage)
+  }
+
+  // Internal Components
+  const Paginator = () => (
+    <div className={css.paginationArea}>
+      <Pagination
+        onChange={changePage}
+        current={currentPage}
+        defaultCurrent={0}
+        total={length(allPhotos)}
+        defaultPageSize={20}
+      />
+    </div>
+  )
+
+  // console.log('render() on Member', photosToBeShown)
+
+  const memoizedItems = useMemo(() => <ItemsList items={photosToBeShown} />, [
+    photosToBeShown
+  ])
 
   return (
     <div className={css.page}>
-      All Products
-      <ul>
-        <li>
-          <Link to="/product/1">Product</Link>
-        </li>
-        <li>
-          <Link to="/products/2">Product</Link>
-        </li>
-      </ul>
-      {/* <Paginator />
-      <PropertyList properties={propertiesToRender} />
-      <Paginator />  */}
+      Member {ID}
+      <Paginator />
+      {memoizedItems}
+      <Paginator />
+      <GoBack />
     </div>
   )
 }
 
 export default Member
-
-// const [currentPage, setPage] = useState(1)
-
-// const totalOfProperties = pathOr(0, ['all', 'length'], vivaProperties)
-// const propertiesToRender = pathOr([], ['pagination', [currentPage]], vivaProperties)
-
-// TODO DRY in this behaviour
-// const changePage = page => {
-//   window.scrollTo({ top: 0, behavior: 'smooth' }) // This scroll action would be an 'util'
-//   setPage(page)
-//   document.dispatchEvent(new Event('resetImagesOnDOM'))
-// }
-
-// const Paginator = () => {
-//   return (
-//     <div className={css.paginationArea}>
-//       <Pagination
-//         onChange={changePage}
-//         current={currentPage}
-//         defaultCurrent={0}
-//         total={totalOfProperties}
-//         defaultPageSize={20}
-//       />
-//     </div>
-//   )
-// }

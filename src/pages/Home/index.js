@@ -6,11 +6,16 @@ import { pathOr, isEmpty } from 'ramda'
 // Styles
 import css from './styles.scss'
 
+// Assets
+import logoLosPollos from 'assets/images/logo-los-pollos.jpg'
+import logoCarWash from 'assets/images/logo-car-wash.png'
+
 // Components
 import Image from 'components/Image'
 
 // E2E Data
 const {
+  BUSINESS: { WALTER },
   E2E: { HOME }
 } = APP
 
@@ -42,32 +47,32 @@ const Home = () => {
         <ul className={css.list}>
           <li className={css.linkOne}>
             <Link to="/los-pollos-hermanos">
-              <Image alt="Los Pollos Hermanos" />
-              Los Pollos Hermanos
+              <Image alt="Los Pollos Hermanos" src={logoLosPollos.src} />
+              {/* Los Pollos Hermanos */}
             </Link>
           </li>
           <li className={css.linkTwo}>
             <Link to="/car-wash">
-              <Image alt="Car Wash" />
-              Car Wash
+              <Image alt="Car Wash" src={logoCarWash.src} />
+              {/* Car Wash */}
             </Link>
           </li>
           <li className={css.linkOne}>
-            <Link to="/member/walter-white">
+            <Link to={`/member/${WALTER}`}>
               <Image alt="Walter White" />
-              Walter White
+              {/* Walter White */}
             </Link>
           </li>
           <li className={css.linkOne}>
-            <Link to="/member/jesse">
+            <Link to={`/member/${'all'}`}>
               <Image alt="Jesse" />
-              Jesse Pinkman
+              {/* Jesse Pinkman */}
             </Link>
           </li>
           <li className={css.linkTwo}>
             <Link to={`/product/${currentItem.id}`}>
               <Image alt="Logo Two" />
-              Specific Product
+              {/* Specific Product */}
             </Link>
           </li>
         </ul>
