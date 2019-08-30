@@ -1,7 +1,8 @@
 .home {
   background-color: #fff;
-  height: calc(100vh - var(--header-height));
-  height: calc(100vh - #{$header-height});
+  min-height: calc(100vh - var(--header-height));
+  min-height: calc(100vh - #{$header-height});
+  min-width: 100%;
 }
 .wrapper {
   height: 100%;
@@ -31,7 +32,6 @@
   display: flex;
   align-items: center;
 }
-
 
 .list {
   display: flex;

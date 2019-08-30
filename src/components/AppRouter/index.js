@@ -13,14 +13,6 @@ import AppBootstrap from 'components/AppBootstrap'
 import AppLayout from 'components/AppLayout'
 import RoutesLoader from 'components/Loaders/RoutesLoader'
 
-import Home from 'pages/Home'
-import NotFound from 'pages/NotFound'
-import LosPollos from 'pages/LosPollos'
-
-// const Home = () => <div className="home">HOme</div>
-// const NotFound = () => <div className="not-found">not found</div>
-// const LosPollos = () => <div className="los-pollos">los pollos</div>
-
 const RouterStructure = () => {
   return (
     <BrowserRouter>
@@ -37,11 +29,13 @@ const RouterStructure = () => {
               >
                 <div>
                   <AppLayout>
-                    <Switch location={location}>
-                      <Route exact path="/" component={Home} />
-                      <Route exact path="/los-pollos-hermanos" component={LosPollos} />
-                      <Route path="*" component={NotFound} />
-                    </Switch>
+                    <Suspense fallback={<RoutesLoader />}>
+                      <Switch location={location}>
+                        {routes.map(({ Component, ...props }, i) => (
+                          <Route component={Component} {...props} key={i} />
+                        ))}
+                      </Switch>
+                    </Suspense>
                   </AppLayout>
                 </div>
               </CSSTransition>
@@ -49,36 +43,6 @@ const RouterStructure = () => {
           </>
         )}
       />
-    </BrowserRouter>
-  )
-}
-
-const RouterStructure2 = () => {
-  return (
-    <BrowserRouter>
-      {/* <Suspense fallback={<RoutesLoader />}>
-  <Switch>
-    {routes.map(({ path, Component }, i) => (
-      <Route exact path={path} key={i}>
-        {({ match }) => {
-          console.log(match)
-          return (
-            <CSSTransition
-              in={match != null}
-              timeout={300}
-              classNames="page"
-              unmountOnExit
-            >
-              <div className="page">
-                <Component match={match} />
-              </div>
-            </CSSTransition>
-          )
-        }}
-      </Route>
-    ))}
-  </Switch>
-  </Suspense> */}
     </BrowserRouter>
   )
 }
