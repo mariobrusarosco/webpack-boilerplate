@@ -1,4 +1,43 @@
 .appLayout {
   padding-top: var(--header-height);
   padding-top: $header-height;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid red;
+  width: 100%;
+  height: calc(100% - var(--header-height));
+  height: calc(100% - #{$header-height});
+}
+
+:global(.route-motion-enter, .route-motion-appear) {
+  .appLayout {
+    // background-color: red;
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+:global(.route-motion-enter-active, .route-motion-appear-active) {
+  .appLayout {
+    // background-color: red;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+}
+
+:global(.route-motion-exit) {
+  .appLayout {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+:global(.route-motion-exit-active) {
+  .appLayout {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.3s, transform 0.3s;
+  }
 }
