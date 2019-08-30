@@ -9,8 +9,8 @@ import css from './styles.scss'
 
 // Components
 import Image from 'components/Image'
-import Info from 'components/Property/Info'
-import Gallery from 'components/Property/Gallery'
+import Info from 'components/SpecificComponent/Info'
+import Gallery from 'components/SpecificComponent/Gallery'
 import GoBack from 'components/GoBack'
 // Utils
 import toCurrency from 'utils/formatters/currency'

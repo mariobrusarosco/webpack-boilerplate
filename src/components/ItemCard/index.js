@@ -8,7 +8,7 @@ import css from './styles.scss'
 // Components
 // import Image from 'components/Image'
 import LazyImage from 'components/LazyImage'
-import Info from 'components/Property/Info'
+import Info from 'components/SpecificComponent/Info'
 
 // Utils
 import toCurrency from 'utils/formatters/currency'
