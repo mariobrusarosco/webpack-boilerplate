@@ -1,10 +1,10 @@
-# ZAP Challenge
+# Boilerplate
 
 ## BUILD
 
 [![CircleCI](https://circleci.com/gh/mbrusarosco/eng-zap-challenge-javascript.svg?style=svg)](https://circleci.com/gh/mbrusarosco/eng-zap-challenge-javascript)
 
-[![Build Status](https://travis-ci.com/mbrusarosco/eng-zap-challenge-javascript.svg?token=jKoVXZguKDp75tuZjxU5&branch=master)](https://travis-ci.com/mbrusarosco/eng-zap-challenge-javascript)
+[![Build Status](https://travis-ci.com/mariobrusarosco/webpack-boilerplate.svg?token=PA7NZ9iXiX1dfpxMANEu&branch=master)](https://travis-ci.com/mariobrusarosco/webpack-boilerplate)
 
 ## INSTALAÇÃO
 

@@ -1,5 +1,5 @@
 // Helpers
-const toAssetString = asset => asset.url || asset
+// const toAssetString = asset => asset.url || asset
 
 // const cacheAssets = () => {
 //   return caches
@@ -15,16 +15,16 @@ const toAssetString = asset => asset.url || asset
 // }
 
 // Configuration
-const staticCachePath = 'static-cache-v1'
+// const staticCachePath = 'static-cache-v1'
 
-const buildGeneratedAssets = self.__precacheManifest
-const preDefinedAssets = []
+// const buildGeneratedAssets = self.__precacheManifest
+// const preDefinedAssets = []
 
-const listOfAssets = [...buildGeneratedAssets, ...preDefinedAssets]
+// const listOfAssets = [...buildGeneratedAssets, ...preDefinedAssets]
 
-const contentToCache = listOfAssets.map(toAssetString)
+// const contentToCache = listOfAssets.map(toAssetString)
 
-// const clearPreviousCache = () => {
+// // const clearPreviousCache = () => {
 //   caches.keys().then(keys => {
 //     return Promise.all(
 //       keys
@@ -43,10 +43,10 @@ const contentToCache = listOfAssets.map(toAssetString)
 // }
 
 // Install Process
-self.addEventListener('install', event => {
-  // console.log('Installing SW...')
-  // event.waitUntil(cacheAssets())
-})
+// self.addEventListener('install', event => {
+// console.log('Installing SW...')
+// event.waitUntil(cacheAssets())
+// })
 
 // // Activation Process
 // self.addEventListener('activate', event => {
