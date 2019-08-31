@@ -34,10 +34,7 @@ const commonPlugins = () => [
         android: true,
         appleIcon: true,
         appleStartup: true,
-        coast: true,
-        favicons: true,
-        firefox: true,
-        windows: true
+        favicons: true
       }
     }
   }),

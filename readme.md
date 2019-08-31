@@ -106,6 +106,13 @@ $ yarn server
     ``` 
     import YourHelper from '../../../YourHelper'
 
+  * Favicons
+
+  > A partir de um único ícone, a build irá criar diversas versões da favicons para vários navegadores
+
+  * Manifesto
+
+  > É possível configurar propriedas de PWA dentro de um ```manifest.json```
 ---
 
 ### Workflow
