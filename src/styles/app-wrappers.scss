@@ -1,0 +1,12 @@
+.mainWrapper {
+  margin: 0 auto;
+  max-width: 400px;
+
+  @include above(768px) {
+    max-width: 770px;
+  }
+
+  @include above(1024px) {
+    max-width: 900px;
+  }
+}

@@ -1,24 +1,25 @@
-// Legacy Support fo Lazyload
-import legacyLazyload from './legacy'
-// Modern Support fo Lazyload
-import modernLazyload from './modern'
-// Native Support fo Lazyload
-import nativeLazyload from './native'
+// // Lazyload Support
+import lazyloadSupport from './support'
 
 const lazyload = () => {
-  const imagesOnDOM = Array.prototype.slice.call(document.querySelectorAll('img'))
+  const { modern, native } = lazyloadSupport
 
-  if ('loading' in HTMLImageElement.prototype) {
-    console.log('native')
-    // if (false) {
-    nativeLazyload(imagesOnDOM)
-  } else if ('IntersectionObserver' in window) {
-    console.log('modern')
-    modernLazyload(imagesOnDOM)
-  } else {
-    console.log('legacy')
-    legacyLazyload(imagesOnDOM)
-  }
+  document.addEventListener('DOMContentLoaded', async () => {
+    if (native) {
+      console.log('Native Support For Lazy Load')
+      return
+    } else if (modern) {
+      console.log('Modern Support For Lazy Load')
+      const { default: modernLazyload } = await import('./modern')
+      document.addEventListener('updateLazyLoadWatcher', modernLazyload())
+    } else {
+      console.log('Legacy Support For Lazy Load')
+      const { default: legacyLazyload } = await import('./legacy')
+      document.addEventListener('updateLazyLoadWatcher', legacyLazyload)
+      document.addEventListener('scroll', legacyLazyload)
+      window.addEventListener('resize', legacyLazyload)
+    }
+  })
 }
 
 export default lazyload

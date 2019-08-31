@@ -1,26 +1,33 @@
 // Vendors
 import { Link } from 'react-router-dom'
 
+// Assets
+import logo from 'assets/images/logo.svg'
+
+// Components
+import Image from 'components/Image'
+
 // Styles
-import styles from './styles.scss'
+import css from './styles.scss'
+
+// Constants
+const { APP_NAME } = APP
+
+// E2E Data
+const {
+  E2E: { HEADER }
+} = APP
 
 const Header = () => {
   return (
-    <header className={styles.header}>
-      <ul className={styles.list}>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/one">Page One</Link>
-        </li>
-        <li>
-          <Link to="/two">Page Two</Link>
-        </li>
-        <li>
-          <Link to="/products">Products</Link>
-        </li>
-      </ul>
+    <header className={css.header} data-id={HEADER}>
+      <div className={css.wrapper}>
+        <div className={css.logo}>
+          <Link to="/">
+            <Image src={logo} alt={`Logo ${APP_NAME}`} />
+          </Link>
+        </div>
+      </div>
     </header>
   )
 }

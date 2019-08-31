@@ -10,8 +10,9 @@ const productionLoaders = [
       {
         loader: 'css-loader',
         options: {
+          importLoaders: 2,
           modules: true,
-          localIdentName: '[folder]__[hash:base64:8]'
+          localIdentName: '[hash:base64:8]'
         }
       },
       {
@@ -19,6 +20,8 @@ const productionLoaders = [
         options: {
           data: `
             @import 'variables';
+            @import 'mixins';
+            @import 'animations';
           `,
           includePaths: ['./src/styles']
         }

@@ -1,15 +1,15 @@
-const path = require('path')
+import path from 'path'
 
 // Loaders
-const commonLoaders = require('../loaders/common')
-const productionLoaders = require('../loaders/production')
+import commonLoaders from '../loaders/common'
+import productionLoaders from '../loaders/production'
 
 // Plugins
-const commonPlugins = require('../plugins/common')
-const productionPlugins = require('../plugins/production')
+import commonPlugins from '../plugins/common'
+import productionPlugins from '../plugins/production'
 
 // Webpacks's Configurations
-const commonConfig = require('./common.config')
+import commonConfig from './common.config.babel'
 
 const productionConfig = env => ({
   mode: 'production',

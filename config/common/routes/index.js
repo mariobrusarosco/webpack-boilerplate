@@ -11,34 +11,38 @@ const routes = [
   {
     name: 'Home',
     path: `${ROOT_URL}`,
-    component: Home,
+    Component: Home,
     exact: true
   },
   {
-    name: 'PageOne',
-    path: `${ROOT_URL}one`,
-    component: lazy(() => import('pages/PageOne'))
+    name: 'Los Pollos Hermanos',
+    path: `${ROOT_URL}los-pollos-hermanos`,
+    Component: lazy(() => import('pages/LosPollos'))
   },
   {
-    name: 'PageTwo',
-    path: `${ROOT_URL}two`,
-    component: lazy(() => import('pages/PageTwo'))
+    name: 'Car Wash',
+    path: `${ROOT_URL}car-wash`,
+    Component: lazy(() => import('pages/CarWash'))
   },
   {
-    name: 'Products',
-    path: `${ROOT_URL}products`,
-    component: lazy(() => import('pages/Products')),
-    exact: true
+    name: 'Member',
+    path: `${ROOT_URL}member/:id`,
+    Component: lazy(() => import('pages/Member'))
   },
   {
     name: 'Product',
-    path: `${ROOT_URL}products/:id`,
-    component: lazy(() => import('pages/Product'))
+    path: `${ROOT_URL}product/:id`,
+    Component: lazy(() => import('pages/Product'))
+  },
+  {
+    name: 'Ops',
+    path: `${ROOT_URL}ops`,
+    Component: lazy(() => import('pages/AppError'))
   },
   {
     name: 'NotFound',
     path: `*`,
-    component: lazy(() => import('pages/NotFound'))
+    Component: lazy(() => import('pages/NotFound'))
   }
 ]
 

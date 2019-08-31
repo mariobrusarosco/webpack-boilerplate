@@ -1,4 +1,4 @@
-const path = require('path')
+import path from 'path'
 
 const developmentConfig = () => ({
   entry: ['@babel/polyfill', './src/index.js'],
@@ -7,12 +7,8 @@ const developmentConfig = () => ({
       'react-dom': '@hot-loader/react-dom',
       configPath: path.resolve('config')
     },
-    modules: [
-      path.resolve('node_modules'),
-      path.resolve('src'),
-      path.resolve('src', 'boilerplate-features')
-    ]
+    modules: [path.resolve('node_modules'), path.resolve('src')]
   }
 })
 
-module.exports = developmentConfig
+export default developmentConfig

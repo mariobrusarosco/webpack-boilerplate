@@ -1,26 +1,31 @@
 {
-  "name": "front-end-boilerplate",
-  "version": "4.8.0",
-  "description": "Front End Boilerplate",
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "description": "Boilerplate",
   "private": true,
   "scripts": {
     "eslint": "eslint src/**/*.js",
-    "stylelint": "stylelint src/**/*.{css,scss}",
+    "stylelint": "stylelint --fix src/**/*.{css,scss}",
     "unit-test:watch": "yarn eslint && yarn stylelint && jest --watchAll",
     "unit-test": "yarn eslint && yarn stylelint && jest",
-    "e2e-dev": "start-server-and-test serve-front-end :8080 cy-open",
-    "e2e-prod": "start-server-and-test serve-front-end :8080 cy-run",
+    "e2e-dev": "start-server-and-test server-dev :5000 cy-open",
+    "e2e-prod": "start-server-and-test server-prod :5000 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
-    "server": "yarn prod && node server/index.js",
-    "prod": "export NODE_ENV=production && webpack --config ./webpack/configuration/production.config.js",
-    "serve-front-end": "yarn prod && node server/serve-front-end.js",
-    "dev": "webpack-dev-server -r dotenv/config --config ./webpack/configuration/development.config.js"
+    "start": "yarn app-init && webpack-dev-server --config ./webpack/configuration/development.config.babel.js",
+    "build-dev": "export NODE_ENV=development && yarn app-init && webpack --config ./webpack/configuration/production.config.babel.js",
+    "build-prod": "export NODE_ENV=production && yarn app-init && webpack --config ./webpack/configuration/production.config.babel.js",
+    "server-dev": "yarn build-dev && node server/index.js",
+    "server-prod": "yarn build-prod && node server/index.js",
+    "app-init": "babel-node -r node_modules/dotenv/config scripts/create-config.js"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn e2e-prod"
+      "pre-push": "yarn unit-test && yarn e2e-prod"
     }
   },
   "lint-staged": {
@@ -41,12 +46,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariobrusarosco/webpack-boilerplate.git"
+    "url": "git+https://github.com/mariobrusarosco/eng-zap-challenge.git"
   },
   "bugs": {
-    "url": "https://github.com/mariobrusarosco/webpack-boilerplate/issues"
+    "url": "https://github.com/mariobrusarosco/eng-zap-challenge/issues"
   },
-  "homepage": "https://github.com/mariobrusarosco/webpack-boilerplate#readme",
+  "homepage": "https://github.com/mariobrusarosco/eng-zap-challenge#readme",
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
     "axios": "^0.19.0",
@@ -66,6 +71,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/node": "^7.5.5",
     "@babel/plugin-proposal-class-properties": "^7.3.3",
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
@@ -74,6 +80,7 @@
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.5.5",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "brotli-webpack-plugin": "^1.1.0",
@@ -99,6 +106,7 @@
     "react-dom": "16.8.0",
     "react-hot-loader": "^4.9.0",
     "react-slick": "^0.25.2",
+    "react-transition-group": "^4.2.2",
     "sass-loader": "^7.1.0",
     "start-server-and-test": "^1.7.11",
     "style-loader": "^0.23.1",

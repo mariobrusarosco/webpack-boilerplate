@@ -3,14 +3,20 @@ const webpack = require('webpack')
 const path = require('path')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 const HtmlWebpack = require('html-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CleanWebpack = require('clean-webpack-plugin')
 const WebpackPwaManifest = require('webpack-pwa-manifest')
 const { InjectManifest } = require('workbox-webpack-plugin')
 
 // Project's configuration
-const config = require('../../../config')
+import config from '../../../src/app-configuration.json'
 
-const commonPlugins = env => [
+const commonPlugins = () => [
+  new FaviconsWebpackPlugin({
+    logo: path.resolve('src/assets/favicon-16x16.png'),
+    cache: true,
+    inject: true
+  }),
   new HtmlWebpack({
     template: path.resolve('src', 'index.html')
   }),
@@ -19,22 +25,22 @@ const commonPlugins = env => [
   }),
   new webpack.ProvidePlugin({
     React: 'react',
-    Component: ['react', 'Component'] // Just an example of providing only some parts of a Library/Module
+    Component: ['react', 'Component']
   }),
   new webpack.DefinePlugin({
-    APP: JSON.stringify(config())
+    APP: JSON.stringify(config)
   }),
   new WebpackPwaManifest({
-    name: 'React Boilerplate',
+    name: 'Grupo ZAP',
     start_url: 'index.html?origin=pwa',
     display: 'standalone',
-    short_name: 'ReactBoilerplate',
+    short_name: 'Grupo ZAP',
     inject: true,
-    description: 'A Front End React Boilerplate!',
-    background_color: '#ff6347',
-    theme_color: '#045a65',
-    scope: '.', // Which pages are included in a PWA Experience
-    crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+    description: 'Grupo ZAP. Abrindo caminhos para o mercado imobiliário no Brasil!',
+    background_color: '#c8d419',
+    theme_color: '#00ac95',
+    scope: '.',
+    crossorigin: null,
     icons: [
       {
         src: path.resolve('src/assets/icon.png'),
@@ -45,7 +51,6 @@ const commonPlugins = env => [
   new InjectManifest({
     swSrc: './src/sw.js',
     swDest: 'sw.js'
-    // exlcude: /\.(js|html)$/ig
   }),
   new StyleLintPlugin()
 ]

@@ -3,10 +3,13 @@ import { hot } from 'react-hot-loader/root'
 // Components
 import AppRouter from 'components/AppRouter'
 
-class App extends Component {
-  render() {
-    return <AppRouter />
-  }
+// Utils
+import lazyload from 'utils/lazyload'
+
+lazyload()
+
+const App = () => {
+  return <AppRouter />
 }
 
 export default hot(App)

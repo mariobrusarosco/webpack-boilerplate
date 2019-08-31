@@ -1,0 +1,33 @@
+:global {
+  @keyframes pulse {
+    0% {
+      opacity: 0;
+    }
+
+    40% {
+      opacity: 1;
+    }
+
+    85% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(2.2);
+    }
+  }
+
+  @keyframes cardAnimation {
+    0% {
+      opacity: 0.1;
+      transform: translateY(-40px);
+      // transform: scale(2.2);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+      // transform: scale(2.2);
+    }
+  }
+}

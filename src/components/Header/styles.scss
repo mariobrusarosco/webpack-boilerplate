@@ -1,10 +1,20 @@
 .header {
-  padding: 20px;
-  border-bottom: 1px solid tomato;
-  margin-bottom: 20px;
+  position: fixed;
+  width: 100vw;
+  padding: 20px 0;
+  background-color: $primary-color;
+  background-color: var(--primary-color);
+  box-shadow: 0px 2px 5px 1px #00000052;
+  z-index: 100000;
 }
 
-.list{
+.wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  composes: import mainWrapper from 'styles/app-wrappers.scss';
+}
+
+.logo {
+  width: 40px;
 }
