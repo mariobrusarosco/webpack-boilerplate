@@ -10,8 +10,8 @@
   padding-bottom: 10px;
   font-size: 16px;
   font-weight: 900;
-  color: var(--primary-color);
   color: $primary-color;
+  color: var(--primary-color);
 
   @include above(568px) {
     padding-bottom: 30px;
@@ -21,8 +21,8 @@
 .listWrapper {
   overflow: hidden;
   margin-bottom: 40px;
-  border-bottom: 3px solid var(--primary-color);
   border-bottom: 3px solid $primary-color;
+  border-bottom: 3px solid var(--primary-color);
   padding-bottom: 70px;
 
   @include above(1024px) {

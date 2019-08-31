@@ -1,6 +1,12 @@
 // Vendors
-import { pathOr } from 'ramda'
 import { Link } from 'react-router-dom'
+// Vendors
+import {
+  CSSTransition,
+  TransitionGroup,
+  SwitchTransition,
+  FadeTransition
+} from 'react-transition-group'
 
 // Styles
 import css from './styles.scss'
@@ -13,7 +19,7 @@ import Info from 'components/SpecificComponent/Info'
 // Utils
 import toCurrency from 'utils/formatters/currency'
 
-const PropertyCard = ({ data }) => {
+const ItemCard = ({ data }) => {
   // Props
   const { id, albumId, title, url } = data
 
@@ -35,6 +41,13 @@ const PropertyCard = ({ data }) => {
   )
 
   return (
+    //   <CSSTransition
+    //     in
+    //     appear
+    //     timeout={200}
+    //     onExit={() => console.log('exit')}
+    //     classNames="card-motion"
+    //   >
     <li className={css.card}>
       <div className={css.imageArea}>
         <LazyImage src={url} alt={`${title}`} />
@@ -45,7 +58,8 @@ const PropertyCard = ({ data }) => {
         <MoreDetails />
       </ul>
     </li>
+    // </CSSTransition>
   )
 }
 
-export default PropertyCard
+export default ItemCard

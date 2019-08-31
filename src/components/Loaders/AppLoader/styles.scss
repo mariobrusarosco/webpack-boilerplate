@@ -5,8 +5,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-color);
   background-color: $primary-color;
+  background-color: var(--primary-color);
 }
 
 .wrapper {
@@ -39,8 +39,8 @@
   padding-bottom: 20px;
   font-weight: 900;
   font-size: 30px;
-  color: var(--secondary-color);
   color: $secondary-color;
+  color: var(--secondary-color);
 }
 
 .pulseWrapper {

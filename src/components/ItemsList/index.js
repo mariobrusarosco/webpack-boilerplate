@@ -1,20 +1,53 @@
+// Vendors
+import {
+  CSSTransition,
+  TransitionGroup,
+  SwitchTransition,
+  FadeTransition
+} from 'react-transition-group'
+
+import { memo } from 'react'
+
 // Components
 import ItemCard from 'components/ItemCard'
 
-const ItemsList = ({ items }) => {
+// Styles
+import css from './styles.scss'
+
+const ItemsList = memo(({ items }) => {
   if (!items) return null
 
-  const renderItems = () => {
-    return (
-      <ul>
-        {items.map((item, i) => {
-          return <ItemCard data={item} key={i} />
-        })}
-      </ul>
-    )
-  }
+  const test = items.map(item => (
+    <div key={item.id}>
+      <ItemCard data={item} />
+    </div>
+  ))
 
-  return renderItems()
-}
+  return (
+    <div className={css.wrapper}>
+      {/* <TransitionGroup component={null}>
+        <CSSTransition
+          key={Math.random()}
+          in
+          appear
+          timeout={350}
+          timeout={{
+            appear: 300,
+            enter: 250,
+            exit: 200,
+           }}
+          classNames="card-motion"
+        > */}
+      <ul className={css.list}>
+        {items.map(item => (
+          <ItemCard data={item} key={item.id} />
+        ))}
+        >
+      </ul>
+      {/* </CSSTransition>
+        </TransitionGroup> */}
+    </div>
+  )
+})
 
 export default ItemsList

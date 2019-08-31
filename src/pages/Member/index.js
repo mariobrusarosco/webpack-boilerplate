@@ -62,15 +62,11 @@ const Member = ({ match }) => {
 
   // console.log('render() on Member', photosToBeShown)
 
-  const memoizedItems = useMemo(() => <ItemsList items={photosToBeShown} />, [
-    photosToBeShown
-  ])
-
   return (
     <div className={css.page}>
       Member {ID}
       <Paginator />
-      {memoizedItems}
+      <ItemsList items={photosToBeShown} />
       <Paginator />
       <GoBack />
     </div>

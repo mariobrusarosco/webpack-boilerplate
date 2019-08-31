@@ -18,7 +18,8 @@ const developmentLoaders = [
         options: {
           data: `
             @import 'variables';
-            @import 'functions_mixins/media-query';
+            @import 'mixins';
+            @import 'animations';
           `,
           includePaths: ['./src/styles']
         }

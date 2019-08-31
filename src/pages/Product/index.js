@@ -15,7 +15,7 @@ import GoBack from 'components/GoBack'
 // Utils
 import toCurrency from 'utils/formatters/currency'
 
-const Product = ({ match, history }) => {
+const Product = ({ match }) => {
   // Redux / Store
   const allExamples = useSelector(({ example }) => example.all)
   // State

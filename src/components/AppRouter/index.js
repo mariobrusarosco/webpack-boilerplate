@@ -24,7 +24,7 @@ const RouterStructure = () => {
               <CSSTransition
                 key={location.key}
                 classNames="route-motion"
-                timeout={300}
+                timeout={350}
                 appear
               >
                 <div>

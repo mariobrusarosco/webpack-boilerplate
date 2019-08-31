@@ -2,8 +2,8 @@
   position: fixed;
   width: 100vw;
   padding: 20px 0;
-  background-color: var(--primary-color);
   background-color: $primary-color;
+  background-color: var(--primary-color);
   box-shadow: 0px 2px 5px 1px #00000052;
   z-index: 100000;
 }
