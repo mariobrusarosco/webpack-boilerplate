@@ -57,7 +57,7 @@ const commonPlugins = () => [
   new InjectManifest({
     swSrc: './src/sw.js',
     swDest: 'sw.js',
-    exclude: [/\.map$/, /^manifest.*\.js$/]
+    exclude: [/\.map$/, /.*(manifest|hot).*/gim, /\.webapp$/, /\.xml$/]
   }),
   new StyleLintPlugin()
 ]
