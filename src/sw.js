@@ -6,10 +6,12 @@ const staticCachePath = 'static-v1'
 const dynamicCachePath = 'dynamic-v1'
 
 const appStartAssets = self.__precacheManifest
-const preDefinedAssets = []
+const preDefinedAssets = ['/']
 const listOfAssets = [...appStartAssets, ...preDefinedAssets]
 
 const contentToCache = listOfAssets.map(toAssetString)
+
+const dynamicBlackList = ['/photos']
 
 // const cacheAssetOnTheFly = event => fetchResponse => {
 //   return caches.open(staticCachePath).then(cache => {
@@ -65,6 +67,13 @@ self.addEventListener('fetch', event => {
       }
 
       return fetch(event.request)
+        .then(fetchedResponse =>
+          caches.open(dynamicCachePath).then(cache => {
+            cache.put(event.request.url, fetchedResponse.clone())
+            return fetchedResponse
+          })
+        )
+        .catch(e => e)
     })
   )
 })

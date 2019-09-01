@@ -24,7 +24,7 @@ const {
 
 const Home = () => {
   // Store - Redux
-  const example = useSelector(({ example }) => example)
+  const example = useSelector(({ example }) => example || {})
 
   // State
   const [currentItem, setCurrentItem] = useState({})

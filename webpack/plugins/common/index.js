@@ -57,7 +57,14 @@ const commonPlugins = () => [
   new InjectManifest({
     swSrc: './src/sw.js',
     swDest: 'sw.js',
-    exclude: [/\.map$/, /.*(manifest|hot).*/gim, /\.webapp$/, /\.xml$/]
+    exclude: [
+      /\.map$/,
+      /.*(manifest|hot).*/,
+      /\.webapp$/,
+      /\.xml$/,
+      /\.*(apple|android|icon|mstile|yandex|coast).*/
+    ]
+    // Insert 'included' files with globbing pattern
   }),
   new StyleLintPlugin()
 ]
