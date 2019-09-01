@@ -18,7 +18,7 @@
     "server-dev": "yarn build-dev && node server/index.js",
     "server-prod": "yarn build-prod && node server/index.js",
     "app-init": "babel-node -r node_modules/dotenv/config scripts/create-config.js",
-    "temp": "webpack-dev-server --config ./temp/webpack.config.js"
+    "temp": "node server/index.js"
   },
   "jest": {
     "testEnvironment": "node"
