@@ -35,6 +35,11 @@ const routes = [
     Component: lazy(() => import('pages/Product'))
   },
   {
+    name: 'Login',
+    path: `${ROOT_URL}login`,
+    Component: lazy(() => import('pages/Login'))
+  },
+  {
     name: 'Ops',
     path: `${ROOT_URL}ops`,
     Component: lazy(() => import('pages/AppError'))

@@ -1,10 +1,20 @@
 // E2E Data
 const APP = require('../../src/app-configuration.json')
-const { E2E, ROOT_URL } = APP
+const { E2E, ROOT_URL, API } = APP
+const { API_ROOT } = API
+
+const bootstrapUrl = `${API_ROOT}photos`
+
+beforeEach(() => {
+  cy.server()
+})
 
 describe('Initial Fetch', () => {
   it('Must verify if the App was bootstraped', () => {
+    cy.route(bootstrapUrl).as('bootstrapApp')
+
     cy.visit('/')
+    cy.wait('@bootstrapApp')
 
     // Check if Home Component was loaded
     cy.get(`[data-id=${E2E.HOME}]`)
