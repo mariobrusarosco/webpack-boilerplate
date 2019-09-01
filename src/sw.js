@@ -3,7 +3,7 @@ const toAssetString = asset => asset.url || asset
 
 // Configuration
 const staticCachePath = 'static-v1'
-const dynamicCachePath = 'dynamic-v1'
+const dynamicCachePath = 'dynamic-v1  '
 
 const appStartAssets = self.__precacheManifest
 const preDefinedAssets = ['/']
@@ -11,22 +11,22 @@ const listOfAssets = [...appStartAssets, ...preDefinedAssets]
 
 const contentToCache = listOfAssets.map(toAssetString)
 
-const dynamicBlackList = ['/photos']
+const dynamicBlackList = ['via.placeholder']
 
-// const cacheAssetOnTheFly = event => fetchResponse => {
-//   return caches.open(staticCachePath).then(cache => {
-//     debugger
-//     cache.put(event.request.url, fetchResponse)
-//     return fetchResponse
-//   })
-// }
+const cacheAssetOnTheFly = event => fetchedResponse => {
+  return caches.open(dynamicCachePath).then(cache => {
+    console.log(fetchedResponse.url)
+    cache.put(event.request.url, fetchedResponse.clone())
+    return fetchedResponse
+  })
+}
 
 const clearPreviousCache = () => {
   caches.keys().then(keys => {
     return Promise.all(
       keys
-        .filter(key => key !== staticCachePath || key !== dynamicCachePath)
-        .map(keyToDelete => caches.delete(keyToDelete))
+        .filter(key => key !== staticCachePath && key !== dynamicCachePath)
+        .map(keyToBeDeleted => caches.delete(keyToBeDeleted))
     )
   })
 }
@@ -53,8 +53,8 @@ self.addEventListener('install', event => {
 // Activation Process
 self.addEventListener('activate', event => {
   console.log('Activating SW...')
-  //   // Clearing Cache Process
-  //   // event.waitUntil(clearPreviousCache())
+
+  event.waitUntil(clearPreviousCache())
 })
 
 // Fetch Process
@@ -73,6 +73,7 @@ self.addEventListener('fetch', event => {
             return fetchedResponse
           })
         )
+        .then(fetchedResponse => cacheAssetOnTheFly(event)(fetchedResponse))
         .catch(e => e)
     })
   )
