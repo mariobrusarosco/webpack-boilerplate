@@ -1,45 +1,61 @@
 // Vendors and Libs
-const webpack = require('webpack')
-const path = require('path')
-const StyleLintPlugin = require('stylelint-webpack-plugin')
-const HtmlWebpack = require('html-webpack-plugin')
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const CleanWebpack = require('clean-webpack-plugin')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
-const { InjectManifest } = require('workbox-webpack-plugin')
+import webpack from 'webpack'
+import { resolve } from 'path'
+import StyleLintPlugin from 'stylelint-webpack-plugin'
+import HtmlWebpack from 'html-webpack-plugin'
+import CleanWebpack from 'clean-webpack-plugin'
+import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
+import WebpackPwaManifest from 'webpack-pwa-manifest'
+import { InjectManifest } from 'workbox-webpack-plugin'
 
 // Project's configuration
 import config from '../../../src/app-configuration.json'
 
 const commonPlugins = () => [
+  new HtmlWebpack({
+    template: resolve('src', 'index.html'),
+    favicon: resolve('src/assets/images/icon.png')
+  }),
   new FaviconsWebpackPlugin({
-    logo: path.resolve('src/assets/images/icon.png'),
-    cache: true,
-    inject: true,
+    logo: resolve('src/assets/images/icon.png'),
+    mode: 'webapp', // optional can be 'webapp' or 'light' - 'webapp' by default
+    devMode: 'webapp', // optional can be 'webapp' or 'light' - 'light' by default
     favicons: {
-      appName: 'Boilerplate',
-      appShortName: 'Front End Boilerplate',
-      appDescription: 'A Boilerplate for Front End Development - Mario Brusarosco',
-      start_url: '/index.html?origin=pwa',
-      scope: '/',
-      display: 'standalone',
-      orientation: 'any', // 'landscape' or 'portrait' doesn't allow switch rotation... also 'portrait-primary' doesn't allow 180deg switch orientation
-      theme_color: '#00ac95',
-      background: '#c8d419',
-      appleStatusBarStyle: '#00ac95',
-      dir: 'auto',
-      lang: 'pt-BR',
-      crossorigin: null,
+      appName: 'my-app',
+      appDescription: 'My awesome App',
+      developerName: 'Me',
+      developerURL: null, // prevent retrieving from the nearest package.json
+      background: '#ddd',
+      theme_color: '#333',
       icons: {
-        android: true,
-        appleIcon: true,
-        appleStartup: true,
-        favicons: true
+        coast: false,
+        yandex: false
       }
     }
-  }),
-  new HtmlWebpack({
-    template: path.resolve('src', 'index.html')
+    // logo: path.resolve('src/assets/images/icon.png'),
+    // cache: true,
+    // inject: true,
+    // favicons: {
+    //   appName: 'Boilerplate',
+    //   appShortName: 'Front End Boilerplate',
+    //   appDescription: 'A Boilerplate for Front End Development - Mario Brusarosco',
+    //   start_url: '/index.html?origin=pwa',
+    //   scope: '/',
+    //   display: 'standalone',
+    //   orientation: 'any', // 'landscape' or 'portrait' doesn't allow switch rotation... also 'portrait-primary' doesn't allow 180deg switch orientation
+    //   theme_color: '#00ac95',
+    //   background: '#c8d419',
+    //   appleStatusBarStyle: '#00ac95',
+    //   dir: 'auto',
+    //   lang: 'pt-BR',
+    //   crossorigin: null,
+    //   icons: {
+    //     android: true,
+    //     appleIcon: true,
+    //     appleStartup: true,
+    //     favicons: true
+    //   }
+    // }
   }),
   new CleanWebpack(['dist'], {
     root: process.cwd()
@@ -67,14 +83,15 @@ const commonPlugins = () => [
   //   crossorigin: null,
   //   icons: [
   //     {
-  //       src: path.resolve('src/assets/icon.png'),
+  //       src: resolve('src/assets/images/icon.png'),
   //       sizes: [72, 96, 128, 144, 152, 192, 384, 512] // multiple sizes
   //     }
   //   ]
   // }),
   new InjectManifest({
     swSrc: './src/sw.js',
-    swDest: 'sw.js'
+    swDest: 'sw.js',
+    exclude: [/\.map$/, /^manifest.*\.js$/]
   }),
   new StyleLintPlugin()
 ]
