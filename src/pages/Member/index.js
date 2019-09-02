@@ -76,4 +76,64 @@ const Member = ({ match }) => {
   )
 }
 
-export default Member
+const Member2 = ({ match }) => {
+  // Redux / Store
+  const ID = pathOr('', ['params', 'id'], match)
+  // const allPhotos = useSelector(({ example }) => example[ID] || null)
+  const allPhotos = useSelector(({ example }) => example)
+
+  // State
+  // const [paginatedPhotos, setPaginatedPhotos] = useState(
+  //   () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
+  // )
+  // // const [paginatedPhotos, setPaginatedPhotos] = useState([])
+  const [currentPage, setPage] = useState(1)
+
+  // LifeCycle
+  useEffect(() => {
+    console.log('useEffect() on Member')
+
+    // setPaginatedPhotos(paginate({ array: allPhotos, perPage: 20 }))
+  }, [])
+
+  // Props
+  // const photosToBeShown = paginatedPhotos[currentPage]
+  const photosToBeShown = allPhotos
+  console.log({ photosToBeShown })
+
+  // Methods
+  const changePage = targetPage => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+
+    document.dispatchEvent(new Event('resetImagesOnDOM'))
+
+    setPage(targetPage)
+  }
+
+  // Internal Components
+  const Paginator = () => (
+    <div className={css.paginationArea}>
+      <Pagination
+        onChange={changePage}
+        current={currentPage}
+        defaultCurrent={0}
+        total={length(allPhotos)}
+        defaultPageSize={20}
+      />
+    </div>
+  )
+
+  // console.log('render() on Member', photosToBeShown)
+
+  return (
+    <div className={css.page}>
+      Member {ID}
+      {/* <Paginator /> */}
+      <ItemsList items={photosToBeShown} />
+      {/* <Paginator /> */}
+      <GoBack />
+    </div>
+  )
+}
+
+export default Member2
