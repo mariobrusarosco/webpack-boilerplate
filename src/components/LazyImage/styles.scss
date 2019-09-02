@@ -1,17 +1,36 @@
 .image {
   // display: block;
   // max-width: 100%;
-  height: 200px;
-  width: 100%;
-  object-fit: cover;
+  // height: 200px;
+  // width: 100%;
+  // height: auto;
+  // object-fit: cover;
+
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.ratio {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-top: 56.25%;
+  background: gray;
 }
 
 .picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-:global(img[data-src]:before) {
-  content: '';
-  padding-top: 56.25%;
-  display: block;
-  background-color: gray;
-}
+// :global(img[data-src]:before) {
+//   display: block;
+//   content: '';
+//   padding-top: 56.25%;
+//   background-color: gray;
+// }

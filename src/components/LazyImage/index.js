@@ -13,16 +13,20 @@ const Img = ({ src, alt }) => {
     document.dispatchEvent(new Event('updateLazyLoadWatcher'))
   }, [src])
 
+  const target = `${src}&h=750`
+
   return (
-    <picture className={css.picture}>
-      <img
-        className={css.image}
-        alt={alt}
-        src={native ? src : ''}
-        loading={native ? 'lazy' : undefined}
-        data-src={!native ? src : ''}
-      />
-    </picture>
+    <div className={css.ratio}>
+      <picture className={css.picture}>
+        <img
+          className={css.image}
+          alt={alt}
+          src={native ? target : ''}
+          loading={native ? 'lazy' : undefined}
+          data-src={!native ? target : ''}
+        />
+      </picture>
+    </div>
   )
 }
 
