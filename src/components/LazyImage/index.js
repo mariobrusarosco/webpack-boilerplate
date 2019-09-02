@@ -16,7 +16,7 @@ const Img = ({ src, alt }) => {
   return (
     <picture className={css.picture}>
       <img
-        className={css.images}
+        className={css.image}
         alt={alt}
         src={native ? src : ''}
         loading={native ? 'lazy' : undefined}

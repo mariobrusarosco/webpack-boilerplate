@@ -4,7 +4,7 @@
     "declaration-colon-space-after": "always",
     "indentation": 2,
     "max-empty-lines": 2,
-    "unit-whitelist": ["em", "rem", "%", "s", "px", "vw", "vh", "deg"]
+    "unit-whitelist": ["fr","em", "rem", "%", "s", "px", "vw", "vh", "deg"]
   },
   "ignoreFiles": "**/reset.scss"
 }
