@@ -52,14 +52,55 @@ const ItemCard = ({ data }) => {
       <div className={css.imageArea}>
         <LazyImage src={url} alt={`${title}`} />
       </div>
-
-      <ul className={css.infoArea}>
-        <Features />
-        <MoreDetails />
-      </ul>
     </li>
     // </CSSTransition>
   )
 }
 
-export default ItemCard
+const ItemCard2 = ({ data }) => {
+  // Props
+  const { urls } = data
+
+  // Internal Components
+  const Features = () => {
+    return (
+      <>
+        <Info label="id" content={id} />
+        <Info label="album" content={albumId} formatter={toCurrency} suffix="/mês" />
+        <Info label="title" content={title} />
+      </>
+    )
+  }
+
+  const MoreDetails = () => (
+    <Link to={`/product/${id}`} className={css.moreDetails}>
+      <span>mais detalhes</span>
+    </Link>
+  )
+
+  return (
+    //   <CSSTransition
+    //     in
+    //     appear
+    //     timeout={200}
+    //     onExit={() => console.log('exit')}
+    //     classNames="card-motion"
+    //   >
+    <li className={css.card}>
+      <div className={css.imageArea}>
+        <LazyImage
+          src={urls.regular}
+          // alt={`${title}`}
+        />
+      </div>
+
+      {/* <ul className={css.infoArea}>
+        <Features />
+        <MoreDetails />
+      </ul> */}
+    </li>
+    // </CSSTransition>
+  )
+}
+
+export default ItemCard2

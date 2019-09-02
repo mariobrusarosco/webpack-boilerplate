@@ -15,11 +15,11 @@ const { WALTER, JESSE } = BUSINESS
 export const evaluateSomeData = data => {
   const evaluatedItems = evaluate(data)
 
-  // console.log(evaluatedItems.all)
+  // console.log({data})
 
   return {
     type: 'EVALUATE_SOME_DATA',
-    evaluation: evaluatedItems
+    evaluation: data
   }
 }
 
@@ -27,11 +27,12 @@ export const fetchSomeData = () => async dispatch => {
   try {
     const response = await defaultAPI.get('/photos')
     const rawData = pathOr({}, ['data'], response)
+    console.log({ rawData })
     const validatedData = validatePhotosRequest(rawData)
 
     dispatch({ type: 'FETCH_SOME_DATA' })
 
-    return validatedData
+    return rawData
   } catch (e) {
     dispatch(
       setAppCriticalError({

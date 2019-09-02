@@ -55,7 +55,7 @@ const legacyLazyload = (() => {
 
       const windowInnerHeight = window.innerHeight
 
-      if (imageTopOffset <= windowInnerHeight - 200 && imageBottomOffset > 0) {
+      if (imageTopOffset <= windowInnerHeight - 20 && imageBottomOffset > 0) {
         const imageSrc = imageNode.dataset.src
 
         imageNode.src = imageSrc

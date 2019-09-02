@@ -2,7 +2,7 @@ const native = () => 'loading' in HTMLImageElement.prototype
 const modern = () => 'IntersectionObserver' in window
 
 const support = {
-  native: native(),
+  native: false, //native(),
   modern: modern(),
   legacy: !native() && !modern()
 }

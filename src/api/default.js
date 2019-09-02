@@ -8,7 +8,9 @@ const defaultAPI = axios.create({
   baseURL: API_ROOT,
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    Authorization:
+      'Client-ID 99147ea30ea26e0229570687a2f023854052912138d3dff8fd22880291b70837'
   }
 })
 

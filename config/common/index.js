@@ -13,7 +13,7 @@ const commonConfiguration = {
   VERSION: packageJSON.version,
   ROOT_URL: '/',
   API: {
-    API_ROOT: 'https://jsonplaceholder.typicode.com/'
+    API_ROOT: 'https://api.unsplash.com/'
   },
   BUSINESS: {
     LOS_POLLOS: 'los-pollos',

@@ -15,13 +15,9 @@ import ItemCard from 'components/ItemCard'
 import css from './styles.scss'
 
 const ItemsList = memo(({ items }) => {
-  if (!items) return null
+  console.log(items)
 
-  const test = items.map(item => (
-    <div key={item.id}>
-      <ItemCard data={item} />
-    </div>
-  ))
+  if (!items.length) return null
 
   return (
     <div className={css.wrapper}>

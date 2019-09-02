@@ -19,13 +19,14 @@ import GoBack from 'components/GoBack'
 const Member = ({ match }) => {
   // Redux / Store
   const ID = pathOr('', ['params', 'id'], match)
-  const allPhotos = useSelector(({ example }) => example[ID] || null)
+  // const allPhotos = useSelector(({ example }) => example[ID] || null)
+  const allPhotos = useSelector(({ example }) => example)
 
   // State
-  const [paginatedPhotos, setPaginatedPhotos] = useState(
-    () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
-  )
-  // const [paginatedPhotos, setPaginatedPhotos] = useState([])
+  // const [paginatedPhotos, setPaginatedPhotos] = useState(
+  //   () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
+  // )
+  // // const [paginatedPhotos, setPaginatedPhotos] = useState([])
   const [currentPage, setPage] = useState(1)
 
   // LifeCycle
@@ -36,7 +37,9 @@ const Member = ({ match }) => {
   }, [])
 
   // Props
-  const photosToBeShown = paginatedPhotos[currentPage]
+  // const photosToBeShown = paginatedPhotos[currentPage]
+  const photosToBeShown = allPhotos
+  console.log({ photosToBeShown })
 
   // Methods
   const changePage = targetPage => {
@@ -65,9 +68,9 @@ const Member = ({ match }) => {
   return (
     <div className={css.page}>
       Member {ID}
-      <Paginator />
+      {/* <Paginator /> */}
       <ItemsList items={photosToBeShown} />
-      <Paginator />
+      {/* <Paginator /> */}
       <GoBack />
     </div>
   )
