@@ -23,8 +23,6 @@ import { routesAsObject } from 'configPath/common/routes'
 
 const { Member } = routesAsObject
 
-console.log(Member.route)
-
 const Header = () => {
   return (
     <header className={css.header} data-id={HEADER}>
@@ -43,13 +41,18 @@ const Header2 = () => {
   return (
     <header className={css.header} data-id={HEADER}>
       <div className={css.wrapper}>
-        <div className={css.logo}>
-          <NavLink to={`${Member.route}/photos`}>Photos</NavLink>
-
-          <NavLink to={`${Member.route}/photos`}>Collections</NavLink>
-
-          <NavLink to={`${Member.route}/wrong`}>Wrong</NavLink>
-        </div>
+        <NavLink className={css.link} to={`/`} exact>
+          Home
+        </NavLink>
+        <NavLink className={css.link} to={`${Member.route}/photos`}>
+          <span>Photos</span>
+        </NavLink>
+        <NavLink className={css.link} to={`${Member.route}/photos`}>
+          <span>Photos</span>
+        </NavLink>
+        <NavLink className={css.link} to={`${Member.route}/wrong`}>
+          <span>Wrong</span>
+        </NavLink>
       </div>
     </header>
   )

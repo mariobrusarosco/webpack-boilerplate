@@ -1,7 +1,7 @@
 // Vendors
 import { Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 // Routes Data

@@ -1,6 +1,6 @@
 import path from 'path'
 
-const developmentConfig = () => ({
+const commonConfig = () => ({
   entry: ['@babel/polyfill', './src/index.js'],
   resolve: {
     alias: {
@@ -11,4 +11,4 @@ const developmentConfig = () => ({
   }
 })
 
-export default developmentConfig
+export default commonConfig

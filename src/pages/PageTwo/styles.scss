@@ -6,7 +6,7 @@
 }
 
 .wrapper {
-  composes: import mainWrapper from 'styles/app-wrappers.scss';
+  composes: mainWrapper from 'styles/app-wrappers.scss';
 }
 
 .title {
