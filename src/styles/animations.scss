@@ -17,6 +17,20 @@
     }
   }
 
+  @keyframes pulseCore {
+    0% {
+      transform: scale(0.4);
+    }
+
+    50% {
+      transform: scale(-0.4);
+    }
+
+    100% {
+      transform: scale(0.4);
+    }
+  }
+
   @keyframes cardAnimation {
     0% {
       opacity: 0.1;

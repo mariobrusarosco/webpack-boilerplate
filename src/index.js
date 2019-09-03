@@ -20,8 +20,8 @@ const StoreEnhancer =
 const store = createStore(rootReducer, StoreEnhancer(applyMiddleware(reduxThunk)))
 
 // SW
-import * as OfflinePluginRuntime from 'offline-plugin/runtime'
-OfflinePluginRuntime.install()
+// import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+// OfflinePluginRuntime.install()
 
 // Components
 import App from 'components/App'

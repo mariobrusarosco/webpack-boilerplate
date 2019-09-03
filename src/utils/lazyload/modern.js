@@ -8,12 +8,15 @@ const modernLazyload = function() {
     lazyImages = queryImagesOnDOM()
 
     const lazyImageObserver = new IntersectionObserver(
-      function(entries, observer) {
+      function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
             let lazyImage = entry.target
+            let imgParent = lazyImage.parentNode.parentNode
+
             lazyImage.src = lazyImage.dataset.src
-            lazyImage.classList.add('lazy-loaded')
+            imgParent.classList.add('lazy-loaded')
+
             lazyImageObserver.unobserve(lazyImage)
           }
         })

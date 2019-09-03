@@ -55,7 +55,7 @@ const commonPlugins = () => [
   new webpack.DefinePlugin({
     APP: JSON.stringify(config)
   }),
-  new OfflinePlugin(),
+  // new OfflinePlugin(),
   // new InjectManifest({
   //   swSrc: './src/sw.js',
   //   swDest: 'sw.js',

@@ -133,8 +133,6 @@ const Member2 = ({ match, location, ...props }) => {
 
   if (isNil(allPhotos) || isEmpty(allPhotos)) return <RoutesLoader />
 
-  console.log('render() on Member', allPhotos.length, pagination)
-
   return (
     <div className={css.page}>
       <Paginator />

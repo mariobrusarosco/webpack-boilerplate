@@ -1,30 +1,30 @@
 // @import './react-transitions.scss';
 // @import '../../styles/animations.scss';
 
-// .card {
-//   margin: 30px 0;
-//   border-radius: 10px;
-//   overflow: hidden;
-//   color: #000;
+.card {
+  //   margin: 30px 0;
+  //   border-radius: 10px;
+  //   overflow: hidden;
+  //   color: #000;
 
-//   @include above(768px) {
-//     display: flex;
-//   }
+  //   @include above(768px) {
+  //     display: flex;
+  //   }
 
-//   @include above(1024px) {
-//     // Keyframes animations
-//     animation: cardAnimation forwards cubic-bezier(0.42, 0, 0.19, 1.33);
-//     @include animationDuration(20, 0.35s);
-//     will-change: transform, box-shadow;
+  //   @include above(1024px) {
+  // Keyframes animations
+  animation: cardAnimation forwards cubic-bezier(0.42, 0, 0.19, 1.33);
+  @include animationDuration(20, 0.35s);
+  will-change: transform, box-shadow;
 
-//     &:hover,
-//     &:active {
-//       transform: translateX(-5px);
-//       box-shadow: 4px 6px 11px -4px #0000004f;
-//       transition: transform 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
-//     }
-//   }
-// }
+  //     &:hover,
+  //     &:active {
+  //       transform: translateX(-5px);
+  //       box-shadow: 4px 6px 11px -4px #0000004f;
+  //       transition: transform 0.3s ease-in-out, box-shadow 0.4s ease-in-out;
+  //     }
+  //   }
+}
 
 .imageArea {
   // @include above(768px) {

@@ -64,14 +64,22 @@ const ItemCard2 = ({ data }) => {
   // Internal Components
 
   return (
-    <li className={css.card}>
-      <div className={css.imageArea}>
-        <LazyImage
-          src={urls.small}
-          // alt={`${title}`}
-        />
-      </div>
-    </li>
+    <CSSTransition
+      in
+      appear
+      timeout={200}
+      onExit={() => console.log('exit')}
+      classNames="card-motion"
+    >
+      <li className={css.card}>
+        <div className={css.imageArea}>
+          <LazyImage
+            src={urls.small}
+            // alt={`${title}`}
+          />
+        </div>
+      </li>
+    </CSSTransition>
   )
 }
 
