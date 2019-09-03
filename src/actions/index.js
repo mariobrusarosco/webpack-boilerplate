@@ -1,5 +1,6 @@
 // Api Helpers
 import defaultAPI from 'api/default'
+import dogAPI from 'api/dog'
 
 // Vendors
 import { pathOr } from 'ramda'
@@ -44,6 +45,34 @@ export const fetchSomeData = () => async dispatch => {
         }
       })
     )
+  }
+}
+
+export const fetchData = endpoint => async dispatch => {
+  try {
+    const response = await dogAPI.get(endpoint)
+    const rawData = pathOr({}, ['data'], response)
+
+    // const validatedData = validatePhotosRequest(rawData)
+    const validatedData = rawData
+    console.log({ validatedData })
+
+    dispatch({ type: 'FETCH_DATA' })
+
+    return validatedData
+  } catch (e) {
+    console.error(e)
+
+    // dispatch(
+    //   setAppCriticalError({
+    //     error: e,
+    //     additionalInfo: {
+    //       source: 'fetchingSomeData',
+    //       errorID: 'A01',
+    //       messageForUsers: ERRORS['A01']
+    //     }
+    //   })
+    // )
   }
 }
 

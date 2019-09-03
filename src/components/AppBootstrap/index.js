@@ -39,4 +39,30 @@ const AppBootrap = () => {
   )
 }
 
-export default AppBootrap
+const AppBootrap2 = () => {
+  const dispatch = useDispatch()
+
+  const bootsrapApplication = async () => {
+    try {
+      // const data = await dispatch(fetchSomeData())
+      // await dispatch(evaluateSomeData(data))
+    } catch (e) {
+      console.warn(e)
+      dispatch(setAppCriticalError({ error: e }))
+    } finally {
+      dispatch(setAppAsLoaded())
+    }
+  }
+
+  useEffect(() => {
+    bootsrapApplication()
+  }, [])
+
+  return (
+    <div className="app-bootstrap">
+      <AppLoader />
+    </div>
+  )
+}
+
+export default AppBootrap2

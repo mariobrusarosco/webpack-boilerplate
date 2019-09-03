@@ -38,7 +38,6 @@ const ItemsList = memo(({ items }) => {
         {items.map(item => (
           <ItemCard data={item} key={item.id} />
         ))}
-        >
       </ul>
       {/* </CSSTransition>
         </TransitionGroup> */}

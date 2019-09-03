@@ -1,9 +1,10 @@
 // Vendors
 import { Link } from 'react-router-dom'
-import { pathOr, length } from 'ramda'
-import { useSelector } from 'react-redux'
+import { pathOr, length, isEmpty } from 'ramda'
+import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect, useMemo } from 'react'
 import Pagination from 'rc-pagination'
+import queryString from 'query-string'
 import 'rc-pagination/assets/index.css'
 
 // Utils
@@ -15,6 +16,9 @@ import css from './styles.scss'
 // Components
 import ItemsList from 'components/ItemsList'
 import GoBack from 'components/GoBack'
+
+// Actions
+import { fetchData } from 'actions'
 
 const Member = ({ match }) => {
   // Redux / Store
@@ -63,43 +67,48 @@ const Member = ({ match }) => {
     </div>
   )
 
-  // console.log('render() on Member', photosToBeShown)
+  console.log('render() on Member', photosToBeShown)
 
   return (
     <div className={css.page}>
       Member {ID}
-      {/* <Paginator /> */}
+      <Paginator />
       <ItemsList items={photosToBeShown} />
-      {/* <Paginator /> */}
+      <Paginator />
       <GoBack />
     </div>
   )
 }
 
-const Member2 = ({ match }) => {
+const Member2 = ({ match, location, ...props }) => {
   // Redux / Store
   const ID = pathOr('', ['params', 'id'], match)
-  // const allPhotos = useSelector(({ example }) => example[ID] || null)
-  const allPhotos = useSelector(({ example }) => example)
+  const dispatch = useDispatch()
 
   // State
-  // const [paginatedPhotos, setPaginatedPhotos] = useState(
-  //   () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
-  // )
-  // // const [paginatedPhotos, setPaginatedPhotos] = useState([])
+  const [pagination, setPagination] = useState({})
   const [currentPage, setPage] = useState(1)
+  const [allPhotos, setAllPhotos] = useState([])
+
+  // Props
+  const { perPage } = queryString.parse(location.search)
+
+  console.log(perPage)
 
   // LifeCycle
   useEffect(() => {
-    console.log('useEffect() on Member')
+    const handleFecthData = async () => {
+      const fetchedData = await dispatch(fetchData(ID))
+      const paginatedData =
+        fetchedData && paginate({ array: fetchedData, perPage: ~~perPage })
 
-    // setPaginatedPhotos(paginate({ array: allPhotos, perPage: 20 }))
+      // debugger
+      setAllPhotos(fetchedData)
+      setPagination(paginatedData)
+    }
+
+    handleFecthData()
   }, [])
-
-  // Props
-  // const photosToBeShown = paginatedPhotos[currentPage]
-  const photosToBeShown = allPhotos
-  console.log({ photosToBeShown })
 
   // Methods
   const changePage = targetPage => {
@@ -111,26 +120,29 @@ const Member2 = ({ match }) => {
   }
 
   // Internal Components
-  const Paginator = () => (
-    <div className={css.paginationArea}>
-      <Pagination
-        onChange={changePage}
-        current={currentPage}
-        defaultCurrent={0}
-        total={length(allPhotos)}
-        defaultPageSize={20}
-      />
-    </div>
-  )
+  const Paginator = () =>
+    length(allPhotos) && (
+      <div className={css.paginationArea}>
+        <Pagination
+          onChange={changePage}
+          current={currentPage}
+          defaultCurrent={currentPage}
+          total={length(allPhotos)}
+          defaultPageSize={~~perPage}
+        />
+      </div>
+    )
 
-  // console.log('render() on Member', photosToBeShown)
+  console.log('render() on Member', allPhotos.length, pagination)
+
+  if (isEmpty(allPhotos)) return null
 
   return (
     <div className={css.page}>
       Member {ID}
-      {/* <Paginator /> */}
-      <ItemsList items={photosToBeShown} />
-      {/* <Paginator /> */}
+      <Paginator />
+      <ItemsList items={pagination[currentPage] || []} />
+      <Paginator />
       <GoBack />
     </div>
   )
