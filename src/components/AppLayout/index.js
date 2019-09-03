@@ -21,6 +21,8 @@ const AppLayout = ({ children, history, location, ...props }) => {
       console.log(appCriticalError.status)
       history.push(AppError.path)
     }
+
+    return () => document.dispatchEvent(new Event('resetImagesOnDOM'))
   }, [appCriticalError.status])
 
   return <main className={css.appLayout}>{children}</main>

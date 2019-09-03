@@ -3,7 +3,7 @@ const modern = () => 'IntersectionObserver' in window
 
 const support = {
   native: false, //native(),
-  modern: modern(),
+  modern: false, //modern(),
   legacy: !native() && !modern()
 }
 

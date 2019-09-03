@@ -100,11 +100,3 @@ export const resetAppCriticalError = () => {
     type: 'RESET_APP_CRITICAL_ERROR'
   }
 }
-
-// {
-//   type: 'APP_HAS_CRITICAL_ERROR',
-//   errorData: {
-//     stack: 'stack test',
-//     message: 'message test',
-//   }
-// }

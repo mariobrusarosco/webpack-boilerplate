@@ -2,7 +2,7 @@
 
 ## BUILD
 
-[![CircleCI](https://circleci.com/gh/mbrusarosco/eng-zap-challenge-javascript.svg?style=svg)](https://circleci.com/gh/mbrusarosco/eng-zap-challenge-javascript)
+[![CircleCI](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/mariobrusarosco/webpack-boilerplate/tree/master)
 
 [![Build Status](https://travis-ci.com/mariobrusarosco/webpack-boilerplate.svg?token=PA7NZ9iXiX1dfpxMANEu&branch=master)](https://travis-ci.com/mariobrusarosco/webpack-boilerplate)
 

@@ -6,12 +6,12 @@ const setLazyloadFlag = image => {
   return image
 }
 
-const toNotLoadedImages = image => !image.lazyLoaded
+const onlyNotLoadedImages = image => !image.lazyLoaded
 
 const queryImagesOnDOM = () => {
   const images = [...document.querySelectorAll('img[data-src]')]
   const initializedImages = images.map(setLazyloadFlag)
-  const filteredArray = initializedImages.filter(toNotLoadedImages)
+  const filteredArray = initializedImages.filter(onlyNotLoadedImages)
 
   return filteredArray
 }
@@ -22,18 +22,18 @@ const resetImagesOnDOM = () => {
   images.forEach(image => {
     image.src = ''
     image.lazyLoaded = false
+    image.classList.remove('lazy-loaded')
   })
+
+  document.addEventListener('scroll', legacyLazyload)
+  window.addEventListener('resize', legacyLazyload)
 
   setTimeout(() => {
     legacyLazyload()
   }, 0)
-
-  document.addEventListener('scroll', legacyLazyload)
-  window.addEventListener('resize', legacyLazyload)
 }
 
 const legacyLazyload = (() => {
-  // Images with data-src attribute inserted on the DOM
   let lazyImages = queryImagesOnDOM()
 
   document.addEventListener('resetImagesOnDOM', resetImagesOnDOM)
@@ -60,6 +60,7 @@ const legacyLazyload = (() => {
 
         imageNode.src = imageSrc
         imageNode.lazyLoaded = true
+        imageNode.classList.add('lazy-loaded')
       }
     })
   }
