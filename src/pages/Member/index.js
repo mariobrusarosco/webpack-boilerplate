@@ -91,9 +91,7 @@ const Member2 = ({ match, location, ...props }) => {
   const [allPhotos, setAllPhotos] = useState([])
 
   // Props
-  const { perPage } = queryString.parse(location.search)
-
-  console.log(perPage)
+  const { perPage = 10 } = queryString.parse(location.search)
 
   // LifeCycle
   useEffect(() => {

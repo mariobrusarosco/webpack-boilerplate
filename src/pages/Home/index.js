@@ -84,4 +84,23 @@ const Home = () => {
   )
 }
 
-export default Home
+const Home2 = () => {
+  // Store - Redux
+
+  // State
+
+  // LifeCycle
+  useEffect(() => {}, [])
+
+  return (
+    <section className={css.home} data-id={HOME}>
+      <div className={css.wrapper}>
+        <div className={css.infoBox}>
+          <p>Welcome to Dog City</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Home2

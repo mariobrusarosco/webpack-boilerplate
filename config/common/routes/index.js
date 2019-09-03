@@ -1,4 +1,6 @@
 // Vendors
+import { pathOr, omit } from 'ramda'
+// Vendors
 import { lazy } from 'react'
 
 // Configuration
@@ -26,6 +28,7 @@ const routes = [
   },
   {
     name: 'Member',
+    route: `${ROOT_URL}member`,
     path: `${ROOT_URL}member/:id`,
     Component: lazy(() => import('pages/Member'))
   },
@@ -50,5 +53,12 @@ const routes = [
     Component: lazy(() => import('pages/NotFound'))
   }
 ]
+
+export const routesAsObject = routes.reduce((acc, route) => {
+  const routeName = pathOr('_', ['name'], route)
+  const rest = omit(['name'], route)
+
+  return { ...acc, [routeName]: { ...rest } }
+}, {})
 
 export default routes

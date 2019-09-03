@@ -1,5 +1,5 @@
 // Vendors
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 // Assets
 import logo from 'assets/images/logo.svg'
@@ -18,6 +18,13 @@ const {
   E2E: { HEADER }
 } = APP
 
+// Routes
+import { routesAsObject } from 'configPath/common/routes'
+
+const { Member } = routesAsObject
+
+console.log(Member.route)
+
 const Header = () => {
   return (
     <header className={css.header} data-id={HEADER}>
@@ -32,4 +39,20 @@ const Header = () => {
   )
 }
 
-export default Header
+const Header2 = () => {
+  return (
+    <header className={css.header} data-id={HEADER}>
+      <div className={css.wrapper}>
+        <div className={css.logo}>
+          <NavLink to={`${Member.route}/photos`}>Photos</NavLink>
+
+          <NavLink to={`${Member.route}/photos`}>Collections</NavLink>
+
+          <NavLink to={`${Member.route}/wrong`}>Wrong</NavLink>
+        </div>
+      </div>
+    </header>
+  )
+}
+
+export default Header2
