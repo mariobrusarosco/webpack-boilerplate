@@ -7,6 +7,7 @@ import CleanWebpack from 'clean-webpack-plugin'
 import FaviconsWebpackPlugin from 'favicons-webpack-plugin'
 import WebpackPwaManifest from 'webpack-pwa-manifest'
 import { InjectManifest } from 'workbox-webpack-plugin'
+const OfflinePlugin = require('offline-plugin')
 
 // Project's configuration
 import config from '../../../src/app-configuration.json'
@@ -54,18 +55,19 @@ const commonPlugins = () => [
   new webpack.DefinePlugin({
     APP: JSON.stringify(config)
   }),
-  new InjectManifest({
-    swSrc: './src/sw.js',
-    swDest: 'sw.js',
-    exclude: [
-      /\.map$/,
-      /.*(manifest|hot).*/,
-      /\.webapp$/,
-      /\.xml$/,
-      /\.*(apple|android|icon|mstile|yandex|coast).*/
-    ]
-    // Insert 'included' files with globbing pattern
-  }),
+  new OfflinePlugin(),
+  // new InjectManifest({
+  //   swSrc: './src/sw.js',
+  //   swDest: 'sw.js',
+  //   exclude: [
+  //     /\.map$/,
+  //     /.*(manifest|hot).*/,
+  //     /\.webapp$/,
+  //     /\.xml$/,
+  //     /\.*(apple|android|icon|mstile|yandex|coast).*/
+  //   ]
+  //   // Insert 'included' files with globbing pattern
+  // }),
   new StyleLintPlugin()
 ]
 

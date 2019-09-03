@@ -3,8 +3,6 @@ if (module && module.hot) {
   module.hot.accept()
 }
 
-console.log('APP Info', APP)
-
 // React support
 import { render } from 'react-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -20,6 +18,10 @@ const StoreEnhancer =
     : compose
 
 const store = createStore(rootReducer, StoreEnhancer(applyMiddleware(reduxThunk)))
+
+// SW
+import * as OfflinePluginRuntime from 'offline-plugin/runtime'
+OfflinePluginRuntime.install()
 
 // Components
 import App from 'components/App'
