@@ -5,6 +5,10 @@
   background-color: transparent;
 }
 
+.rounded {
+  border-radius: 10px;
+}
+
 .defaultHover {
   background-color: darken($primary-color, 0.7);
 }
