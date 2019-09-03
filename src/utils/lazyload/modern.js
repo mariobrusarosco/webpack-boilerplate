@@ -15,7 +15,9 @@ const modernLazyload = function() {
             let imgParent = lazyImage.parentNode.parentNode
 
             lazyImage.src = lazyImage.dataset.src
-            imgParent.classList.add('lazy-loaded')
+            lazyImage.onload = () => {
+              imgParent.classList.add('lazy-loaded')
+            }
 
             lazyImageObserver.unobserve(lazyImage)
           }

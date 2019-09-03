@@ -47,7 +47,7 @@ const Header2 = () => {
         <NavLink className={css.link} to={`${Member.route}/photos`} data-id={PHOTOS}>
           <span>Photos</span>
         </NavLink>
-        <NavLink className={css.link} to={`${Member.route}/photos`} data-id={PHOTOS}>
+        <NavLink className={css.link} to={`${Member.route}/photos`}>
           <span>Photos</span>
         </NavLink>
         <NavLink className={css.link} to={`${Member.route}/wrong`}>
