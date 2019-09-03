@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import { pathOr, length, isNil, isEmpty } from 'ramda'
 import { useSelector, useDispatch } from 'react-redux'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import Pagination from 'rc-pagination'
 import queryString from 'query-string'
 import 'rc-pagination/assets/index.css'
@@ -100,7 +100,6 @@ const Member2 = ({ match, location, ...props }) => {
       const paginatedData =
         fetchedData && paginate({ array: fetchedData, perPage: ~~perPage })
 
-      // debugger
       setAllPhotos(fetchedData)
       setPagination(paginatedData)
     }

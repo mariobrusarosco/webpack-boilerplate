@@ -13,12 +13,8 @@ const AppLayout = ({ children, history, location, ...props }) => {
   const appCriticalError = useSelector(({ app }) => app.appCriticalError)
   const isAppErrorComponent = AppError.path === location.pathname
 
-  // console.log(props)
-  // console.log(AppError.path)
-
   useEffect(() => {
     if (appCriticalError.status && !isAppErrorComponent) {
-      console.log(appCriticalError.status)
       history.push(AppError.path)
     }
 
