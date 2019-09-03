@@ -16,6 +16,7 @@ import css from './styles.scss'
 // Components
 import ItemsList from 'components/ItemsList'
 import GoBack from 'components/GoBack'
+import RoutesLoader from 'components/Loaders/RoutesLoader'
 
 // Actions
 import { fetchData } from 'actions'
@@ -130,13 +131,12 @@ const Member2 = ({ match, location, ...props }) => {
       </div>
     )
 
-  if (isNil(allPhotos) || isEmpty(allPhotos)) return <div>loading</div>
+  if (isNil(allPhotos) || isEmpty(allPhotos)) return <RoutesLoader />
 
   console.log('render() on Member', allPhotos.length, pagination)
 
   return (
     <div className={css.page}>
-      Member {ID}
       <Paginator />
       <ItemsList items={pagination[currentPage] || []} />
       <Paginator />
