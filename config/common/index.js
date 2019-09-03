@@ -25,8 +25,7 @@ const commonConfiguration = {
   E2E: {
     HEADER: generateShortHash(),
     HOME: generateShortHash(),
-    LOS_POLLOS_PAGE: generateShortHash(),
-    CAR_WASH_PAGE: generateShortHash()
+    PHOTOS: generateShortHash()
   },
   UNIT: {
     LISTING_STATUS: 'active'

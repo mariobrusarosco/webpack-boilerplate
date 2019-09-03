@@ -43,7 +43,7 @@ const routes = [
     Component: lazy(() => import('pages/Login'))
   },
   {
-    name: 'Ops',
+    name: 'AppError',
     path: `${ROOT_URL}ops`,
     Component: lazy(() => import('pages/AppError'))
   },

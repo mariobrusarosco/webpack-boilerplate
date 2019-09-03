@@ -5,14 +5,23 @@ import { withRouter } from 'react-router'
 
 import css from './styles.scss'
 
-const AppLayout = ({ children, history }) => {
+// Routes
+import { routesAsObject } from 'configPath/common/routes'
+const { AppError } = routesAsObject
+
+const AppLayout = ({ children, history, location, ...props }) => {
   const appCriticalError = useSelector(({ app }) => app.appCriticalError)
+  const isAppErrorComponent = AppError.path === location.pathname
+
+  // console.log(props)
+  // console.log(AppError.path)
 
   useEffect(() => {
-    if (appCriticalError.status) {
-      history.push('/ops')
+    if (appCriticalError.status && !isAppErrorComponent) {
+      console.log(appCriticalError.status)
+      history.push(AppError.path)
     }
-  }, [])
+  }, [appCriticalError.status])
 
   return <main className={css.appLayout}>{children}</main>
 }

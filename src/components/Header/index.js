@@ -15,7 +15,7 @@ const { APP_NAME } = APP
 
 // E2E Data
 const {
-  E2E: { HEADER }
+  E2E: { HEADER, PHOTOS }
 } = APP
 
 // Routes
@@ -44,15 +44,12 @@ const Header2 = () => {
         <NavLink className={css.link} to={`/`} exact>
           Home
         </NavLink>
-        <NavLink className={css.link} to={`${Member.route}/photos`}>
+        <NavLink className={css.link} to={`${Member.route}/photos`} data-id={PHOTOS}>
           <span>Photos</span>
         </NavLink>
-        <NavLink className={css.link} to={`${Member.route}/photos`}>
-          <span>Photos</span>
-        </NavLink>
-        <NavLink className={css.link} to={`${Member.route}/wrong`}>
+        {/* <NavLink className={css.link} to={`${Member.route}/wrong`}>
           <span>Wrong</span>
-        </NavLink>
+        </NavLink> */}
       </div>
     </header>
   )

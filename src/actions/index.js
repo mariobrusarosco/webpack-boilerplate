@@ -61,18 +61,17 @@ export const fetchData = endpoint => async dispatch => {
 
     return validatedData
   } catch (e) {
-    console.error(e)
-
-    // dispatch(
-    //   setAppCriticalError({
-    //     error: e,
-    //     additionalInfo: {
-    //       source: 'fetchingSomeData',
-    //       errorID: 'A01',
-    //       messageForUsers: ERRORS['A01']
-    //     }
-    //   })
-    // )
+    // debugger
+    dispatch(
+      setAppCriticalError({
+        error: e,
+        additionalInfo: {
+          source: 'fetchData',
+          errorID: 'A01',
+          messageForUsers: ERRORS['A01']
+        }
+      })
+    )
   }
 }
 
@@ -95,3 +94,17 @@ export const setAppCriticalError = ({ error, additionalInfo }) => {
     }
   }
 }
+
+export const resetAppCriticalError = () => {
+  return {
+    type: 'RESET_APP_CRITICAL_ERROR'
+  }
+}
+
+// {
+//   type: 'APP_HAS_CRITICAL_ERROR',
+//   errorData: {
+//     stack: 'stack test',
+//     message: 'message test',
+//   }
+// }

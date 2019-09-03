@@ -1,6 +1,6 @@
 // Vendors
 import { Link } from 'react-router-dom'
-import { pathOr, length, isEmpty } from 'ramda'
+import { pathOr, length, isNil, isEmpty } from 'ramda'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect, useMemo } from 'react'
 import Pagination from 'rc-pagination'
@@ -20,65 +20,65 @@ import GoBack from 'components/GoBack'
 // Actions
 import { fetchData } from 'actions'
 
-const Member = ({ match }) => {
-  // Redux / Store
-  const ID = pathOr('', ['params', 'id'], match)
-  // const allPhotos = useSelector(({ example }) => example[ID] || null)
-  const allPhotos = useSelector(({ example }) => example)
+// const Member = ({ match }) => {
+//   // Redux / Store
+//   const ID = pathOr('', ['params', 'id'], match)
+//   // const allPhotos = useSelector(({ example }) => example[ID] || null)
+//   const allPhotos = useSelector(({ example }) => example)
 
-  // State
-  // const [paginatedPhotos, setPaginatedPhotos] = useState(
-  //   () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
-  // )
-  // // const [paginatedPhotos, setPaginatedPhotos] = useState([])
-  const [currentPage, setPage] = useState(1)
+//   // State
+//   // const [paginatedPhotos, setPaginatedPhotos] = useState(
+//   //   () => allPhotos && paginate({ array: allPhotos, perPage: 20 })
+//   // )
+//   // // const [paginatedPhotos, setPaginatedPhotos] = useState([])
+//   const [currentPage, setPage] = useState(1)
 
-  // LifeCycle
-  useEffect(() => {
-    console.log('useEffect() on Member')
+//   // LifeCycle
+//   useEffect(() => {
+//     console.log('useEffect() on Member')
 
-    // setPaginatedPhotos(paginate({ array: allPhotos, perPage: 20 }))
-  }, [])
+//     // setPaginatedPhotos(paginate({ array: allPhotos, perPage: 20 }))
+//   }, [])
 
-  // Props
-  // const photosToBeShown = paginatedPhotos[currentPage]
-  const photosToBeShown = allPhotos
-  console.log({ photosToBeShown })
+//   // Props
+//   // const photosToBeShown = paginatedPhotos[currentPage]
+//   const photosToBeShown = allPhotos
+//   console.log({ photosToBeShown })
 
-  // Methods
-  const changePage = targetPage => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+//   // Methods
+//   const changePage = targetPage => {
+//     window.scrollTo({ top: 0, behavior: 'smooth' })
 
-    document.dispatchEvent(new Event('resetImagesOnDOM'))
+//     document.dispatchEvent(new Event('resetImagesOnDOM'))
 
-    setPage(targetPage)
-  }
+//     setPage(targetPage)
+//   }
 
-  // Internal Components
-  const Paginator = () => (
-    <div className={css.paginationArea}>
-      <Pagination
-        onChange={changePage}
-        current={currentPage}
-        defaultCurrent={0}
-        total={length(allPhotos)}
-        defaultPageSize={20}
-      />
-    </div>
-  )
+//   // Internal Components
+//   const Paginator = () => (
+//     <div className={css.paginationArea}>
+//       <Pagination
+//         onChange={changePage}
+//         current={currentPage}
+//         defaultCurrent={0}
+//         total={length(allPhotos)}
+//         defaultPageSize={20}
+//       />
+//     </div>
+//   )
 
-  console.log('render() on Member', photosToBeShown)
+//   console.log('render() on Member', photosToBeShown)
 
-  return (
-    <div className={css.page}>
-      Member {ID}
-      <Paginator />
-      <ItemsList items={photosToBeShown} />
-      <Paginator />
-      <GoBack />
-    </div>
-  )
-}
+//   return (
+//     <div className={css.page}>
+//       Member {ID}
+//       <Paginator />
+//       <ItemsList items={photosToBeShown} />
+//       <Paginator />
+//       <GoBack />
+//     </div>
+//   )
+// }
 
 const Member2 = ({ match, location, ...props }) => {
   // Redux / Store
@@ -91,7 +91,7 @@ const Member2 = ({ match, location, ...props }) => {
   const [allPhotos, setAllPhotos] = useState([])
 
   // Props
-  const { perPage = 10 } = queryString.parse(location.search)
+  const { perPage = 5 } = queryString.parse(location.search)
 
   // LifeCycle
   useEffect(() => {
@@ -119,7 +119,7 @@ const Member2 = ({ match, location, ...props }) => {
 
   // Internal Components
   const Paginator = () =>
-    length(allPhotos) && (
+    !isNil(allPhotos) && (
       <div className={css.paginationArea}>
         <Pagination
           onChange={changePage}
@@ -131,9 +131,9 @@ const Member2 = ({ match, location, ...props }) => {
       </div>
     )
 
-  console.log('render() on Member', allPhotos.length, pagination)
+  if (isNil(allPhotos) || isEmpty(allPhotos)) return <div>loading</div>
 
-  if (isEmpty(allPhotos)) return null
+  console.log('render() on Member', allPhotos.length, pagination)
 
   return (
     <div className={css.page}>

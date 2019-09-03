@@ -4,14 +4,16 @@ import { pathOr } from 'ramda'
 // CONSTANTS
 const { ERRORS } = APP || global.APP
 
+const initialAppCriticalError = {
+  status: false,
+  error: '',
+  additionalInfo: '',
+  messageForUsers: ERRORS['DEFAULT']
+}
+
 const initialState = {
   appIsLoaded: false,
-  appCriticalError: {
-    status: false,
-    error: '',
-    additionalInfo: '',
-    messageForUsers: ERRORS['DEFAULT'],
-  }
+  appCriticalError: initialAppCriticalError
 }
 
 const appReducer = (state = initialState, action) => {
@@ -32,6 +34,11 @@ const appReducer = (state = initialState, action) => {
           status: true,
           ...errorData
         }
+      }
+    case 'RESET_APP_CRITICAL_ERROR':
+      return {
+        ...state,
+        appCriticalError: initialAppCriticalError
       }
 
     default:

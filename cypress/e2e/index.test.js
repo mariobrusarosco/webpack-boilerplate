@@ -1,7 +1,12 @@
 // E2E Data
 const APP = require('../../src/app-configuration.json')
 const { E2E, ROOT_URL, API } = APP
+
+// API
 const { API_ROOT } = API
+
+// E2E
+const { HEADER, PHOTOS } = E2E
 
 const bootstrapUrl = `${API_ROOT}photos`
 
@@ -14,39 +19,33 @@ describe('Initial Fetch', () => {
     cy.route(bootstrapUrl).as('bootstrapApp')
 
     cy.visit('/')
+    cy.get(`[data-id="${HEADER}"]`)
+      // Find a link that redirects to the ROOT URL
+      .find(`a[data-id="${PHOTOS}"]`)
+      .click()
+
     cy.wait('@bootstrapApp')
 
-    // Check if Home Component was loaded
-    cy.get(`[data-id=${E2E.HOME}]`)
+    // // Check if Member Component was loaded
+    // cy.get(`[data-id=${MEMBER}]`)
   })
-
-  // it('Must go to Viva Real Route', () => {
-  //   // Go to Viva Real Route
-  //   cy.get(`a[href="/viva"]`).click()
-
-  //   // Check the correct window location Hash
-  //   cy.url().should('include', '/viva')
-
-  //   // Check if the VIVA REAL Page Component was correctly loaded
-  //   cy.get(`[data-id="${E2E.VIVA_REAL_PAGE}"]`)
-  // })
 
   // it('Must go back to Home Page', () => {
   //   // Select the Header
-  //   cy.get(`[data-id=${E2E.HEADER}]`)
+  //   cy.get(`[data-id=${HEADER}]`)
   //     // Find a link that redirects to the ROOT URL
   //     .find(`a[href="${ROOT_URL}"]`)
   //     .click()
   // })
 
-  // it('Must go to Zap Route', () => {
-  //   // Go to Viva Real Route
-  //   cy.get(`a[href="/zap"]`).click()
+  // it('Must go to ASDSADA', () => {
+  //   // Go to Viva ASDSADASD
+  //   cy.get(`a[href="/DASDA"]`).click()
 
   //   // Check the correct window location Hash
-  //   cy.url().should('include', '/zap')
+  //   cy.url().should('include', '/ASDASD')
 
-  //   // Check if the VIVA REAL Page Component was correctly loaded
-  //   cy.get(`[data-id="${E2E.ZAP_PAGE}"]`)
+  //   // Check if the VDASDASDSADAS Page Component was correctly loaded
+  //   cy.get(`[data-id="${E2E.ASDSADSA}"]`)
   // })
 })

@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 // Config
+const APP = require('../../src/app-configuration.json')
 const { API } = APP
 const { API_ROOT } = API
 

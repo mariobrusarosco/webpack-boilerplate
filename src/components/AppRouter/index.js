@@ -32,7 +32,12 @@ const RouterStructure = () => {
                     <Suspense fallback={<RoutesLoader />}>
                       <Switch location={location}>
                         {routes.map(({ Component, ...props }, i) => (
-                          <Route component={Component} {...props} key={i} />
+                          <Route
+                            location={location}
+                            component={Component}
+                            {...props}
+                            key={i}
+                          />
                         ))}
                       </Switch>
                     </Suspense>
