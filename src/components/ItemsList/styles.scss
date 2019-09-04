@@ -3,11 +3,17 @@
 }
 
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-  grid-gap: 0 10px;
-  grid-auto-rows: 10px;
-  composes: mainWrapper from '../../styles/app-wrappers.scss';
+  // display: grid;
+  // grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+  // grid-gap: 0 10px;
+  // grid-auto-rows: 10px;
+  max-width: 300px;
+  margin: 0 auto;
+  // composes: mainWrapper from '../../styles/app-wrappers.scss';
+}
+
+.mansoryItem {
+  margin: 5px;
 }
 
 :global(.card-motion-enter).list {
