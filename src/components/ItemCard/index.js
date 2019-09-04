@@ -72,15 +72,35 @@ const ItemCard2 = ({ data }) => {
       classNames="card-motion"
     >
       <li className={css.card}>
-        <div className={css.imageArea}>
-          <LazyImage
-            src={urls.small}
-            // alt={`${title}`}
-          />
-        </div>
+        <LazyImage
+          src={urls.small}
+          // alt={`${title}`}
+        />
       </li>
     </CSSTransition>
   )
 }
 
-export default ItemCard2
+const ItemCard3 = ({ data }) => {
+  // Props
+  const { urls } = data
+
+  // Internal Components
+
+  return (
+    <CSSTransition
+      in
+      appear
+      timeout={200}
+      onExit={() => console.log('exit')}
+      classNames="card-motion"
+    >
+      <LazyImage
+        src={urls.small}
+        // alt={`${title}`}
+      />
+    </CSSTransition>
+  )
+}
+
+export default ItemCard3

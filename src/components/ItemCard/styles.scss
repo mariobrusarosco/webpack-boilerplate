@@ -2,6 +2,7 @@
 // @import '../../styles/animations.scss';
 
 .card {
+  // background-color: red;
   //   margin: 30px 0;
   //   border-radius: 10px;
   //   overflow: hidden;
@@ -10,6 +11,19 @@
   //   @include above(768px) {
   //     display: flex;
   //   }
+
+  // & > *:first-child {
+  //   grid-row: 1 / 1;
+  //   grid-column: 1 / 1;
+  // }
+
+  // &:before {
+  //   content: '';
+  //   width: 0;
+  //   padding-bottom: 100%;
+  //   grid-row: 1 / 1;
+  //   grid-column: 1 / 1;
+  // }
 
   //   @include above(1024px) {
   // Keyframes animations

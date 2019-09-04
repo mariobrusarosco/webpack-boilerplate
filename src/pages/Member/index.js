@@ -92,12 +92,12 @@ const Member2 = ({ match, location, ...props }) => {
   const [allPhotos, setAllPhotos] = useState([])
 
   // Props
-  const { perPage = 5 } = queryString.parse(location.search)
+  const { perPage = 25 } = queryString.parse(location.search)
 
   // LifeCycle
   useEffect(() => {
     const handleFecthData = async () => {
-      const fetchedData = await dispatch(fetchData(ID))
+      const fetchedData = await dispatch(fetchData(`${ID}?per_page=15`))
       const paginatedData =
         fetchedData && paginate({ array: fetchedData, perPage: ~~perPage })
 
