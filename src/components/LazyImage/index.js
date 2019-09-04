@@ -2,8 +2,8 @@
 import { useEffect, useState, useRef } from 'react'
 
 // Styles
-// import css from './styles.scss'
-import css2 from './styles2.scss'
+import css from './styles.scss'
+// import css2 from './styles2.scss'
 
 // Utils
 import lazyloadSupport from 'utils/lazyload/support'
@@ -18,21 +18,22 @@ const LazyImg = ({ src, alt }) => {
   }, [src])
 
   const target = `${src}&h=150&w=90`
+  // const target = src
 
   return (
-    <div className={css.ratio} style={{ backgroundImage: `${target}` }}>
-      <picture className={css.picture}>
-        <img
-          className={css.image}
-          alt={alt}
-          src={native ? target : ''}
-          loading={native ? 'lazy' : undefined}
-          data-src={!native ? target : ''}
-        />
-      </picture>
-      <div className={css.pulseWrapper}>
+    <div className={css.ratio} style={{ backgroundImage: `url(${target})` }}>
+      {/* <picture className={css.picture}> */}
+      <img
+        className={css.image}
+        alt={alt}
+        src={native ? target : ''}
+        loading={native ? 'lazy' : undefined}
+        data-src={!native ? target : ''}
+      />
+      {/* </picture> */}
+      {/* <div className={css.pulseWrapper}>
         <Pulse />
-      </div>
+      </div> */}
     </div>
   )
 }
@@ -116,4 +117,4 @@ const Img2 = ({ src, alt }) => {
   )
 }
 
-export default Img2
+export default LazyImg

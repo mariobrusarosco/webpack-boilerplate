@@ -83,4 +83,4 @@ const ItemsList2 = ({ items = [] }) => {
   )
 }
 
-export default ItemsList2
+export default ItemsList

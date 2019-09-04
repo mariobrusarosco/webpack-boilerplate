@@ -3,13 +3,17 @@
 }
 
 .list {
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-  // grid-gap: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
+  grid-gap: 10px 5px;
   // grid-auto-rows: 10px;
-  max-width: 300px;
-  margin: 0 auto;
-  // composes: mainWrapper from '../../styles/app-wrappers.scss';
+  // max-width: 300px;
+  // margin: 0 auto;
+  composes: mainWrapper from '../../styles/app-wrappers.scss';
+
+  @include above(768px) {
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+  }
 }
 
 .mansoryItem {

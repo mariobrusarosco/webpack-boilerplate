@@ -103,4 +103,4 @@ const ItemCard3 = ({ data }) => {
   )
 }
 
-export default ItemCard3
+export default ItemCard2
