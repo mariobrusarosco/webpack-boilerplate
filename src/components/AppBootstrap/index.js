@@ -55,23 +55,20 @@ const AppBootrap2 = () => {
 
   const [email, setEmail] = useState('')
   const [formHasError, setFormError] = useState(false)
+  const [emailOnLocalStorage, saveEmailOnLocalStorage] = useState(
+    () => !!localStorage.getItem(LOCAL_STORAGE_KEY)
+  )
 
-  useEffect(() => {
-    const emailAlreadySubmitted = localStorage.getItem(LOCAL_STORAGE_KEY)
+  // useEffect(() => {
+  //   const emailAlreadySubmitted = localStorage.getItem(LOCAL_STORAGE_KEY)
 
-    if (emailAlreadySubmitted) {
-      bootsrapApplication()
-    }
-  }, [])
+  //   if(emailAlreadySubmitted) {
+  //     bootsrapApplication()
+  //   }
+  // }, [])
 
   const bootsrapApplication = () => {
     dispatch(setAppAsLoaded())
-  }
-
-  const saveEmailOnLocalStorage = email => {
-    const emailAsBase64 = btoa(email)
-
-    localStorage.setItem(LOCAL_STORAGE_KEY, emailAsBase64)
   }
 
   const handleOnSubmit = e => {
@@ -80,7 +77,9 @@ const AppBootrap2 = () => {
     const hasValidEmail = validateEmail(email)
 
     if (hasValidEmail) {
-      saveEmailOnLocalStorage(email)
+      const emailAsBase64 = btoa(email)
+      saveEmailOnLocalStorage(localStorage.setItem(LOCAL_STORAGE_KEY, emailAsBase64))
+
       bootsrapApplication()
     } else {
       setFormError(true)
@@ -96,6 +95,11 @@ const AppBootrap2 = () => {
     return hasError && <p className={css.errors}>Please, type a valid email</p>
   }
   const MemoizedErrors = useMemo(() => <Errors hasError={formHasError} />, [formHasError])
+
+  if (emailOnLocalStorage) {
+    bootsrapApplication()
+    return null
+  }
 
   return (
     <div className={css.appBootrap}>
