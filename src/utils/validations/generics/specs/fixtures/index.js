@@ -9,6 +9,8 @@ export const validStrings = [
   '1lorem2ipsum3'
 ]
 
+export const validEmails = ['user@user.com', 'user@user.com.br']
+
 export const falsyValues = [
   {},
   [],
@@ -29,3 +31,5 @@ export const falsyValues = [
 ]
 
 export const falsyNumbers = ['76a21', 'a7621', '7621a']
+
+export const falsyEmails = ['', 'abc', 'user@user', 'user.user', 1544]

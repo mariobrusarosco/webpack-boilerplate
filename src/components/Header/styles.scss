@@ -1,18 +1,18 @@
 .header {
-  position: fixed;
-  width: 100vw;
+  // position: fixed;
+  // width: 100vw;
   padding: 20px 0;
   background-color: $primary-color;
   background-color: var(--primary-color);
   box-shadow: 0px 2px 5px 1px #00000052;
-  z-index: 100000;
+  // z-index: 100000;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  composes: mainWrapper from 'styles/app-wrappers.scss';
+  // composes: mainWrapper from 'styles/app-wrappers.scss';
 }
 
 .link {

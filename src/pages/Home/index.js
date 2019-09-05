@@ -96,7 +96,7 @@ const Home2 = () => {
     <section className={css.home} data-id={HOME}>
       <div className={css.wrapper}>
         <div className={css.infoBox}>
-          <p>Welcome to Dog City</p>
+          <p>Select a pedigree</p>
         </div>
       </div>
     </section>

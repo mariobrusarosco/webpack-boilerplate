@@ -15,6 +15,7 @@ const commonConfiguration = {
   API: {
     API_ROOT: 'https://api.unsplash.com/'
   },
+  LOCAL_STORAGE_KEY: `local__Boilerplate`,
   BUSINESS: {
     LOS_POLLOS: 'los-pollos',
     CAR_WASH: 'car-wash',
