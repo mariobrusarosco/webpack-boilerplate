@@ -13,27 +13,44 @@ const { native } = lazyloadSupport
 import Pulse from 'components/Loaders/Pulse'
 
 const LazyImg = ({ src, alt }) => {
+  const ratioBoxRef = React.createRef(null)
+  const imgRef = useRef(null)
+
   useEffect(() => {
     document.dispatchEvent(new Event('updateLazyLoadWatcher'))
   }, [src])
 
-  const target = `${src}&h=150&w=90`
+  // useEffect(() => {
+  //   console.log('ratio--> ', ratioBoxRef.current)
+  // }, [])
+
+  // useEffect(() => {
+  // console.log('img--> ', imgRef)
+  // console.log(imgRef.current.onload)
+  // }, [imgRef])
+
+  const target = `${src}&h=120&w=90`
   // const target = src
 
   return (
-    <div className={css.ratio} style={{ backgroundImage: `url(${target})` }}>
-      {/* <picture className={css.picture}> */}
-      <img
-        className={css.image}
-        alt={alt}
-        src={native ? target : ''}
-        loading={native ? 'lazy' : undefined}
-        data-src={!native ? target : ''}
-      />
-      {/* </picture> */}
-      {/* <div className={css.pulseWrapper}>
+    <div
+      className={css.ratio}
+      ref={ratioBoxRef}
+      // style={{ backgroundImage: `url(${target})` }}
+    >
+      <picture className={css.picture}>
+        <img
+          ref={imgRef}
+          className={css.image}
+          alt={alt}
+          src={native ? target : ''}
+          loading={native ? 'lazy' : undefined}
+          data-src={!native ? target : ''}
+        />
+      </picture>
+      <div className={css.pulseWrapper}>
         <Pulse />
-      </div> */}
+      </div>
     </div>
   )
 }
