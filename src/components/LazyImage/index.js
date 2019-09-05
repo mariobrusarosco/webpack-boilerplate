@@ -20,8 +20,7 @@ const LazyImg = ({ src, alt }) => {
     document.dispatchEvent(new Event('updateLazyLoadWatcher'))
   }, [src])
 
-  const target = `${src}&h=90`
-  // const target = src
+  const target = Math.round(Math.random()) ? `${src}&h=90` : src
 
   return (
     <div

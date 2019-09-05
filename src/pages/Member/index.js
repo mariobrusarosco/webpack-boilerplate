@@ -97,7 +97,7 @@ const Member2 = ({ match, location, ...props }) => {
   // LifeCycle
   useEffect(() => {
     const handleFecthData = async () => {
-      const fetchedData = await dispatch(fetchData(`${ID}?per_page=15`))
+      const fetchedData = await dispatch(fetchData(`${ID}?per_page=35`))
       const paginatedData =
         fetchedData && paginate({ array: fetchedData, perPage: ~~perPage })
 
