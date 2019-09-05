@@ -20,16 +20,7 @@ const LazyImg = ({ src, alt }) => {
     document.dispatchEvent(new Event('updateLazyLoadWatcher'))
   }, [src])
 
-  // useEffect(() => {
-  //   console.log('ratio--> ', ratioBoxRef.current)
-  // }, [])
-
-  // useEffect(() => {
-  // console.log('img--> ', imgRef)
-  // console.log(imgRef.current.onload)
-  // }, [imgRef])
-
-  const target = `${src}&h=120&w=90`
+  const target = `${src}&h=90`
   // const target = src
 
   return (

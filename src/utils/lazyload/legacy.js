@@ -1,3 +1,5 @@
+import setBoxColor from '../set-box-color'
+
 const setLazyloadFlag = image => {
   if (typeof image.lazyLoaded === 'undefined') {
     image.lazyLoaded = false
@@ -22,7 +24,7 @@ const resetImagesOnDOM = () => {
   images.forEach(image => {
     image.src = ''
     image.lazyLoaded = false
-    image.classList.remove('lazy-loaded')
+    image.parentNode.classList.remove('lazy-loaded')
   })
 
   document.addEventListener('scroll', legacyLazyload)
@@ -56,11 +58,14 @@ const legacyLazyload = (() => {
       const windowInnerHeight = window.innerHeight
 
       if (imageTopOffset <= windowInnerHeight - 20 && imageBottomOffset > 0) {
-        const imageSrc = imageNode.dataset.src
+        const dataSrc = imageNode.dataset.src
+        const imgParent = imageNode.parentNode.parentNode
 
-        imageNode.src = imageSrc
+        imageNode.crossOrigin = ''
+        imageNode.src = dataSrc
         imageNode.lazyLoaded = true
-        imageNode.classList.add('lazy-loaded')
+        imgParent.classList.add('lazy-loaded')
+        setBoxColor(imageNode, imgParent)
       }
     })
   }

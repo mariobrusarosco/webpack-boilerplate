@@ -17,8 +17,6 @@ import LazyImage from 'components/LazyImage'
 import css from './styles.scss'
 
 const ItemsList = memo(({ items }) => {
-  console.log(items)
-
   if (!items.length) return null
 
   return (

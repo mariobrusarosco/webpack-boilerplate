@@ -69,7 +69,6 @@
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "rgbaster": "^2.1.1",
     "webpack-pwa-manifest": "^4.0.0",
     "workbox-webpack-plugin": "^4.3.1"
   },
