@@ -13,9 +13,6 @@ const { native } = lazyloadSupport
 import Pulse from 'components/Loaders/Pulse'
 
 const LazyImg = ({ src, alt }) => {
-  const ratioBoxRef = React.createRef(null)
-  const imgRef = useRef(null)
-
   useEffect(() => {
     document.dispatchEvent(new Event('updateLazyLoadWatcher'))
   }, [src])
@@ -23,14 +20,9 @@ const LazyImg = ({ src, alt }) => {
   const target = Math.round(Math.random()) ? `${src}&h=90` : src
 
   return (
-    <div
-      className={css.ratio}
-      ref={ratioBoxRef}
-      // style={{ backgroundImage: `url(${target})` }}
-    >
+    <div className={css.ratio}>
       <picture className={css.picture}>
         <img
-          ref={imgRef}
           className={css.image}
           alt={alt}
           src={native ? target : ''}

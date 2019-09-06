@@ -1,8 +1,10 @@
 .appLayout {
-  // padding-top: $header-height;
-  // padding-top: var(--header-height, 10px);
+  padding-top: $header-height;
+  padding-top: var(--header-height, 10px);
   position: absolute;
   width: 100%;
+  top: 0;
+  left: 0;
 }
 
 :global(.route-motion-enter, .route-motion-appear) {

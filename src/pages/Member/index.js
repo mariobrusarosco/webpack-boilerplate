@@ -4,6 +4,7 @@ import { pathOr, length, isNil, isEmpty } from 'ramda'
 import { useSelector, useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import Pagination from 'rc-pagination'
+import localeInfo from 'rc-pagination/lib/locale/pt_BR'
 import queryString from 'query-string'
 import 'rc-pagination/assets/index.css'
 
@@ -17,6 +18,7 @@ import css from './styles.scss'
 import ItemsList from 'components/ItemsList'
 import GoBack from 'components/GoBack'
 import RoutesLoader from 'components/Loaders/RoutesLoader'
+import Lightbox from 'components/Lightbox'
 
 // Actions
 import { fetchData } from 'actions'
@@ -55,6 +57,8 @@ const Member = ({ match }) => {
     setPage(targetPage)
   }
 
+  console.log(localeInfo)
+
   // Internal Components
   const Paginator = () => (
     <div className={css.paginationArea}>
@@ -64,6 +68,7 @@ const Member = ({ match }) => {
         defaultCurrent={0}
         total={length(allPhotos)}
         defaultPageSize={20}
+        locale={localeInfo}
       />
     </div>
   )
@@ -90,19 +95,23 @@ const Member2 = ({ match, location, ...props }) => {
   const [pagination, setPagination] = useState({})
   const [currentPage, setPage] = useState(1)
   const [allPhotos, setAllPhotos] = useState([])
+  const [lightboxActive, setLightboxActive] = useState(true)
 
   // Props
-  const { perPage = 25 } = queryString.parse(location.search)
+  const { perPage } = queryString.parse(location.search)
+  const hasPagination = !!perPage
 
   // LifeCycle
   useEffect(() => {
     const handleFecthData = async () => {
-      const fetchedData = await dispatch(fetchData(`${ID}?per_page=35`))
-      const paginatedData =
-        fetchedData && paginate({ array: fetchedData, perPage: ~~perPage })
-
+      const fetchedData = await dispatch(fetchData(`${ID}?per_page=45`))
       setAllPhotos(fetchedData)
-      setPagination(paginatedData)
+
+      if (hasPagination) {
+        const paginatedData =
+          fetchedData && paginate({ array: fetchedData, perPage: ~~perPage })
+        setPagination(paginatedData)
+      }
     }
 
     handleFecthData()
@@ -119,7 +128,7 @@ const Member2 = ({ match, location, ...props }) => {
 
   // Internal Components
   const Paginator = () =>
-    !isNil(allPhotos) && (
+    hasPagination ? (
       <div className={css.paginationArea}>
         <Pagination
           onChange={changePage}
@@ -129,16 +138,28 @@ const Member2 = ({ match, location, ...props }) => {
           defaultPageSize={~~perPage}
         />
       </div>
-    )
+    ) : null
 
+  const ItemsListPaginated = () => {
+    if (!hasPagination) return null
+
+    return (
+      <>
+        <Paginator />
+        <ItemsList items={pagination[currentPage] || []} />
+        <Paginator />
+      </>
+    )
+  }
+
+  // Render
   if (isNil(allPhotos) || isEmpty(allPhotos)) return <RoutesLoader />
 
   return (
     <div className={css.page}>
-      <Paginator />
-      <ItemsList items={pagination[currentPage] || []} />
-      <Paginator />
-      <GoBack />
+      <Lightbox active={lightboxActive} />
+      {hasPagination ? <ItemsListPaginated /> : <ItemsList items={allPhotos} />}
+      <GoBack customStyles={{ margin: '20px auto 0' }} />
     </div>
   )
 }

@@ -47,11 +47,11 @@ const Header2 = () => {
         <NavLink className={css.link} to={`${Member.route}/photos`} data-id={PHOTOS}>
           <span>Photos</span>
         </NavLink>
-        <NavLink className={css.link} to={`${Member.route}/photos`}>
-          <span>Photos</span>
+        <NavLink className={css.link} to={`${Member.route}/photos?perPage=15`}>
+          <span>With Pag.</span>
         </NavLink>
         <NavLink className={css.link} to={`${Member.route}/wrong`}>
-          <span>Wrong</span>
+          <span>Wrong Route</span>
         </NavLink>
       </div>
     </header>

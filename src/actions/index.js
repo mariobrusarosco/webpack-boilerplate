@@ -100,3 +100,10 @@ export const resetAppCriticalError = () => {
     type: 'RESET_APP_CRITICAL_ERROR'
   }
 }
+
+export const toggleLightbox = payload => {
+  return {
+    type: 'TOGGLE_LIGHTBOX',
+    ...payload
+  }
+}

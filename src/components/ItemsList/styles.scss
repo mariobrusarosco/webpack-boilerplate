@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  composes: mainWrapper from '../../styles/app-wrappers.scss';
 }
 
 .list {
@@ -9,7 +10,6 @@
   // grid-auto-rows: 10px;
   // max-width: 300px;
   // margin: 0 auto;
-  composes: mainWrapper from '../../styles/app-wrappers.scss';
 
   @include above(568px) {
     grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));

@@ -8,12 +8,13 @@ import css from './styles.scss'
 // Utils
 import history from 'utils/app-history'
 
-const GoBack = memo(({ customClass, buttonText = 'back' }) => {
+const GoBack = memo(({ customStyles, buttonText = 'back' }) => {
   const handleGoBack = () => history.goBack()
-
+  console.log(customStyles)
   return (
     <button
-      className={classnames([css.btn], [customClass], 'button go-back')}
+      style={{ ...customStyles }}
+      className={classnames([css.btn], 'button go-back')}
       onClick={handleGoBack}
     >
       {buttonText}

@@ -1,13 +1,8 @@
 // Vendors
 import { Link } from 'react-router-dom'
-// Vendors
-import {
-  CSSTransition,
-  TransitionGroup,
-  SwitchTransition,
-  FadeTransition
-} from 'react-transition-group'
-
+import { CSSTransition } from 'react-transition-group'
+import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 // Styles
 import css from './styles.scss'
 
@@ -15,6 +10,9 @@ import css from './styles.scss'
 // import Image from 'components/Image'
 import LazyImage from 'components/LazyImage'
 import Info from 'components/SpecificComponent/Info'
+
+// Actions
+import { toggleLightbox } from 'actions'
 
 // Utils
 import toCurrency from 'utils/formatters/currency'
@@ -64,13 +62,7 @@ const ItemCard2 = ({ data }) => {
   // Internal Components
 
   return (
-    <CSSTransition
-      in
-      appear
-      timeout={200}
-      onExit={() => console.log('exit')}
-      classNames="card-motion"
-    >
+    <CSSTransition in appear timeout={200} classNames="card-motion">
       <li className={css.card}>
         <LazyImage
           src={urls.small}
@@ -81,26 +73,31 @@ const ItemCard2 = ({ data }) => {
   )
 }
 
-const ItemCard3 = ({ data }) => {
+const ItemCard3 = ({ image }) => {
+  // State // Redux
+  const dispatch = useDispatch()
   // Props
-  const { urls } = data
-
-  // Internal Components
+  const { urls, alt } = image
+  // Methods
+  const handleOpenLightbox = () =>
+    dispatch(
+      toggleLightbox({
+        src: urls.small,
+        alt,
+        active: true
+      })
+    )
 
   return (
-    <CSSTransition
-      in
-      appear
-      timeout={200}
-      onExit={() => console.log('exit')}
-      classNames="card-motion"
-    >
-      <LazyImage
-        src={urls.small}
-        // alt={`${title}`}
-      />
+    <CSSTransition in appear timeout={200} classNames="card-motion">
+      <li className={css.card} onClick={handleOpenLightbox} data-id="abc">
+        <LazyImage
+          src={urls.small}
+          // alt={`${title}`}
+        />
+      </li>
     </CSSTransition>
   )
 }
 
-export default ItemCard2
+export default ItemCard3
