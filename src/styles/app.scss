@@ -17,5 +17,9 @@
 
 body {
   font-family: 'Quicksand', sans-serif;
-  // overflow-x: hidden;
+  // overflow-y: overlay;
+}
+
+html {
+  overflow-y: scroll;
 }
