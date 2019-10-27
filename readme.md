@@ -172,16 +172,10 @@ Exemplo dessa constante: ```APP```
   API: {
     API_ROOT: "http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
   },
-  APP_NAME: "Zap Challenge",
-  BUSINESS: {
-    VIVA_REAL: "vivaReal", 
-    ZAP: "zap"
-  },
+  APP_NAME: "Boilerplate",
   E2E: {
     HEADER: "araDk_lKOpq"
     HOME: "AD4_sdrpaaegp"
-    VIVA_REAL_PAGE: "AADm+k_lASDf"
-    ZAP_PAGE: "4ad__24kpfo"
   },
   VERSION: "0.0.1"
 }
@@ -196,7 +190,7 @@ Caso você precise chamar um endpoint, mas ele será diferente para três ambien
 ```js
 {
   API: {
-    API_ROOT: "localhost:8080/grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
+    API_ROOT: "localhost:8080/some-address.com/"
   },
 }
 ```
@@ -205,7 +199,7 @@ Caso você precise chamar um endpoint, mas ele será diferente para três ambien
 ```js
 {
   API: {
-    API_ROOT: "http://dev.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
+    API_ROOT: "http://dev.some-address.com/"
   },
 }
 ```
@@ -214,7 +208,7 @@ Caso você precise chamar um endpoint, mas ele será diferente para três ambien
 ```js
 {
   API: {
-    API_ROOT: "http://prod.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
+    API_ROOT: "http://prod.some-address.com/"
   },
 }
 ```
@@ -225,13 +219,13 @@ Caso esse endpoint, seja o mesmo nos três ambientes, você pode setá-lo soment
 ```js
 {
   API: {
-    API_ROOT: "http://common.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
+    API_ROOT: "http://common.some-address.com/"
   },
 }
 ```
 
 
-Nesse útlimo caso, não importa o ambiente... ```API_ROOT``` sempre terá o valor ```http://common.grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/```
+Nesse útlimo caso, não importa o ambiente... ```API_ROOT``` sempre terá o valor ```http://common.some-address.com/```
 
 ---
 

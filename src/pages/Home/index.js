@@ -85,18 +85,11 @@ const Home = () => {
 }
 
 const Home2 = () => {
-  // Store - Redux
-
-  // State
-
-  // LifeCycle
-  useEffect(() => {}, [])
-
   return (
     <section className={css.home} data-id={HOME}>
       <div className={css.wrapper}>
         <div className={css.infoBox}>
-          <p>Select a pedigree</p>
+          <p>Select a Route</p>
         </div>
       </div>
     </section>
