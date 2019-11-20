@@ -1,5 +1,3 @@
-import setBoxColor from '../set-box-color'
-
 const setLazyloadFlag = image => {
   if (typeof image.lazyLoaded === 'undefined') {
     image.lazyLoaded = false
@@ -65,7 +63,6 @@ const legacyLazyload = (() => {
         imageNode.src = dataSrc
         imageNode.lazyLoaded = true
         imgParent.classList.add('lazy-loaded')
-        setBoxColor(imageNode, imgParent)
       }
     })
   }

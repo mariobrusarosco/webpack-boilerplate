@@ -1,5 +1,3 @@
-import setBoxColor from '../set-box-color'
-
 const queryImagesOnDOM = () => [...document.querySelectorAll('img[data-src]')]
 
 const modernLazyload = function() {
@@ -20,7 +18,6 @@ const modernLazyload = function() {
             lazyImage.crossOrigin = ''
             lazyImage.src = dataSrc
             lazyImage.onload = function() {
-              setBoxColor(this, imgParent)
               this.removeAttribute('data-src')
               imgParent.classList.add('lazy-loaded')
             }
