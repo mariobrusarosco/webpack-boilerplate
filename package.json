@@ -12,13 +12,12 @@
     "e2e-prod": "start-server-and-test server-prod :5000 cy-run",
     "cy-run": "cypress run",
     "cy-open": "cypress open",
-    "start": "yarn app-init && webpack-dev-server --config ./webpack/configuration/development.config.babel.js",
-    "build-dev": "export NODE_ENV=development && yarn app-init && webpack --config ./webpack/configuration/production.config.babel.js",
-    "build-prod": "export NODE_ENV=production && yarn app-init && webpack --config ./webpack/configuration/production.config.babel.js",
+    "start": "yarn app-init && webpack-dev-server -r dotenv/config  --config ./webpack/configuration/development.config.babel.js",
+    "build-dev": "export NODE_ENV=development && yarn app-init && webpack -r dotenv/config --config ./webpack/configuration/production.config.babel.js",
+    "build-prod": "export NODE_ENV=production && yarn app-init && webpack -r dotenv/config --config ./webpack/configuration/production.config.babel.js",
     "server-dev": "yarn build-dev && node server/index.js",
     "server-prod": "yarn build-prod && node server/index.js",
-    "app-init": "babel-node -r node_modules/dotenv/config scripts/create-config.js",
-    "temp": "node server/index.js"
+    "app-init": "babel-node -r node_modules/dotenv/config scripts/create-config.js"
   },
   "jest": {
     "testEnvironment": "node"
@@ -65,7 +64,7 @@
     "rc-pagination": "^1.20.5",
     "react-hot-loader": "^4.12.12",
     "react-redux": "^7.1.0",
-    "react-router-dom": "4.2.2",
+    "react-router-dom": "5.0.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
@@ -109,7 +108,6 @@
     "prettier": "^1.16.4",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-masonry-component": "^6.2.1",
     "react-slick": "^0.25.2",
     "react-transition-group": "^4.2.2",
     "sass-loader": "^7.1.0",

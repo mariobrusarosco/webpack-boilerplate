@@ -1,16 +1,16 @@
 import axios from 'axios'
 
 // Config
-const { API } = APP
-const { API_ROOT } = API
+const { API, TOKENS } = APP
+const { GITHUB } = API
+const { GITHUB_TOKEN } = TOKENS
 
 const defaultAPI = axios.create({
-  baseURL: API_ROOT,
+  baseURL: GITHUB,
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',
-    Authorization:
-      'Client-ID 99147ea30ea26e0229570687a2f023854052912138d3dff8fd22880291b70837'
+    Authorization: `token ${GITHUB_TOKEN}`
   }
 })
 

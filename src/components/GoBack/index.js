@@ -10,7 +10,7 @@ import history from 'utils/app-history'
 
 const GoBack = memo(({ customStyles, buttonText = 'back' }) => {
   const handleGoBack = () => history.goBack()
-  console.log(customStyles)
+
   return (
     <button
       style={{ ...customStyles }}

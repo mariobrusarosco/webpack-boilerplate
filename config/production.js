@@ -1,8 +1,3 @@
-const productionConfiguration = {
-  API: {
-    // In case we have a different endpoint for production purposes.
-    API_ROOT: 'http://prod-grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/'
-  }
-}
+const productionConfiguration = {}
 
 module.exports = productionConfiguration

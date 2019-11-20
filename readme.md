@@ -170,7 +170,7 @@ Exemplo dessa constante: ```APP```
 ```js
 {
   API: {
-    API_ROOT: "http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/"
+    API_ROOT: "http://domain.com/"
   },
   APP_NAME: "Boilerplate",
   E2E: {

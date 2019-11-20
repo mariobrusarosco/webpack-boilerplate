@@ -1,7 +1,7 @@
 // Vendors
 import { Suspense } from 'react'
 import { useSelector } from 'react-redux'
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 // Routes Data
@@ -19,7 +19,6 @@ const RouterStructure = () => {
       <Route
         render={({ location }) => (
           <>
-            <Header />
             <TransitionGroup>
               <CSSTransition
                 key={location.key}
@@ -53,9 +52,7 @@ const RouterStructure = () => {
 }
 
 const AppRouter = () => {
-  const appIsLoaded = useSelector(({ app }) => app.appIsLoaded)
-
-  return !appIsLoaded ? <AppBootstrap /> : <RouterStructure />
+  return <RouterStructure />
 }
 
 export default AppRouter
