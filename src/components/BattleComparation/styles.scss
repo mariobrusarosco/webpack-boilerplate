@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  padding-top: 50px;
+}
+
+.card {
+  margin-right: 10px;
+}
+.photo {
+  max-width: 100px;
+}
+
+[data-result='winner'] {
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+[data-result='draw'] {
+  border: 2px solid yellow;
+  border-radius: 5px;
+}

@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react'
 import { setAppCriticalError } from 'actions'
 
 // Components
-import GoBack from 'components/GoBack'
+import UserSelection from 'components/UserSelection'
+import BattleComparasion from 'components/BattleComparation'
+import AppLoader from 'components/Loaders/AppLoader'
 
 // Api Helpers
 import githubApi from 'api/github'
@@ -17,39 +19,14 @@ import githubApi from 'api/github'
 import css from './styles.scss'
 
 const Battle = () => {
-  // Redux
-  const dispatch = useDispatch()
-
-  // State
-  const [userA, setUserA] = useState()
-  const [userB, setUserB] = useState()
-
-  // LifeCycle
-  useEffect(() => {
-    const getUsers = async (userA, userB) => {
-      try {
-        const res = await Promise.all([
-          githubApi.get(`/users/${userA}`),
-          githubApi.get(`/users/${userB}`)
-        ])
-
-        setUserA(res[0])
-        setUserB(res[1])
-      } catch (e) {
-        console.warn(e)
-        dispatch(setAppCriticalError({ error: e }))
-      }
-    }
-
-    getUsers('mariobrusarosco', 'mariobrusarosco')
-  }, [])
+  const [githubUsers, setGithubUsers] = useState([])
 
   return (
     <section className={css.page}>
       <div className={css.wrapper}>
-        <h2>Battle</h2>
-
-        <GoBack />
+        <h2 className={css.title}>Battle</h2>
+        <UserSelection onUserFethed={setGithubUsers} />
+        {!githubUsers ? <AppLoader /> : <BattleComparasion githubUsers={githubUsers} />}
       </div>
     </section>
   )
