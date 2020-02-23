@@ -1,9 +1,5 @@
 const commonLoaders = [
-  {
-    test: /\.js$/,
-    exclude: /node_modules/,
-    use: ['babel-loader', 'eslint-loader']
-  },
+  { test: /\.tsx?$/, use: ['ts-loader', 'eslint-loader'], exclude: /node_modules/ },
   {
     test: /\.(ttf|woff|woff2|eot|otf|svg)$/,
     use: ['file-loader']
