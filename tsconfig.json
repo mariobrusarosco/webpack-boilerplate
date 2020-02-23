@@ -8,11 +8,12 @@
     "esModuleInterop": true,
     "noUnusedLocals": true,
     "noImplicitAny": true,
-    "target": "es2015",
-    "module": "es2015",
+    "target": "es6",
+    "module": "commonjs",
     "strict": true,
     "jsx": "react",
-    "baseUrl": "/"
+    "baseUrl": "/",
+    "sourceMap": true
   },
   "include": ["src/**/*", "types/**/*"],
   "exclude": ["node_modules", "dist"]

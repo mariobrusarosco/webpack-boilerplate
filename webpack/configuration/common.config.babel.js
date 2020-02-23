@@ -1,7 +1,7 @@
 import path from 'path'
 
 const commonConfig = () => ({
-  entry: ['@babel/polyfill', './src/index.ts'],
+  entry: ['@babel/polyfill', './src/index.tsx'],
   resolve: {
     alias: {
       'react-dom': '@hot-loader/react-dom',
