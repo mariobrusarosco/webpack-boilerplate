@@ -2,7 +2,27 @@ version: 2.1
 
 commands:
   ignore_all_other_branches:
-    description: 'just ignoring'
+    steps:
+      - run:
+          name: Early return if this build is from a forked PR
+          command: |
+            echo "PR: " $CIRCLE_PULL_REQUEST ---  "branch" $CIRCLE_BRANCH
+
+            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+              echo "Nothing to do for forked PRs, so marking this step successful"
+              circleci-agent step halt
+
+            fi
+
+            if [ "$CIRCLE_BRANCH" = "master" ]; then
+              echo "Nothing to do for forked PRs, so marking this step successful"
+              circleci-agent step halt
+
+            fi
+
+            if [ "$CIRCLE_BRANCH" = "develop" ]; then
+                echo "go ahead" 
+            fi
 
 jobs:
   build:
@@ -11,6 +31,7 @@ jobs:
       - image: cypress/base:8
     working_directory: ~/zap
     steps:
+      - ignore_all_other_branches
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
@@ -18,6 +39,8 @@ jobs:
       - run:
           name: Test
           command: echo 'oi' $CIRCLE_PULL_REQUEST $CIRCLE_BRANCH
+
+      # - run: echo << parameters.node-version >>
   build_dev:
     docker:
       # - image: circleci/node:10
@@ -36,25 +59,26 @@ workflows:
   version: 2.1
 
   conditional-workflow:
-    when:
-      or: # All must be true to trigger
-        - equal: [master, << pipeline.git.branch >>]
-        - equal: [development, << pipeline.git.branch >>]
-        - equal: [true, $CIRCLE_PULL_REQUEST]
-        - equal: [true, '$CIRCLE_PULL_REQUEST']
-        - equal: [true, CIRCLE_PULL_REQUEST]
-        # - $CIRCLE_PULL_REQUEST
-        # - '$CIRCLE_PULL_REQUEST'
+    #   when:
+    #     or:
+    #       - equal: [master, << pipeline.git.branch >>]
+    #       - equal: [development, << pipeline.git.branch >>]
+    #       - equal: [true, $CIRCLE_PULL_REQUEST]
+    #       - equal: [true, '$CIRCLE_PULL_REQUEST']
+    #       - equal: [true, CIRCLE_PULL_REQUEST]
+    #       - << pipeline.parameters.node-version >>
+    #       # - $CIRCLE_PULL_REQUEST
+    #       # - '$CIRCLE_PULL_REQUEST'
 
     jobs:
-      - ignore_all_other_branches
-      - build:
-          filters:
-            branches:
-              only:
-                - master
-      - build_dev:
-          filters:
-            branches:
-              only:
-                - development
+      - build
+    #       node-version: 10
+    #       filters:
+    #         branches:
+    #           only:
+    #             - master
+    # #   - build_dev:
+    #       filters:
+    #         branches:
+    #           only:
+    #             - development
