@@ -51,7 +51,7 @@ workflows:
             branches:
               only:
                 - master
-                - developmet
+                - development
             #     - /feat\/.*/
             # tags:
             #   only: /^v.*/
