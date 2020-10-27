@@ -47,14 +47,14 @@ workflows:
   build-deploy:
     jobs:
       - build:
-          filters:
-            branches:
-              only:
-                - master
-                - development
-            #     - /feat\/.*/
-            # tags:
-            #   only: /^v.*/
+          # filters:
+          #   branches:
+          #     only:
+          #       - master
+          #       - development
+          #     - /feat\/.*/
+          # tags:
+          #   only: /^v.*/
       # - deploy-dev:
       #     requires:
       #       - build
