@@ -1,27 +1,24 @@
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
       # - image: circleci/node:10
       - image: cypress/base:8
-    working_directory: ~/base
+    working_directory: ~/zap
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Test
-          command: echo 'oi' $CIRCLE_PULL_REQUEST $CIRCLE_BRANCH
-      # - run:
-      #     name: Installation
-      #     command: yarn
-      # - run:
-      #     name: Running Unit Tests
-      #     command: yarn unit-test
-      # - run:
-      #     name: Running E2E tests
-      #     command: yarn e2e-prod
+          name: Installation
+          command: yarn
+      - run:
+          name: Running Unit Tests
+          command: yarn unit-test
+      - run:
+          name: Running E2E tests
+          command: yarn e2e-prod
 
   deploy-prod:
     docker:
@@ -42,32 +39,12 @@ jobs:
           command: git push  https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_DEV_ZAP.git
 
 workflows:
-  version: 2
+  version: 2.1
 
-  build-deploy:
+  conditional-workflow:
+    when:
+      and: # All must be true to trigger
+        - equal: [build-test, << pipeline.git.branch >>]
+
     jobs:
       - build
-      # - build:
-      # filters:
-      #   branches:
-      #     only:
-      #       - master
-      #       - development
-      #     - /feat\/.*/
-      # tags:
-      #   only: /^v.*/
-      # - deploy-dev:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - development
-      # - deploy-prod:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         ignore: /.*/
-      #       tags:
-      #         only: /^v.*/
