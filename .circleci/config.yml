@@ -12,7 +12,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: Test
-          command: echo 'oi'
+          command: echo 'oi' $CIRCLE_PULL_REQUEST
       # - run:
       #     name: Installation
       #     command: yarn
