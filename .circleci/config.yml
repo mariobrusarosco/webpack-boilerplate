@@ -32,8 +32,9 @@ workflows:
 
   conditional-workflow:
     when:
-      and: # All must be true to trigger
+      or: # All must be true to trigger
         - equal: [master, << pipeline.git.branch >>]
+        - equal: [development, << pipeline.git.branch >>]
 
     jobs:
       - build:
