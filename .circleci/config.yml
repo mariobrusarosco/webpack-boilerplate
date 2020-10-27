@@ -4,21 +4,24 @@ jobs:
     docker:
       # - image: circleci/node:10
       - image: cypress/base:8
-    working_directory: ~/zap
+    working_directory: ~/base
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: Installation
-          command: yarn
-      - run:
-          name: Running Unit Tests
-          command: yarn unit-test
-      - run:
-          name: Running E2E tests
-          command: yarn e2e-prod
+          name: Test
+          command: echo 'oi' $CIRCLE_PULL_REQUEST $CIRCLE_BRANCH
+      # - run:
+      #     name: Installation
+      #     command: yarn
+      # - run:
+      #     name: Running Unit Tests
+      #     command: yarn unit-test
+      # - run:
+      #     name: Running E2E tests
+      #     command: yarn e2e-prod
 
   deploy-prod:
     docker:
@@ -48,7 +51,7 @@ workflows:
             branches:
               only:
                 - master
-                - developmet
+                - development
             #     - /feat\/.*/
             # tags:
             #   only: /^v.*/
