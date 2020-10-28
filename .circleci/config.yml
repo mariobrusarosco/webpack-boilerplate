@@ -17,7 +17,7 @@ jobs:
     docker:
       # - image: circleci/node:10
       - image: cypress/base:8
-    working_directory: ~/test
+    working_directory: ~/a
     steps:
       - ignore_all_other_branches
       - checkout
@@ -28,7 +28,7 @@ jobs:
     docker:
       # - image: circleci/node:10
       - image: cypress/base:8
-    working_directory: ~/test
+    working_directory: ~/a
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
