@@ -4,25 +4,24 @@ commands:
   ignore_all_other_branches:
     steps:
       - run:
-          name: Early return if this build is from a forked PR
+          name: Early return if this build is not valid
           command: |
-            echo "PR: " $CIRCLE_PULL_REQUEST ---  "branch" $CIRCLE_BRANCH
+            echo "----- PR: " $CIRCLE_PULL_REQUEST ---  "branch:" $CIRCLE_BRANCH ----- 
+            echo [ -n $CIRCLE_PULL_REQUEST ]
+            echo [ -n $CIRCLE_BRANCH ]
 
-            if [ -n "$CIRCLE_PULL_REQUEST" ]; then
-              echo "Nothing to do for forked PRs, so marking this step successful"
-              circleci-agent step halt
 
+            if ([ "$CIRCLE_BRANCH" != 'master' ] && [ "$CIRCLE_BRANCH" != 'development' ]) && [ "$CIRCLE_PULL_REQUEST" == '' ]; then
+                echo "halt"
+            else
+                echo "build"
             fi
 
-            if [ "$CIRCLE_BRANCH" = "master" ]; then
-              echo "Nothing to do for forked PRs, so marking this step successful"
-              circleci-agent step halt
-
-            fi
-
-            if [ "$CIRCLE_BRANCH" = "develop" ]; then
-                echo "go ahead" 
-            fi
+            # if [ "$CIRCLE_BRANCH" != "master" ] ||  [ $CIRCLE_BRANCH != "development" ] ||  [ -n $CIRCLE_PULL_REQUEST ]; then
+            #     echo "halt"
+            # else
+            #     echo "build"
+            # fi
 
 jobs:
   build:
