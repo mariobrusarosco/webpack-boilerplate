@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 
 commands:
   ignore_all_other_branches:
@@ -36,7 +36,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
 
 workflows:
-  version: 2.1
+  version: 2
 
   conditional-workflow:
     #   when:
