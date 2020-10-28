@@ -346,3 +346,19 @@ A partir daí, um `chunk` específico é carregado e as imagens passarão a ser 
     }
   },
 ```
+
+            # if [ -n "$CIRCLE_PULL_REQUEST" ]; then
+            #   echo "Nothing to do for forked PRs, so marking this step successful"
+            #   circleci-agent step halt
+
+            # fi
+
+            # if [ "$CIRCLE_BRANCH" = "master" ]; then
+            #   echo "Nothing to do for forked PRs, so marking this step successful"
+            #   circleci-agent step halt
+
+            # fi
+
+            # if [ "$CIRCLE_BRANCH" = "development" ]; then
+            #     echo "go ahead"
+            # fi
