@@ -6,15 +6,10 @@ commands:
       - run:
           name: Early return if this build is not valid
           command: |
-            echo "----- PR: " $CIRCLE_PULL_REQUEST ---  "branch:" $CIRCLE_BRANCH ----- 
-            echo [ -n $CIRCLE_PULL_REQUEST ]
-            echo [ -n $CIRCLE_BRANCH ]
-
-
             if ([ "$CIRCLE_BRANCH" != 'master' ] && [ "$CIRCLE_BRANCH" != 'development' ]) && [ "$CIRCLE_PULL_REQUEST" == '' ]; then
-                echo "halt"
-            else
-                echo "build"
+              circleci-agent step halt  
+              
+              echo "We are bulding our Application based on pushes on the master or develop branch and PR's"
             fi
 
             # if [ "$CIRCLE_BRANCH" != "master" ] ||  [ $CIRCLE_BRANCH != "development" ] ||  [ -n $CIRCLE_PULL_REQUEST ]; then
@@ -28,31 +23,23 @@ jobs:
     docker:
       # - image: circleci/node:10
       - image: cypress/base:8
-    working_directory: ~/zap
+    working_directory: ~/test
     steps:
       - ignore_all_other_branches
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Test
-          command: echo 'oi' $CIRCLE_PULL_REQUEST $CIRCLE_BRANCH
-
-      # - run: echo << parameters.node-version >>
   build_dev:
     docker:
       # - image: circleci/node:10
       - image: cypress/base:8
-    working_directory: ~/zap
+    working_directory: ~/test
     steps:
       - checkout
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: dependency-cache-{{ checksum "package.json" }}
-      - run:
-          name: Test
-          command: echo 'oi' $CIRCLE_PULL_REQUEST $CIRCLE_BRANCH
 
 workflows:
   version: 2.1
